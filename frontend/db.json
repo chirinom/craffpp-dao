@@ -1,0 +1,184 @@
+{
+  "allTickets": [
+    {
+      "from": "miguel",
+      "to": "seawin",
+      "purchaseDate": 1652219804512,
+      "poolMonth": "feb",
+      "ticketType": "medium",
+      "value": 0.15,
+      "fee": 100,
+      "id": 1
+    },
+    {
+      "from": "miguel",
+      "to": "seawin",
+      "purchaseDate": 1652252342678,
+      "poolMonth": "jan",
+      "ticketType": "medium",
+      "value": 0.15,
+      "fee": 100,
+      "id": 2
+    },
+    {
+      "from": "miguel",
+      "to": "seawin",
+      "purchaseDate": 1652252476331,
+      "poolMonth": "jan",
+      "ticketType": "medium",
+      "value": 0.15,
+      "fee": 100,
+      "id": 3
+    },
+    {
+      "from": "miguel",
+      "to": "seawin",
+      "purchaseDate": 1652257438683,
+      "poolMonth": "feb",
+      "ticketType": "micro",
+      "value": 0.005,
+      "fee": 100,
+      "id": 4
+    },
+    {
+      "from": "miguel",
+      "to": "seawin",
+      "purchaseDate": 1652257440491,
+      "poolMonth": "feb",
+      "ticketType": "micro",
+      "value": 0.005,
+      "fee": 100,
+      "id": 5
+    },
+    {
+      "from": "miguel",
+      "to": "seawin",
+      "purchaseDate": 1652257440689,
+      "poolMonth": "feb",
+      "ticketType": "micro",
+      "value": 0.005,
+      "fee": 100,
+      "id": 6
+    },
+    {
+      "from": "miguel",
+      "to": "seawin",
+      "purchaseDate": 1652257440906,
+      "poolMonth": "feb",
+      "ticketType": "micro",
+      "value": 0.005,
+      "fee": 100,
+      "id": 7
+    },
+    {
+      "from": "miguel",
+      "to": "seawin",
+      "purchaseDate": 1652257573614,
+      "poolMonth": "jul",
+      "ticketType": "micro",
+      "value": 0.005,
+      "fee": 100,
+      "id": 8
+    },
+    {
+      "from": "miguel",
+      "to": "seawin",
+      "purchaseDate": 1652257595499,
+      "poolMonth": "feb",
+      "ticketType": "medium",
+      "value": 0.15,
+      "fee": 100,
+      "id": 9
+    },
+    {
+      "from": "miguel",
+      "to": "seawin",
+      "purchaseDate": 1652257668225,
+      "poolMonth": "",
+      "ticketType": "small",
+      "value": 0.05,
+      "fee": 100,
+      "id": 10
+    },
+    {
+      "from": "miguel",
+      "to": "seawin",
+      "purchaseDate": 1652257670465,
+      "poolMonth": "",
+      "ticketType": "small",
+      "value": 0.05,
+      "fee": 100,
+      "id": 11
+    },
+    {
+      "from": "miguel",
+      "to": "seawin",
+      "purchaseDate": 1652262091414,
+      "poolMonth": "feb",
+      "ticketType": "medium",
+      "value": 0.15,
+      "fee": 100,
+      "id": 12
+    },
+    {
+      "from": "miguel",
+      "to": "seawin",
+      "purchaseDate": 1652262649355,
+      "poolMonth": "",
+      "ticketType": "micro",
+      "value": 0.005,
+      "fee": 100,
+      "id": 13
+    },
+    {
+      "from": "miguel",
+      "to": "seawin",
+      "purchaseDate": 1652262673723,
+      "poolMonth": "",
+      "ticketType": "small",
+      "value": 0.05,
+      "fee": 100,
+      "id": 14
+    },
+    {
+      "from": "miguel",
+      "to": "seawin",
+      "purchaseDate": 1652262701427,
+      "poolMonth": "",
+      "ticketType": "small",
+      "value": 0.05,
+      "fee": 100,
+      "id": 15
+    },
+    {
+      "from": "miguel",
+      "to": "seawin",
+      "purchaseDate": 1652262710240,
+      "poolMonth": "",
+      "ticketType": "epic",
+      "value": 1,
+      "fee": 100,
+      "id": 16
+    },
+    {
+      "from": "miguel",
+      "to": "seawin",
+      "purchaseDate": 1652262713120,
+      "poolMonth": "",
+      "ticketType": "epic",
+      "value": 1,
+      "fee": 100,
+      "id": 17
+    },
+    {
+      "from": "miguel",
+      "to": "seawin",
+      "purchaseDate": 1652262768553,
+      "poolMonth": "",
+      "ticketType": "epic",
+      "value": 1,
+      "fee": 100,
+      "id": 18
+    }
+  ]
+}
