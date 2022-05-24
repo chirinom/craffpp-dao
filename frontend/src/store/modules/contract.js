@@ -1,5 +1,5 @@
 import { ethers } from 'ethers'
-import { abi, contractAddress } from '../../utils/contants'
+import { abi, contractAddress } from '../../utils/constants'
 
 const { ethereum } = window
 const provider =  new ethers.providers.Web3Provider(ethereum)
@@ -30,14 +30,14 @@ const actions = {
     commit('setIsLoading', true)
     try {
       if (ethereum) {
-        const addresTo = '0xA8dd760406fa89edaBec456D1e6533E3adafb13D'
+        const addressTo = process.env.VUE_APP_SEND_TO_ADDRESS
         const parsedAmount = ethers.utils.parseEther(state.currentTicketValue.toString())
 
         await ethereum.request({
           method: "eth_sendTransaction",
           params: [{
             from: state.currentAccount,
-            to: addresTo,
+            to: addressTo,
             gas: "0x5208",
             value: parsedAmount._hex,
           }],
@@ -45,7 +45,7 @@ const actions = {
 
         const transacionsContract = new ethers.Contract(contractAddress, abi, signer)
         const transactionHash = await transacionsContract.addToBlockchain(
-          addresTo,
+          addressTo,
           parsedAmount,
           state.currentPoolMonth,
           state.currentTicketType,
