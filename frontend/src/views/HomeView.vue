@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <TicketBoard
-      :currentMonth="currentMonth"
+      :poolDateCode="poolDateCode"
       :currentAccount="currentAccount"
       :ticketData="ticketData"
       @typeChange="filterTickets"
@@ -9,7 +9,7 @@
     <PoolsBoard
       :ticketType="poolAmount"
       :poolsData="poolsData"
-      :currentMonth="currentMonth"
+      :poolDateCode="poolDateCode"
       @monthChange="filterTickets"
     />
   </div>
@@ -31,7 +31,7 @@ export default {
       poolsData: [],
       allTickets: [],
       ticketData: [],
-      currentMonth: '',
+      poolDateCode: '',
       currentAccount: ''
     };
   },
@@ -42,7 +42,7 @@ export default {
     ...mapActions(['getAllTransactions', 'checkIfWalletIsConnect']),
     ...mapMutations(['setCurrentAccount']),
     filterTickets(val) {
-      if (val.length === 3) this.currentMonth = val
+      if (val.length === 7) this.poolDateCode = val
       const result = this.allTickets.filter((option) => 
         option.poolType === this.filterObject.type 
         && option.month === this.filterObject.month

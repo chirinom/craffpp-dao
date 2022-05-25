@@ -1,7 +1,7 @@
 <template>
   <div class="bingo-board">
     <TabWithMonths @switch-tab="handleMonthChange" />
-    <TimerContainer :currentMonth="currentMonth" />
+    <TimerContainer :poolDateCode="poolDateCode" />
     <PoolTotals :poolsData="poolsData"  />
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
     TimerContainer
   },
   props: {
-    currentMonth: {
+    poolDateCode: {
       type: String
     },
     poolsData: {
@@ -33,9 +33,9 @@ export default {
     },
   },
   methods: {
-    ...mapMutations(['setFilterObject', 'setCurrentPoolMonth']),
+    ...mapMutations(['setFilterObject', 'setCurrentPoolDateCode']),
     handleMonthChange(val) {
-      this.setCurrentPoolMonth(val)
+      this.setCurrentPoolDateCode(val)
       this.setFilterObject(val)
       this.$emit('monthChange', val)
     },

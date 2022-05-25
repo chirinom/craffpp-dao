@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div v-if="!!currentMonth" class="timer">
+    <div v-if="!!poolDateCode" class="timer">
       <div
         v-for="(time, index) in times"
         :key="index"
@@ -21,9 +21,9 @@
 export default {
   name: 'TimerContainer',
   props: {
-    currentMonth: {
+    poolDateCode: {
       type: String,
-    }
+    },
   },
   data() {
     return {
@@ -37,7 +37,9 @@ export default {
   },
   computed: {
     endTime() {
-      return this.currentMonth + ' 28, 2022 11:00:00'
+    const month = this.poolDateCode.slice(0,3).charAt(0).toUpperCase() + this.poolDateCode.slice(0,3).substr(1)
+    const year = this.poolDateCode.slice(3)
+    return month + ' 28, ' + year + ' 11:00:00'
     }
   },
   methods: {

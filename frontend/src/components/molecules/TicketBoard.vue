@@ -36,7 +36,7 @@
     <div class="btns-container">
       <OrderSummary 
         v-if="!!currentAccount"
-        :currentMonth="currentMonth"
+        :poolDateCode="poolDateCode"
         :currentValue="currentValue"
         :currentAccount="currentAccount"
         @orderValid="setOrderValid"
@@ -69,7 +69,7 @@ export default {
     ConnectAndBuyButtons
   },
   props: {
-    currentMonth: {
+    poolDateCode: {
       type: String,
     },
     currentAccount: {
@@ -116,7 +116,6 @@ export default {
       setTimeout(() => { this.isInfoShown = false }, 3000)
     },
     setOrderValid(val) {
-      console.log(val, 'helo')
       this.orderValid = val
     },
     handleExpand(val){

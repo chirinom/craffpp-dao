@@ -9,8 +9,7 @@ const state = {
   currentAccount: '',
   currentTicketType: 0,
   currentTicketValue: 0,
-  currentPoolMonth: '',
-  keyword: 'nothingYet',
+  currentPoolDateCode: '',
   filterObject: {
     type: '',
     month: ''
@@ -21,12 +20,13 @@ const state = {
 const getters = {
   currentTicketType: (state) => state.currentTicketType,
   currentTicketValue: (state) => state.currentTicketValue,
+  keyword: (state) => state.currentTicketType + state.currentPoolDateCode,
   filterObject: (state) => state.filterObject,
   isLoading: (state) => state.isLoading,
   allTransactions: (state) => state.allTransactions
 };
 const actions = {
-  async sendTransaction ({commit}) {
+  async sendTransaction ({commit, getters}) {
     commit('setIsLoading', true)
     try {
       if (ethereum) {
@@ -47,9 +47,9 @@ const actions = {
         const transactionHash = await transacionsContract.addToBlockchain(
           addressTo,
           parsedAmount,
-          state.currentPoolMonth,
+          state.currentPoolDateCode,
           state.currentTicketType,
-          state.keyword
+          getters.keyword
         )
 
         await transactionHash.wait();
@@ -123,10 +123,10 @@ const mutations = {
   setCurrentAccount: (state, data) => state.currentAccount = data,
   setCurrentTicketType: (state, data) => state.currentTicketType = data,
   setCurrentTicketValue: (state, data) => state.currentTicketValue = data,
-  setCurrentPoolMonth: (state, data) => state.currentPoolMonth = data,
+  setCurrentPoolDateCode: (state, data) => state.currentPoolDateCode = data,
   setKeyword: (state, data) => state.keyword = data,
   setFilterObject: (state, data) => {
-    data.length === 3
+    data.length === 7
     ? state.filterObject.month = data
     : state.filterObject.type = data
   },

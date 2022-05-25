@@ -6,13 +6,13 @@
         <i v-if="orderValid" class="far fa-check-circle passed"></i>
       </div>
       <div class="row">
-        <h4>Pool month </h4><h4>{{currentMonth? currentMonth : '-'}}</h4>
+        <h4>Selected pool </h4><h4>{{poolDateCode? poolDateCode : '-'}}</h4>
       </div>
       <div class="row">
         <h4>Pool amount</h4><h4>{{currentValue}} eth</h4>
       </div>
       <div class="row">
-        <h4>Ticket</h4><h4>({{!!currentValue && !!currentMonth? 1 : 0}})</h4>
+        <h4>Ticket</h4><h4>({{!!currentValue && !!poolDateCode? 1 : 0}})</h4>
       </div>
     </div>
     <div class="terms">
@@ -33,7 +33,7 @@ export default {
     currentAccount: {
       type: String,
     },
-    currentMonth: {
+    poolDateCode: {
       type: String,
     },
     currentValue: {
@@ -58,8 +58,8 @@ export default {
         option.addressFrom.toLowerCase() === this.currentAccount
       )
       const orderValid = firstTime.length === 0
-      ? !!this.currentMonth && this.currentValue > 0 && this.termsCheckbox
-      : !!this.currentMonth && this.currentValue > 0
+      ? !!this.poolDateCode && this.currentValue > 0 && this.termsCheckbox
+      : !!this.poolDateCode && this.currentValue > 0
       this.$emit('orderValid', orderValid)
       return orderValid
     }
