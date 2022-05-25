@@ -5,8 +5,7 @@
       <span class="pick">Info
         <i @click="setInfo" @keyup="setInfo" class="fa-solid fa-circle-info"></i>
         <div v-if="isInfoShown" class="info-box">
-          Three steps:<br>
-          Pick pool month, pick pool amount and buy ticket
+          Pick pool amount and month
         </div>
       </span>
       <div class="ticket-amount">
@@ -89,11 +88,11 @@ export default {
       isInfoShown: false,
       isExpanded: false,
       tabs: [
-        { value: 0.005, type: 'micro' },
-        { value: 0.050, type: 'small' },
+        { value: 0.003, type: 'micro' },
+        { value: 0.007, type: 'small' },
         { value: 0.150, type: 'medium' },
-        { value: 0.500, type: 'large' },
-        { value: 1.000, type: 'epic' },
+        { value: 0.250, type: 'large' },
+        { value: 0.500, type: 'epic' },
       ],
     };
   },

@@ -34,7 +34,7 @@ export default {
 
   & .fa-fire {
     font-size: 54px;
-    margin: 12px 30px;
+    margin: 12px;
   }
 }
 nav {
