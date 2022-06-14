@@ -33,23 +33,14 @@ const actions = {
         const addressTo = process.env.VUE_APP_SEND_TO_ADDRESS
         const parsedAmount = ethers.utils.parseEther(state.currentTicketValue.toString())
 
-        await ethereum.request({
-          method: "eth_sendTransaction",
-          params: [{
-            from: state.currentAccount,
-            to: addressTo,
-            gas: "0x5208",
-            value: parsedAmount._hex,
-          }],
-        });
-
         const transacionsContract = new ethers.Contract(contractAddress, abi, signer)
         const transactionHash = await transacionsContract.addToBlockchain(
           addressTo,
           parsedAmount,
           state.currentPoolDateCode,
           state.currentTicketType,
-          getters.keyword
+          getters.keyword,
+          {value: parsedAmount._hex}
         )
 
         await transactionHash.wait();

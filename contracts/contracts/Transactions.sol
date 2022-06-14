@@ -4,8 +4,6 @@ pragma solidity ^0.8.0;
 import "hardhat/console.sol";
 
 contract Transactions {
-    uint256 transactionCount;
-
     event Transfer(
         address from,
         address receiver,
@@ -34,8 +32,7 @@ contract Transactions {
         string memory month,
         string memory pool_type,
         string memory keyword
-    ) public {
-        transactionCount += 1;
+    ) public payable {
         transactions.push(
             TransferStruct(
                 msg.sender,
