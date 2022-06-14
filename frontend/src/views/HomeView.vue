@@ -7,7 +7,6 @@
       @typeChange="filterTickets"
     />
     <PoolsBoard
-      :ticketType="poolAmount"
       :poolsData="poolsData"
       :poolDateCode="poolDateCode"
       @monthChange="filterTickets"

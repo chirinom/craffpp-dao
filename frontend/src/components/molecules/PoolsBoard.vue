@@ -27,10 +27,10 @@ export default {
     poolsData: {
       type: Array
     },
-    ticketType: {
-      type: String,
-      required: true
-    },
+    // ticketType: {
+    //   type: String,
+    //   required: true
+    // },
   },
   methods: {
     ...mapMutations(['setFilterObject', 'setCurrentPoolDateCode']),
