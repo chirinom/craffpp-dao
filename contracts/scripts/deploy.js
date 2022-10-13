@@ -19,5 +19,5 @@ const runMain = async () => {
 
 runMain();
 
-// to peploy
-// npx hardhat run --network ropsten scripts/deploy.js
+// To peploy. From /contract
+// npx hardhat run --network goerli scripts/deploy.js
