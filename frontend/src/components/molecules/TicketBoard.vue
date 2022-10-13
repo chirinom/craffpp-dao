@@ -2,12 +2,7 @@
   <div class="ticketbooth">
     <h2>Ticketbooth</h2>
     <div class="booth-content">
-      <span class="pick">Info
-        <i @click="setInfo" @keyup="setInfo" class="fa-solid fa-circle-info"></i>
-        <div v-if="isInfoShown" class="info-box">
-          Pick pool amount and month
-        </div>
-      </span>
+      <span class="pick">Select pool buy-in</span>
       <div class="ticket-amount">
         <TabWithAmounts
           :tabs="tabs"
@@ -130,7 +125,7 @@ export default {
   margin: 11px 0;
 }
 .ticketbooth {
-  width: 420px;
+  width: 100%;
   border: 1px solid lightgrey;
   background: white;
   overflow: visible;
@@ -144,7 +139,7 @@ export default {
     margin: 0;
     padding: 22px 0;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 26px;
     line-height: 24px;
     font-family: "Patua One", cursive;
    color: #3e5badc7;

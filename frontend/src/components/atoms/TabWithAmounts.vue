@@ -10,7 +10,7 @@
         @keyup="switchTab(tab.type, tab.value)"
       >
         <div class="name">
-          {{ tab.value }}
+          {{ tab.type.charAt(0).toUpperCase() + tab.type.slice(1) }}
         </div>
       </button>
     </span>

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
+import PlayView from '../views/PlayView.vue';
 import HowItwork from '../views/HowItwork.vue';
 import ContributionView from '../views/ContributionView.vue';
 import ControllerView from '../views/ControllerView.vue';
@@ -7,8 +8,13 @@ import ControllerView from '../views/ControllerView.vue';
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'homeView',
     component: HomeView,
+  },
+  {
+    path: '/play',
+    name: 'PlayView',
+    component: PlayView,
   },
   {
     path: '/how',
@@ -16,7 +22,7 @@ const routes = [
     component: HowItwork,
   },
   {
-    path: '/best-part',
+    path: '/contribution',
     name: 'contributionView',
     component: ContributionView,
   },

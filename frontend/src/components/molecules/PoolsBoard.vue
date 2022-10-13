@@ -27,10 +27,6 @@ export default {
     poolsData: {
       type: Array
     },
-    // ticketType: {
-    //   type: String,
-    //   required: true
-    // },
   },
   methods: {
     ...mapMutations(['setFilterObject', 'setCurrentPoolDateCode']),
@@ -44,13 +40,14 @@ export default {
 </script>
 <style scoped lang="scss">
 .bingo-board {
-  width: 777px;
+  width: 100%;
   border: 1px solid lightgrey;
   background: white;
   overflow: visible;
   border-radius: 6px;
   height: fit-content;
   min-height: 464px;
+  margin: 40px 0 0 0;
 }
 @media (max-width: 511px) {
   .bingo-board {

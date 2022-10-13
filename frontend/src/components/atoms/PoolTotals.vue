@@ -117,6 +117,7 @@ export default {
   border-radius: 10px;
   padding: 3px;
   filter: blur(4px);
+  word-wrap: break-word;
 }
 @media (max-width: 768px) {
   .totals {

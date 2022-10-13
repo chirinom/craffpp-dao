@@ -5,12 +5,13 @@
       <h1>Craffpp</h1>
     </div>
     <nav>
+      <router-link to="/">Home</router-link>
       <router-link to="/controller">Controller</router-link>
-      <router-link to="/">Play</router-link>
+      <router-link to="/play">Play</router-link>
       <router-link to="/best-part">Contribution</router-link>
       <router-link to="/how">How does it work</router-link>
-      <i class="fa-brands fa-twitter"></i>
-      <i class="fa-brands fa-instagram"></i>
+      <i class="fa-brands fa-twitter social-lg"></i>
+      <i class="fa-brands fa-instagram social-lg"></i>
     </nav>
   </div>
 </template>
@@ -30,17 +31,18 @@ export default {
     font-family: "Patua One", cursive;
     display: flex;
     color:#3e5badc7;
-    padding: 40px 0 0 77px;
+    padding: 55px 0 0 77px;
 
   & .fa-fire {
     font-size: 54px;
-    margin: 12px;
+    margin: 0 12px;
   }
 }
 nav {
   padding: 72px 111px 0px;
   font-family: "Patua One", cursive;
   font-size: 22px;
+  word-wrap: break-word;
 
   i {
     margin: 0 11px;
@@ -58,7 +60,32 @@ nav {
     }
   }
 }
+@media (max-width: 1400px) {
+  nav {
+    font-size: 16px;
+  }
+}
+@media (max-width: 1288px) {
+  .primary-nav {
+    display: block;
+  }
+  .brand {
+    padding: 55px 0 0 0;
+    justify-content: center;
+  }
+}
+@media (max-width: 1000px) {
+  nav {
+    font-size: 14px;
+  }
+  .social-lg {
+    display: none;
+  }
+}
 @media (max-width: 768px) {
+.primary-nav {
+  display: block;
+}
   nav {
     padding: 24px 0;
     a {
