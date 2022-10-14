@@ -30,10 +30,6 @@ export default {
     return {
       selectedTab: '',
       tabs: [
-        { text: 'May', value: 'may2022' },
-        { text: 'June', value: 'jun2022' },
-        { text: 'July', value: 'jul2022' },
-        { text: 'August', value: 'aug2022' },
         { text: 'September', value: 'sep2022' },
         { text: 'October', value: 'oct2022' },
         { text: 'November', value: 'nov2022' },
@@ -42,6 +38,11 @@ export default {
         { text: 'February', value: 'feb2023' },
         { text: 'March', value: 'mar2023' },
         { text: 'April', value: 'apr2023' },
+        { text: 'May', value: 'may2023' },
+        { text: 'June', value: 'jun2023' },
+        { text: 'July', value: 'jul2023' },
+        { text: 'August', value: 'aug2023' },
+        { text: 'September', value: 'sep2023' }
       ],
     };
   },
@@ -61,9 +62,11 @@ export default {
 
 <style lang="scss" scoped>
 .my-navbar {
-  padding: 22px;
+  padding: 15px;
   background-color: #2e478d14;
   text-align: center;
+  border-radius: 6px;
+
   .tabs-container {
     height: fit-content;
     display: flex;
@@ -75,6 +78,7 @@ export default {
     color: rgba(60, 60, 67, 0.6);
     font-size: 14px;
     line-height: 24px;
+
     span {
       width: max-content;
       display: block;
@@ -105,17 +109,5 @@ export default {
 }
 ::-webkit-scrollbar-thumb {
   display: none;
-}
-@media (max-width: 1536px) {
-}
-@media (max-width: 1280px) {
-}
-@media (max-width: 1024px) {
-}
-@media (max-width: 768px) {
-}
-@media (max-width: 640px) {
-}
-@media (max-width: 511px) {
 }
 </style>

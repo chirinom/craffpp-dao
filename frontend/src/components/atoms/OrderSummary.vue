@@ -68,11 +68,12 @@ export default {
 </script>
 <style scoped lang="scss">
 .checkout-container {
+  
   & .checkout-header {
     margin: 0 0 9px;
     text-align: left;
     font-family: "Patua One", cursive;
-    color: #2e478d;
+    color: #3e5badc7;
     font-size: 19px;
   }
   & .row {
@@ -99,6 +100,7 @@ export default {
   & .passed {
     color: #0bd50b;
     margin: 5px;
+    font-size:15px;
   }
 }
 </style>

@@ -2,7 +2,7 @@
   <div class="ticketbooth">
     <h2>Ticketbooth</h2>
     <div class="booth-content">
-      <span class="pick">Select pool buy-in</span>
+      <span class="pick">Select buy-in</span>
       <div class="ticket-amount">
         <TabWithAmounts
           :tabs="tabs"
@@ -135,14 +135,14 @@ export default {
   height: fit-content;
 
   & h2 {
-    background-color: #2e478d14;
+    // background-color: #2e478d14;
     margin: 0;
-    padding: 22px 0;
+    padding: 22px 0 0 0;
     font-weight: 700;
     font-size: 26px;
     line-height: 24px;
     font-family: "Patua One", cursive;
-   color: #3e5badc7;
+    color: #3e5badc7;
   }
   & .ticket-amount {
     border-radius: 6px;
@@ -165,7 +165,6 @@ export default {
   position: absolute;
   width: 278px;
   text-align: initial;
-  /* background-color: rgba(211, 211, 211, 0.425); */
   padding: 4px;
   border-radius: 6px;
   top: 71px;
@@ -190,7 +189,7 @@ export default {
   border-radius: 6px;
   margin: 23px 0 11px;
   background-color: #2e478d14;
-  padding: 6px 0 0 0;
+  padding: 11px 0 0 0;
   position: relative;
 
   &.expanded {
@@ -233,13 +232,12 @@ export default {
     margin: 0 0 11px 0;
   }
 }
-
 .header {
   display: flex;
   justify-content: center;
 
   & span {
-    margin: 3px;
+    margin: 1px 4px;
     font-size: 12px;
   }
 }

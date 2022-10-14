@@ -6,8 +6,8 @@
     </div>
     <nav>
       <router-link to="/">Home</router-link>
-      <router-link to="/controller">Controller</router-link>
       <router-link to="/play">Play</router-link>
+      <router-link to="/controller">Controller</router-link>
       <router-link to="/best-part">Contribution</router-link>
       <router-link to="/how">How does it work</router-link>
       <i class="fa-brands fa-twitter social-lg"></i>
@@ -31,11 +31,16 @@ export default {
     font-family: "Patua One", cursive;
     display: flex;
     color:#3e5badc7;
-    padding: 55px 0 0 77px;
+    padding: 50px 0 0 77px;
+    font-size: 22px;
+
+    h1 {
+      margin: 0;
+    }
 
   & .fa-fire {
-    font-size: 54px;
-    margin: 0 12px;
+    font-size: 66px;
+    margin: -15px 7px;
   }
 }
 nav {

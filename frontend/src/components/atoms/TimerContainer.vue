@@ -68,7 +68,7 @@ export default {
 }
 .timer {
   display: flex;
-  justify-content: left;
+  justify-content: center;
 }
 .card-title {
   font-family: 'Pacifico', cursive;
