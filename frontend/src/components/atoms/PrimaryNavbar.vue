@@ -1,9 +1,9 @@
 <template>
   <div class="primary-nav">
-    <div class="brand">
+    <router-link to="/" class="brand">
       <i class="fa-solid fa-fire"></i>
       <h1>Craffpp</h1>
-    </div>
+    </router-link>
     <nav>
       <router-link to="/">Home</router-link>
       <router-link to="/play">Play</router-link>
@@ -33,6 +33,7 @@ export default {
     color:#3e5badc7;
     padding: 50px 0 0 77px;
     font-size: 22px;
+    text-decoration: none;
 
     h1 {
       margin: 0;

@@ -64,7 +64,6 @@ export default {
   font-size: 33px;
   font-weight: bold;
   color:#2e478d;
-  // margin: 0 0 11px;
   padding: 22px 0 0 0;
 
 }
@@ -78,11 +77,6 @@ export default {
     color: #3e5badc7;
     cursor: pointer;
 
-  }
-}
-@media (max-width: 511px) {
-  .bingo-board {
-    width: 100%;
   }
 }
 </style>
