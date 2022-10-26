@@ -97,6 +97,14 @@ export default {
       'setCurrentTicketValue',
       'setFilterObject'
     ]),
+    getMonth(monthStr){
+      return new Date(monthStr+'-1-01').getMonth()+1
+    },
+    isInThePast(date) {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      return date < today;
+    },
     setTicketType (type, value) {
       this.currentTab = type
       this.currentValue = value
@@ -110,7 +118,9 @@ export default {
       setTimeout(() => { this.isInfoShown = false }, 3000)
     },
     setOrderValid(val) {
-      this.orderValid = val
+      const poolDate = this.poolDateCode.slice(3) + '-' +  this.getMonth(this.poolDateCode.slice(0,3)) + '-28'
+      // Buy-in and month has been selected and pool selected is not passed
+      this.orderValid = val && !this.isInThePast(new Date(poolDate))
     },
     handleExpand(val){
       this.isExpanded = val
@@ -135,7 +145,6 @@ export default {
   height: fit-content;
 
   & h2 {
-    // background-color: #2e478d14;
     margin: 0;
     padding: 22px 0 0 0;
     font-weight: 700;

@@ -30,12 +30,11 @@ const actions = {
     commit('setIsLoading', true)
     try {
       if (ethereum) {
-        const addressTo = process.env.VUE_APP_SEND_TO_ADDRESS
         const parsedAmount = ethers.utils.parseEther(state.currentTicketValue.toString())
 
         const transacionsContract = new ethers.Contract(contractAddress, abi, signer)
         const transactionHash = await transacionsContract.addToBlockchain(
-          addressTo,
+          contractAddress,
           parsedAmount,
           state.currentPoolDateCode,
           state.currentTicketType,
@@ -59,6 +58,7 @@ const actions = {
         const transacionsContract = new ethers.Contract(contractAddress, abi, this.currentAccount? signer: provider)
         transacionsContract.getAllTransactions().then(
           response => {
+            console.log(response, 'this repsonse')
             const parcedTransactions = response.map((ticket) => ({
               addressTo: ticket.receiver,
               addressFrom: ticket.sender,

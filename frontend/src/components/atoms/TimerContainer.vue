@@ -4,10 +4,10 @@
       <div
         v-for="(time, index) in times"
         :key="index"
-        v-bind:time="times"
+        :time="times"
       >
         <div v-if="!!time.time" class="card-block">
-          <h4 class="card-title">{{time.time }}</h4>
+          <h4 class="card-title">{{timerIsNegative(time.time) }}</h4>
         <div class="card-footer">
           {{time.text}}
         </div>
@@ -37,21 +37,24 @@ export default {
   },
   computed: {
     endTime() {
-    const month = this.poolDateCode.slice(0,3).charAt(0).toUpperCase() + this.poolDateCode.slice(0,3).substr(1)
-    const year = this.poolDateCode.slice(3)
-    return month + ' 28, ' + year + ' 11:00:00'
+      const month = this.poolDateCode.slice(0,3).charAt(0).toUpperCase() + this.poolDateCode.slice(0,3).substr(1)
+      const year = this.poolDateCode.slice(3)
+      return month + ' 28, ' + year + ' 11:00:00'
     }
   },
   methods: {
+    timerIsNegative(time) {
+      return Math.sign(time) === 1 ? time : '00'
+    },
     updateTimer() {
       this.getTimeRemaining();
     },
     getTimeRemaining() {
       const time = Date.parse(new Date(this.endTime)) - Date.parse(new Date());
-      this.times[3].time = Math.floor(time / 1000 % 60);
-      this.times[2].time = Math.floor(time / 1000 / 60 % 60);
-      this.times[1].time = Math.floor((time / (1000 * 60 * 60)) % 24);
       this.times[0].time = Math.floor(time / (1000 * 60 * 60 * 24));
+      this.times[1].time = Math.floor((time / (1000 * 60 * 60)) % 24);
+      this.times[2].time = Math.floor(time / 1000 / 60 % 60);
+      this.times[3].time = Math.floor(time / 1000 % 60);
     },
   },
   created() {

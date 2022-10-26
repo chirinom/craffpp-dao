@@ -43,12 +43,9 @@
     </div>
     <h3>Price Distirbution</h3>
     <p class="distribution">
-      The cumulative total of ETH will be distributed the following way. 16% its
+      The cumulative total of ETH will be distributed on each pool the following way. 16% its
       going to ocean and coastline cleanup. First place will get 40%, second
-      place 25% and third place 15%.
-      <br />
-      We suppose you noticed there is 4% left. This will be going to our
-      development team and platform mantainance.
+      place 25% and third place 15%. The last 4% goes to development team and platform maintainance.
     </p>
   </div>
 </template>

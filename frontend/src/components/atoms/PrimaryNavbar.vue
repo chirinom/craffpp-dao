@@ -7,8 +7,8 @@
     <nav>
       <router-link to="/">Home</router-link>
       <router-link to="/play">Play</router-link>
-      <router-link to="/controller">Controller</router-link>
-      <router-link to="/best-part">Contribution</router-link>
+      <!-- <router-link to="/controller">Controller</router-link>
+      <router-link to="/best-part">Contribution</router-link> -->
       <router-link to="/how">How does it work</router-link>
       <i class="fa-brands fa-twitter social-lg"></i>
       <i class="fa-brands fa-instagram social-lg"></i>

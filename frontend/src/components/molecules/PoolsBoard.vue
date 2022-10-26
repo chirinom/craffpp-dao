@@ -1,8 +1,7 @@
 <template>
   <div class="bingo-board">
     <div>
-
-    <div class="header">Price pool</div>
+      <div class="header">Price pool</div>
     </div>
     <div class="pick">Select month</div>
     <TabWithMonths @switch-tab="handleMonthChange" />
