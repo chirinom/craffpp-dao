@@ -10,19 +10,19 @@
     <i class="fa-brands fa-ethereum"></i>
     <h2 class="eth-num">{{ firstPlace }}</h2>
   </div>
-  <span class="wallet">0xa9473506371DB24F26A826f380D780B233F8b799</span>
+  <span :class="isPoolPassed? '' : 'wallet'">0xa9473506371DB24F26A826f380D780B233F8b799</span>
    <div class="title-price">
     <h2 class="label">Second place</h2>
     <i class="fa-brands fa-ethereum"></i>
     <h2 class="eth-num">{{ secondPlace }}</h2>
   </div>
-  <span class="wallet">0xa9473506371DB24F26A826f380D780B233F8b799</span>
+  <span :class="isPoolPassed? '' : 'wallet'">0xa9473506371DB24F26A826f380D780B233F8b799</span>
    <div class="title-price">
     <h2 class="label">Third place</h2>
     <i class="fa-brands fa-ethereum"></i>
     <h2 class="eth-num">{{ thirdPlace }}</h2>
   </div>
-  <span class="wallet">0xa9473506371DB24F26A826f380D780B233F8b799</span>
+  <span :class="isPoolPassed? '' : 'wallet'">0xa9473506371DB24F26A826f380D780B233F8b799</span>
 </div>
 </template>
 
@@ -31,6 +31,9 @@
 export default {
   name: 'PoolTotals',
   props: {
+    isPoolPassed: {
+      type: Boolean,
+    },
     poolsData: {
       type: Array,
     },

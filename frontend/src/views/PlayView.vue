@@ -5,10 +5,12 @@
       :currentAccount="currentAccount"
       :ticketData="ticketData"
       @typeChange="filterTickets"
+      @poolPassed="setPoolIsPassed"
     />
     <PoolsBoard
       :poolsData="poolsData"
       :poolDateCode="poolDateCode"
+      :isPoolPassed="poolPassed"
       @monthChange="filterTickets"
     />
   </div>
@@ -27,6 +29,7 @@ export default {
   },
   data() {
     return {
+      poolPassed: false,
       poolsData: [],
       allTickets: [],
       ticketData: [],
@@ -40,6 +43,9 @@ export default {
   methods: {
     ...mapActions(['getAllTransactions', 'checkIfWalletIsConnect']),
     ...mapMutations(['setCurrentAccount']),
+    setPoolIsPassed(val) {
+      this.poolPassed = val
+    },
     filterTickets(val) {
       if (val.length === 7) this.poolDateCode = val
       const result = this.allTickets.filter((option) => 

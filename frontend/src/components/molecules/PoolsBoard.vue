@@ -6,7 +6,10 @@
     <div class="pick">Select month</div>
     <TabWithMonths @switch-tab="handleMonthChange" />
     <TimerContainer :poolDateCode="poolDateCode" />
-    <PoolTotals :poolsData="poolsData"  />
+    <PoolTotals
+      :poolsData="poolsData"
+      :isPoolPassed="isPoolPassed"
+    />
   </div>
 </template>
 
@@ -25,6 +28,9 @@ export default {
     TimerContainer
   },
   props: {
+    isPoolPassed: {
+      type: Boolean,
+    },
     poolDateCode: {
       type: String
     },
