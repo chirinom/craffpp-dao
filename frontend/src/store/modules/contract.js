@@ -58,7 +58,6 @@ const actions = {
         const transacionsContract = new ethers.Contract(contractAddress, abi, this.currentAccount? signer: provider)
         transacionsContract.getAllTransactions().then(
           response => {
-            console.log(response, 'this repsonse')
             const parcedTransactions = response.map((ticket) => ({
               addressTo: ticket.receiver,
               addressFrom: ticket.sender,
