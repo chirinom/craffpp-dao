@@ -67,4 +67,59 @@ export default {
     margin: 0;
   }
 }
+
+@media (max-width: 1650px) {
+  .home-view {
+
+    h5 {
+      line-height: 33px;
+      margin: 22px 0 0 0;
+    }
+
+    .banner {
+      padding: 0;
+      text-align: center;
+    }
+
+    .picture-play {
+      flex-direction: column-reverse;
+      width: 100%;
+    }
+  }
+}
+@media (max-width: 1333px) {}
+
+@media (max-width: 1089px) {
+    .home-view {
+      padding: 33px 22px;
+      display: inline-block;
+      width: 100%;
+      margin: 0 auto;
+
+    button {
+      max-width: 422px;
+    }
+
+    .banner {
+      font-size: 44px;
+    }
+  }
+
+}
+@media (max-width: 777px) {
+    .home-view {
+
+    h1 {
+      font-size: 44px;
+      line-height: 49px;
+    }
+
+    img {
+      max-width: 422px;
+      width: 100%;
+      height: 333px;
+    }
+
+  }
+}
 </style>
