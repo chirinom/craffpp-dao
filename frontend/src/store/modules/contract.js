@@ -18,6 +18,7 @@ const state = {
   allTransactions: []
 };
 const getters = {
+  currentAccount: (state) => state.currentAccount,
   currentTicketType: (state) => state.currentTicketType,
   currentTicketValue: (state) => state.currentTicketValue,
   keyword: (state) => state.currentTicketType + state.currentPoolDateCode,
@@ -77,13 +78,18 @@ const actions = {
       }
     })
   },
-  connectWallet () {
+  connectWallet({commit}) {
     return new Promise ((resolve, reject) => {
       if (!ethereum) return alert('Please install Metamask')
       ethereum.request({method: 'eth_requestAccounts'}).then(
         response => {
-          resolve(response)
-          window.location.reload(); 
+          if (response.length) {
+            commit('setCurrentAccount', response[0])
+            resolve(response[0])
+            window.location.reload(); 
+          } else {
+            console.log('No accounts found')
+          }
         },
         error => {
           reject(error)
@@ -91,12 +97,13 @@ const actions = {
       )
     })
   },
-  checkIfWalletIsConnect () {
+  checkIfWalletIsConnect({commit}) {
     return new Promise ((resolve, reject) => {
       if (!ethereum) return alert('Please install Metamask')
       ethereum.request({method: 'eth_accounts'}).then(
         response => {
           if (response.length) {
+            commit('setCurrentAccount', response[0])
             resolve(response[0])
           } else {
             console.log('No accounts found')

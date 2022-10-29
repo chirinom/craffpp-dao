@@ -1,93 +1,77 @@
 <template>
   <div class="controllersView">
     <h3>Totals</h3>
-      <table class="totalsTable">
-        <tr>
-          <td>Total Tickets</td>
-          <td>Total Ethereum</td>
-          <td>Ocean Cleanup</td>
-          <td>First place</td>
-          <td>Second place</td>
-          <td>Third place</td>
-          <td>Craffpp Co.</td>
-        </tr>
-        <tr>
-          <td>{{totalTickets}}</td>
-          <td>{{ethTotal}}</td>
-          <td>{{motherNature}}</td>
-          <td>{{firstPlace}}</td>
-          <td>{{secondPlace}}</td>
-          <td>{{thirdPlace}}</td>
-          <td>{{CraffppCo}}</td>
-        </tr>
-      </table>
+    <table class="totalsTable">
+      <tr>
+        <td>Total Tickets</td>
+        <td>Total Ethereum</td>
+        <td>Ocean Cleanup</td>
+        <td>First place</td>
+        <td>Second place</td>
+        <td>Third place</td>
+        <td>Craffpp Co.</td>
+      </tr>
+      <tr>
+        <td>{{totalTickets}}</td>
+        <td>{{ethTotal}}</td>
+        <td>{{motherNature}}</td>
+        <td>{{firstPlace}}</td>
+        <td>{{secondPlace}}</td>
+        <td>{{thirdPlace}}</td>
+        <td>{{CraffppCo}}</td>
+      </tr>
+    </table>
 
-      <!-- Filters -->
-      <TabWithAmounts :tabs="tabs" @ticketType="handleChange" />
-      <TabWithMonths @switch-tab="handleChange" />
+    <!-- Filters -->
+    <TabWithAmounts :tabs="tabs" @ticketType="handleChange" />
+    <TabWithMonths @switch-tab="handleChange" />
 
-      <h3>Filtered Totals</h3>
-      <table class="filteredTable">
-        <tr>
-          <td>Total Tickets</td>
-          <td>Total Ethereum</td>
-          <td>Ocean Cleanup</td>
-          <td>First place</td>
-          <td>Second place</td>
-          <td>Third place</td>
-          <td>Craffpp Co.</td>
-        </tr>
-        <tr>
-          <td>{{filteredTotalTickets}}</td>
-          <td>{{filteredEthTotal}}</td>
-          <td>{{filteredMotherNature}}</td>
-          <td>{{filteredFirstPlace}}</td>
-          <td>{{filteredSecondPlace}}</td>
-          <td>{{filteredThirdPlace}}</td>
-          <td>{{filteredCraffppCo}}</td>
-        </tr>
-      </table>
+    <h3>Filtered Totals</h3>
+    <table class="filteredTable">
+      <tr>
+        <td>Total Tickets</td>
+        <td>Total Ethereum</td>
+        <td>Ocean Cleanup</td>
+        <td>First place</td>
+        <td>Second place</td>
+        <td>Third place</td>
+        <td>Craffpp Co.</td>
+      </tr>
+      <tr>
+        <td>{{filteredTotalTickets}}</td>
+        <td>{{filteredEthTotal}}</td>
+        <td>{{filteredMotherNature}}</td>
+        <td>{{filteredFirstPlace}}</td>
+        <td>{{filteredSecondPlace}}</td>
+        <td>{{filteredThirdPlace}}</td>
+        <td>{{filteredCraffppCo}}</td>
+      </tr>
+    </table>
 
-      <h3>Winners Draw</h3>
-      <table>
-        <tr>
-          <th>Position</th>
-          <th>Address</th>
-        </tr>
-        <tr>
-          <td>First Place</td>
-          <td>{{firstPlaceAddress}}</td>
-        </tr>
-        <tr>
-          <td>Second Place</td>
-          <td>{{secondPlaceAddress}}</td>
-        </tr>
-        <tr>
-          <td>Third Place</td>
-          <td>{{thirdPlaceAddress}}</td>
-        </tr>
-      </table>
 
-      <button
-        :class="['buy-btn', isLoading ? 'loading' : null]"
-        @click="sendWinnersToBlockchain"
-      >
-      Enviar ganadores
-      </button>
-
-    <button
-      :class="['buy-btn', isLoading ? 'loading' : null]"
-      @click="getWinners"
-    >
-    set Winners
-    </button>
-
-    <button
-      :class="['buy-btn', isLoading ? 'loading' : null]"
-      @click="getAllWinners"
-    >
-    Get all Winners list
-    </button>
+    <h3>Winners Draw</h3>
+    <table class="winnersTable">
+      <tr>
+        <th>Position</th>
+        <th>Address</th>
+        <th>Actions</th>
+      </tr>
+      <tr>
+        <td>First Place</td>
+        <td class="address">{{firstPlaceAddress}}</td>
+        <td><button class="buy-btn" @click="getWinners">Select Winners</button></td>
+      </tr>
+      <tr>
+        <td>Second Place</td>
+        <td class="address">{{secondPlaceAddress}}</td>
+        <td> <button class="buy-btn" @click="sendWinnersToBlockchain">Send Winners</button></td>
+      </tr>
+      <tr>
+        <td>Third Place</td>
+        <td class="address">{{thirdPlaceAddress}}</td>
+        <td></td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -271,13 +255,44 @@ data() {
     font-weight: bold;
   }
 
-  .totalsTable,
-  .filteredTable {
-    margin: 33px auto;
 
-    td {
+  .totalsTable,
+  .filteredTable,
+  .winnersTable {
+    margin: 33px auto;
+    text-align: center;
+
+    tr, td{
       padding: 0 33px 0 0;
+      margin: 0 auto;
     }
+  }
+  .winnersTable {
+    .address {
+      min-width: 222px;
+    }
+  }
+}
+// TODO: This css is repeated
+.buy-btn {
+  border: 1px solid lightgrey;
+  padding: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  cursor: pointer;
+  width: 100%;
+  background-color: #3e5badc7;
+  color: #fff;
+  border-radius: 6px;
+  max-height: 42px;
+
+  &:hover {
+    background-color: #2e478d;
+  }
+  &:disabled {
+    background-color: #7a85a3c7;
+    cursor: not-allowed;
   }
 }
 </style>

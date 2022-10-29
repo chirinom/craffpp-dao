@@ -45,6 +45,7 @@ export default {
 .btn-wrapper {
   max-height: 42px;
 }
+// TODO: This css is repeated
 .buy-btn {
   border: 1px solid lightgrey;
   padding: 8px;

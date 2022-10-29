@@ -29,8 +29,8 @@ export default {
   data() {
     return {
       selectedTab: '',
+      // UPDATE: update months after every pool draw (28th every month)
       tabs: [
-        { text: 'September', value: 'sep2022' },
         { text: 'October', value: 'oct2022' },
         { text: 'November', value: 'nov2022' },
         { text: 'Decemeber', value: 'dec2022' },
@@ -38,11 +38,11 @@ export default {
         { text: 'February', value: 'feb2023' },
         { text: 'March', value: 'mar2023' },
         { text: 'April', value: 'apr2023' },
-        { text: 'May', value: 'may2023' },
-        { text: 'June', value: 'jun2023' },
-        { text: 'July', value: 'jul2023' },
-        { text: 'August', value: 'aug2023' },
-        { text: 'September', value: 'sep2023' }
+        // { text: 'May', value: 'may2023' },
+        // { text: 'June', value: 'jun2023' },
+        // { text: 'July', value: 'jul2023' },
+        // { text: 'August', value: 'aug2023' },
+        // { text: 'September', value: 'sep2023' }
       ],
     };
   },

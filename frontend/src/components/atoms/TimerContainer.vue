@@ -60,12 +60,13 @@ export default {
   created() {
     this.updateTimer();
     setInterval(this.updateTimer, 1000);
-  },
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap');
+
 .wrapper {
   padding: 0 133px;
 }
