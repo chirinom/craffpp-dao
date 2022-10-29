@@ -79,6 +79,7 @@
 import TabWithMonths from '@/components/atoms/TabWithMonths'
 import TabWithAmounts from '@/components/atoms/TabWithAmounts'
 import { mapActions, mapGetters } from 'vuex'
+import TICKET_VALUES from '../utils/ticket_values.json'
 
 export default {
 // TODO: This componets is to big
@@ -97,14 +98,7 @@ data() {
     winner: {},
     winners: [],
     filterObject: {},
-    // TODO: THIS DATA IS DUPLICATED
-    tabs: [
-      { value: 0.003, type: 'micro' },
-      { value: 0.007, type: 'small' },
-      { value: 0.150, type: 'medium' },
-      { value: 0.250, type: 'large' },
-      { value: 0.500, type: 'epic' },
-    ],
+    tabs: TICKET_VALUES.ticketValues,
   }
 },
   computed: {

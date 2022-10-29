@@ -52,6 +52,7 @@ import OrderSummary from '@/components/atoms/OrderSummary'
 import TabWithAmounts from '@/components/atoms/TabWithAmounts'
 import TicketListBox from '@/components/atoms/TicketListBox'
 import { mapMutations } from 'vuex'
+import TICKET_VALUES from '../../utils/ticket_values.json'
 
 export default {
   name: 'TicketBoard',
@@ -82,14 +83,7 @@ export default {
       currentValue: 0,
       isInfoShown: false,
       isExpanded: false,
-      // TODO: THIS DATA IS DUPLICATED
-      tabs: [
-        { value: 0.003, type: 'micro' },
-        { value: 0.007, type: 'small' },
-        { value: 0.150, type: 'medium' },
-        { value: 0.250, type: 'large' },
-        { value: 0.500, type: 'epic' },
-      ],
+      tabs: TICKET_VALUES.ticketValues,
     };
   },
   methods: {
