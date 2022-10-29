@@ -82,6 +82,7 @@ export default {
       currentValue: 0,
       isInfoShown: false,
       isExpanded: false,
+      // TODO: THIS DATA IS DUPLICATED
       tabs: [
         { value: 0.003, type: 'micro' },
         { value: 0.007, type: 'small' },
@@ -227,10 +228,10 @@ export default {
     margin: 24px 0;
     & h2 {
       margin: 0;
-      padding: 15px 0;
       font-weight: 700;
-      font-size: 14px;
+      font-size: 33px;
       line-height: 24px;
+      padding: 22px 0 0 0;
     }
     & .ticket-amount {
       border-radius: 6px;

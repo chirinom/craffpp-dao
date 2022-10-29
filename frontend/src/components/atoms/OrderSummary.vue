@@ -9,10 +9,10 @@
         <h4>Selected pool </h4><h4>{{poolDateCode? poolDateCode : '-'}}</h4>
       </div>
       <div class="row">
-        <h4>Pool amount</h4><h4>{{currentValue}} eth</h4>
+        <h4>Buy-in amount</h4><h4>{{currentValue}} eth</h4>
       </div>
       <div class="row">
-        <h4>Ticket</h4><h4>({{!!currentValue && !!poolDateCode? 1 : 0}})</h4>
+        <h4>Ticket count</h4><h4>({{!!currentValue && !!poolDateCode? 1 : 0}})</h4>
       </div>
     </div>
     <div class="terms">

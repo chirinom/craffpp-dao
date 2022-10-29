@@ -1,11 +1,11 @@
 import { createStore } from 'vuex';
 
 import contract from './modules/contract'
-import controller from './modules/controller'
+import winners from './modules/winners'
 
 export default createStore({
   modules: {
     contract,
-    controller
+    winners
   },
 });

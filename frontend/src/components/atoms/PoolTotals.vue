@@ -10,23 +10,24 @@
     <i class="fa-brands fa-ethereum"></i>
     <h2 class="eth-num">{{ firstPlace }}</h2>
   </div>
-  <span :class="isPoolPassed? '' : 'wallet'">0xa9473506371DB24F26A826f380D780B233F8b799</span>
+  <span :class="isPoolPassed? '' : 'wallet'">{{isPoolPassed? firstPlaceAddress : sampleAddress}}</span>
    <div class="title-price">
     <h2 class="label">Second place</h2>
     <i class="fa-brands fa-ethereum"></i>
     <h2 class="eth-num">{{ secondPlace }}</h2>
   </div>
-  <span :class="isPoolPassed? '' : 'wallet'">0xa9473506371DB24F26A826f380D780B233F8b799</span>
+  <span :class="isPoolPassed? '' : 'wallet'">{{isPoolPassed? secondPlaceAddress : sampleAddress}}</span>
    <div class="title-price">
     <h2 class="label">Third place</h2>
     <i class="fa-brands fa-ethereum"></i>
     <h2 class="eth-num">{{ thirdPlace }}</h2>
   </div>
-  <span :class="isPoolPassed? '' : 'wallet'">0xa9473506371DB24F26A826f380D780B233F8b799</span>
+  <span :class="isPoolPassed? '' : 'wallet'">{{isPoolPassed? thirdPlaceAddress : sampleAddress}}</span>
 </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'PoolTotals',
@@ -37,8 +38,25 @@ export default {
     poolsData: {
       type: Array,
     },
+    poolDateCode: {
+      type: String
+    }
+  },
+  data() {
+    return {
+      totalEth: 0,
+      sampleAddress: '0x0000000000000000000000000000000000000000',
+      winnersList: []
+    };
+  },
+  watch: { 
+    winners: function(newVal, oldVal) {
+      this.$emit('winners', newVal)
+    }
   },
   computed: {
+    ...mapGetters(['winners']),
+    // TODO: This functions are duplicated
     calcTotal() {
       const total = this.poolsData.reduce((a, b) => a + (b['amount'] || 0), 0);
       return total.toFixed(4);
@@ -63,15 +81,37 @@ export default {
       const result = total * ( 15 / 100 )
       return result.toFixed(4);
     },
-
+    firstPlaceAddress() {
+      const total = this.winners.filter(option => 
+        option.pool_code.substr(option.pool_code.length -7) === this.poolDateCode 
+        && option.standing === 'first'
+      )
+      const result = total.map(option => option.address)
+      return result[0]
+    },
+    secondPlaceAddress() {
+      const total = this.winners.filter(option => 
+        option.pool_code.substr(option.pool_code.length -7) === this.poolDateCode 
+        && option.standing === 'second'
+      )
+      const result = total.map(option => option.address)
+      return result[0]
+    },
+    thirdPlaceAddress() {
+      const total = this.winners.filter(option => 
+        option.pool_code.substr(option.pool_code.length -7) === this.poolDateCode 
+        && option.standing === 'third'
+      )
+      const result = total.map(option => option.address)
+      return result[0]
+    },
+  },
+  methods: {
+    ...mapActions(['getAllWinners']),
   },
   mounted() {
-  },
-  data() {
-    return {
-      totalEth: 0
-    };
-  },
+    this.getAllWinners()
+  }
 };
 </script>
 

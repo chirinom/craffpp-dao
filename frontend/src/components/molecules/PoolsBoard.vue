@@ -9,6 +9,7 @@
     <PoolTotals
       :poolsData="poolsData"
       :isPoolPassed="isPoolPassed"
+      :poolDateCode='poolDateCode'
     />
   </div>
 </template>

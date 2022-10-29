@@ -1,5 +1,5 @@
 import { ethers } from 'ethers'
-import { abi, contractAddress } from '../../utils/constants'
+import { transactionsAbi, transactionsContractAddress } from '../../utils/constants'
 
 const { ethereum } = window
 const provider =  new ethers.providers.Web3Provider(ethereum)
@@ -32,9 +32,9 @@ const actions = {
       if (ethereum) {
         const parsedAmount = ethers.utils.parseEther(state.currentTicketValue.toString())
 
-        const transacionsContract = new ethers.Contract(contractAddress, abi, signer)
+        const transacionsContract = new ethers.Contract(transactionsContractAddress, transactionsAbi, signer)
         const transactionHash = await transacionsContract.addToBlockchain(
-          contractAddress,
+          transactionsContractAddress,
           parsedAmount,
           state.currentPoolDateCode,
           state.currentTicketType,
@@ -55,7 +55,7 @@ const actions = {
   getAllTransactions ({commit}) {
     return new Promise((resolve, reject) => {
       if (ethereum) {
-        const transacionsContract = new ethers.Contract(contractAddress, abi, this.currentAccount? signer: provider)
+        const transacionsContract = new ethers.Contract(transactionsContractAddress, transactionsAbi, this.currentAccount? signer: provider)
         transacionsContract.getAllTransactions().then(
           response => {
             const parcedTransactions = response.map((ticket) => ({
