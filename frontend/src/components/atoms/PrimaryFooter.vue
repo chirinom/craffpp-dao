@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .primary-footer {
   background: #2e478d14;
   // min-height: 333px;

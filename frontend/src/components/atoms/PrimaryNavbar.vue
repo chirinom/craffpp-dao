@@ -25,6 +25,7 @@ export default {
 .primary-nav {
   display: flex;
   justify-content: space-between;
+    width: 100%;
 }
 .brand {
     font-family: "Patua One", cursive;
@@ -58,10 +59,10 @@ nav {
     color: #2c3e50;
     margin: 0 33px;
     text-decoration: none;
+    position:relative;
 
     &.router-link-exact-active {
       color:#3e5badc7;
-      text-decoration: underline;
     }
   }
 }
@@ -72,7 +73,7 @@ nav {
 }
 @media (max-width: 1288px) {
   .primary-nav {
-    display: block;
+    display: initial;
     padding: 54px 0 0;
   }
   .brand {
@@ -93,9 +94,6 @@ nav {
   }
 }
 @media (max-width: 768px) {
-.primary-nav {
-  display: block;
-}
   nav {
     padding: 24px 0;
     a {

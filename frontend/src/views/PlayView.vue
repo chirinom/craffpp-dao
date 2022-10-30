@@ -84,26 +84,26 @@ export default {
   display: block;
   flex-direction: row-reverse;
   justify-content: space-between;
-  padding: 44px 444px;
+  padding: 44px 444px 222px;
 }
 @media (max-width: 1650px) {
   .home {
-    padding: 34px 353px;
+    padding: 34px 353px 222px;
   }
 }
 @media (max-width: 1333px) {
   .home {
-    padding: 34px 222px;
+    padding: 34px 222px 222px;
   }
 }
 @media (max-width: 1089px) {
   .home {
-    padding: 34px 111px;
+    padding: 34px 222px;
   }
 }
 @media (max-width: 777px) {
   .home {
-    padding: 11px 22px;
+    padding: 11px 22px 222px;
   }
 }
 </style>

@@ -63,7 +63,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .how-does-it-work {
-  padding: 34px 333px;
+  padding: 44px 444px 222px;
 }
 .how-image {
   width: 100%;
