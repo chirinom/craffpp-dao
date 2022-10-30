@@ -34,20 +34,20 @@ export default {
   data() {
     return {
       selectedTab: '',
-    };
+    }
   },
   methods: {
     switchTab(type, value) {
       if (this.selectedTab !== type) {
-        this.selectedTab = type;
-        this.$emit('ticketType', type, value );
+        this.selectedTab = type
+        this.$emit('ticketType', type, value )
       }
     },
   },
   mounted() {
-    this.selectedTab = this.initialValue;
+    this.selectedTab = this.initialValue
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

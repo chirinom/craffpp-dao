@@ -44,20 +44,20 @@ export default {
         // { text: 'August', value: 'aug2023' },
         // { text: 'September', value: 'sep2023' }
       ],
-    };
+    }
   },
   methods: {
     switchTab(tab) {
       if (this.selectedTab !== tab) {
-        this.selectedTab = tab;
-        this.$emit('switch-tab', tab);
+        this.selectedTab = tab
+        this.$emit('switch-tab', tab)
       }
     },
   },
   mounted() {
-    this.selectedTab = this.initialValue;
+    this.selectedTab = this.initialValue
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

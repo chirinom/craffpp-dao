@@ -57,9 +57,9 @@ export default {
   methods: {},
   data() {
     return {
-    };
+    }
   },
-};
+}
 </script>
 <style scoped lang="scss">
 .how-does-it-work {

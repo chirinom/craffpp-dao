@@ -41,7 +41,7 @@ export default {
   components: {
 
   },
-};
+}
 </script>
 <style scoped lang="scss">
 .contribution {

@@ -1,4 +1,4 @@
-import { createStore } from 'vuex';
+import { createStore } from 'vuex'
 
 import contract from './modules/contract'
 import winners from './modules/winners'
@@ -8,4 +8,4 @@ export default createStore({
     contract,
     winners
   },
-});
+})

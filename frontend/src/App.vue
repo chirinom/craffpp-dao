@@ -2,16 +2,19 @@
   <div id="app">
     <PrimaryNavbar/>
     <router-view />
+    <PrimaryFooter />
   </div>
 </template>
 
 <script>
 import PrimaryNavbar from '@/components/atoms/PrimaryNavbar'
+import PrimaryFooter from '@/components/atoms/PrimaryFooter'
 
 export default {
   name: 'App',
   components: {
-    PrimaryNavbar
+    PrimaryNavbar,
+    PrimaryFooter
   }
 }
 </script>
@@ -19,7 +22,7 @@ export default {
 <style lang="scss">
 body {
   margin: 0;
-  padding: 0 0 30px 0;
+  padding: 30px 0 0 0;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
