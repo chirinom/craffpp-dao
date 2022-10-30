@@ -73,6 +73,7 @@ nav {
 @media (max-width: 1288px) {
   .primary-nav {
     display: block;
+    padding: 54px 0 0;
   }
   .brand {
     padding: 55px 0 0 0;

@@ -146,7 +146,7 @@ export default {
     margin: 0;
     padding: 22px 0 0 0;
     font-weight: 700;
-    font-size: 26px;
+    font-size: 33px;
     line-height: 24px;
     font-family: "Patua One", cursive;
     color: #3e5badc7;
