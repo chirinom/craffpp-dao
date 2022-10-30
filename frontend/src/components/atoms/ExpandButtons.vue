@@ -19,22 +19,22 @@
 
 <script>
 export default {
-name: 'ExpandButtons',
-data() {
-  return {
-    isExpanded: false
+  name: 'ExpandButtons',
+  data() {
+    return {
+      isExpanded: false
+    }
+  },
+  methods: {
+    extendTicketList () {
+      this.isExpanded = true
+      this.$emit('open', true)
+    },
+    closeTicketList() {
+      this.isExpanded = false
+      this.$emit('close', false)
+    },
   }
-},
-methods: {
-  extendTicketList () {
-    this.isExpanded = true
-    this.$emit('open', true)
-  },
-  closeTicketList() {
-    this.isExpanded = false
-    this.$emit('close', false)
-  },
-}
 }
 </script>
 

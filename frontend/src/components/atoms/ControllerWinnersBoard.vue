@@ -29,22 +29,22 @@
 <script>
 import {mapActions, mapGetters} from 'vuex'
 export default {
-name: 'ControllerWinnersBoard',
-props: {
+  name: 'ControllerWinnersBoard',
+  props: {
     filteredData: {
-        type: Array
+      type: Array
     },
     poolCode: {
-        type: String
+      type: String
     }
-},
-data() {
+  },
+  data() {
     return {
-        firstPlaceAddress: '',
-        secondPlaceAddress: '',
-        thirdPlaceAddress: '',
+      firstPlaceAddress: '',
+      secondPlaceAddress: '',
+      thirdPlaceAddress: '',
     }
-},
+  },
   computed: {
     ...mapGetters(['allTransactions']),
   },

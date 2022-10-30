@@ -6,10 +6,10 @@
 import ControllerBoard from '@/components/molecules/ControllerBoard'
 
 export default {
-name: 'ControllerView',
-components: {
-  ControllerBoard
-},
+  name: 'ControllerView',
+  components: {
+    ControllerBoard
+  },
 }
 </script>
 

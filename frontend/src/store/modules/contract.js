@@ -124,8 +124,8 @@ const mutations = {
   setKeyword: (state, data) => state.keyword = data,
   setFilterObject: (state, data) => {
     data.length === 7
-    ? state.filterObject.month = data
-    : state.filterObject.type = data
+      ? state.filterObject.month = data
+      : state.filterObject.type = data
   },
   setIsLoading: (state, data) => state.isLoading = data,
   setAllTransactions: (state, data) => state.allTransactions = data,

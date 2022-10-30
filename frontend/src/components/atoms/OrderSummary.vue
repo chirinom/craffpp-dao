@@ -58,8 +58,8 @@ export default {
         option.addressFrom.toLowerCase() === this.currentAccount
       )
       const orderValid = firstTime.length === 0
-      ? !!this.poolDateCode && this.currentValue > 0 && this.termsCheckbox
-      : !!this.poolDateCode && this.currentValue > 0
+        ? !!this.poolDateCode && this.currentValue > 0 && this.termsCheckbox
+        : !!this.poolDateCode && this.currentValue > 0
       this.$emit('orderValid', orderValid)
       return orderValid
     }

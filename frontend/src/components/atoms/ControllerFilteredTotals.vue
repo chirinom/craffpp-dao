@@ -35,70 +35,70 @@ import TabWithAmounts from '@/components/atoms/TabWithAmounts'
 import TICKET_VALUES from '../../utils/ticket_values.json'
 
 export default {
-    name: 'ControllerFilteredTotals',
-    components: {
-        TabWithMonths,
-        TabWithAmounts,
-    },
-    data() {
-        return  {
-            controllerDashboardData: [],
-            filterObject: {},
-            tabs: TICKET_VALUES.ticketValues,
-        }
-    },
-    computed: {
-        ...mapGetters(['allTransactions']),
-        filteredTotalTickets() {
-        const total = this.controllerDashboardData.length
-        return total
-        },
-        filteredEthTotal() {
-        const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0);
-        return total.toFixed(4);
-        },
-        filteredMotherNature() {
-        const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0);
-        const result = total * ( 16 / 100 )
-        return result.toFixed(4);
-        },
-        filteredFirstPlace() {
-        const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0);
-        const result = total * ( 40 / 100 )
-        return result.toFixed(4);
-        },
-        filteredSecondPlace() {
-        const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0);
-        const result = total * ( 25 / 100 )
-        return result.toFixed(4);
-        },
-        filteredThirdPlace() {
-        const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0);
-        const result = total * ( 15 / 100 )
-        return result.toFixed(4);
-        },
-        filteredCraffppCo() {
-        const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0);
-        const result = total * ( 4 / 100 )
-        return result.toFixed(4);
-        },
-    },
-    methods: {
-        ...mapActions(['getAllTransactions']),
-        handleChange(val) {
-            val.length === 7 ? this.filterObject.month = val : this.filterObject.type = val
-            const poolCode =  this.filterObject.type + this.filterObject.month
-            const result = this.allTransactions.filter((option) => 
-                option.poolType === this.filterObject.type 
-                && option.month === this.filterObject.month
-            )
-            this.controllerDashboardData = result
-            this.$emit('handleChange', poolCode, result)
-        },
-    },
-    mounted () {
-        this.getAllTransactions()
+  name: 'ControllerFilteredTotals',
+  components: {
+    TabWithMonths,
+    TabWithAmounts,
+  },
+  data() {
+    return  {
+      controllerDashboardData: [],
+      filterObject: {},
+      tabs: TICKET_VALUES.ticketValues,
     }
+  },
+  computed: {
+    ...mapGetters(['allTransactions']),
+    filteredTotalTickets() {
+      const total = this.controllerDashboardData.length
+      return total
+    },
+    filteredEthTotal() {
+      const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0);
+      return total.toFixed(4);
+    },
+    filteredMotherNature() {
+      const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0);
+      const result = total * ( 16 / 100 )
+      return result.toFixed(4);
+    },
+    filteredFirstPlace() {
+      const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0);
+      const result = total * ( 40 / 100 )
+      return result.toFixed(4);
+    },
+    filteredSecondPlace() {
+      const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0);
+      const result = total * ( 25 / 100 )
+      return result.toFixed(4);
+    },
+    filteredThirdPlace() {
+      const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0);
+      const result = total * ( 15 / 100 )
+      return result.toFixed(4);
+    },
+    filteredCraffppCo() {
+      const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0);
+      const result = total * ( 4 / 100 )
+      return result.toFixed(4);
+    },
+  },
+  methods: {
+    ...mapActions(['getAllTransactions']),
+    handleChange(val) {
+      val.length === 7 ? this.filterObject.month = val : this.filterObject.type = val
+      const poolCode =  this.filterObject.type + this.filterObject.month
+      const result = this.allTransactions.filter((option) => 
+        option.poolType === this.filterObject.type 
+                && option.month === this.filterObject.month
+      )
+      this.controllerDashboardData = result
+      this.$emit('handleChange', poolCode, result)
+    },
+  },
+  mounted () {
+    this.getAllTransactions()
+  }
 }
 </script>
 
