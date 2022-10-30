@@ -2,7 +2,7 @@ import { ethers } from 'ethers'
 import { transactionsAbi, transactionsContractAddress } from '../../utils/constants'
 
 const { ethereum } = window
-const provider =  new ethers.providers.Web3Provider(ethereum)
+const provider = new ethers.providers.Web3Provider(ethereum)
 const signer = provider.getSigner()
 
 const state = {
@@ -16,7 +16,7 @@ const state = {
   },
   isLoading: false,
   allTransactions: []
-};
+}
 const getters = {
   currentAccount: (state) => state.currentAccount,
   currentTicketType: (state) => state.currentTicketType,
@@ -25,7 +25,7 @@ const getters = {
   filterObject: (state) => state.filterObject,
   isLoading: (state) => state.isLoading,
   allTransactions: (state) => state.allTransactions
-};
+}
 const actions = {
   async sendTransaction ({commit, getters}) {
     commit('setIsLoading', true)
@@ -43,14 +43,14 @@ const actions = {
           {value: parsedAmount._hex}
         )
 
-        await transactionHash.wait();
+        await transactionHash.wait()
         commit('setIsLoading', false)
-        window.location.reload(); 
+        window.location.reload() 
       }
     } catch (e) {
-      console.error(e);
+      console.error(e)
       commit('setIsLoading', false)
-      throw new Error("No ethereum object");
+      throw new Error('No ethereum object')
     }
   },
   getAllTransactions ({commit}) {
@@ -67,7 +67,7 @@ const actions = {
               month: ticket.month,
               keyword: ticket.keyword,
               amount: parseInt(ticket.amount._hex) / (10 ** 18)
-            }));
+            }))
             commit('setAllTransactions', parcedTransactions)
             resolve(parcedTransactions)
           },
@@ -86,7 +86,7 @@ const actions = {
           if (response.length) {
             commit('setCurrentAccount', response[0])
             resolve(response[0])
-            window.location.reload(); 
+            window.location.reload() 
           } else {
             console.log('No accounts found')
           }
@@ -115,7 +115,7 @@ const actions = {
       )
     })
   },
-};
+}
 const mutations = {
   setCurrentAccount: (state, data) => state.currentAccount = data,
   setCurrentTicketType: (state, data) => state.currentTicketType = data,
@@ -129,11 +129,11 @@ const mutations = {
   },
   setIsLoading: (state, data) => state.isLoading = data,
   setAllTransactions: (state, data) => state.allTransactions = data,
-};
+}
 
 export default {
   state,
   getters,
   actions,
   mutations,
-};
+}

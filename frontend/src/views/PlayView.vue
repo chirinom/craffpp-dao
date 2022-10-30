@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import TicketBoard from '@/components/molecules/TicketBoard';
-import PoolsBoard from '@/components/molecules/PoolsBoard';
-import { mapActions, mapGetters, mapMutations } from 'vuex';
+import TicketBoard from '@/components/molecules/TicketBoard'
+import PoolsBoard from '@/components/molecules/PoolsBoard'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 
 export default {
   name: 'PlayView',
@@ -35,7 +35,7 @@ export default {
       ticketData: [],
       poolDateCode: '',
       currentAccount: ''
-    };
+    }
   },
   computed: {
     ...mapGetters(['filterObject'])
@@ -77,7 +77,7 @@ export default {
       }
     )   
   }
-};
+}
 </script>
 <style scoped lang="scss">
 .home {

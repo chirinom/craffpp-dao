@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import TabWithMonths from '@/components/atoms/TabWithMonths';
-import TimerContainer from '@/components/atoms/TimerContainer';
+import TabWithMonths from '@/components/atoms/TabWithMonths'
+import TimerContainer from '@/components/atoms/TimerContainer'
 import PoolTotals from '@/components/atoms/PoolTotals'
 
 import { mapMutations } from 'vuex'
@@ -47,7 +47,7 @@ export default {
       this.$emit('monthChange', val)
     },
   },
-};
+}
 </script>
 <style scoped lang="scss">
 .bingo-board {

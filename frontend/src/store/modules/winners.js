@@ -2,7 +2,7 @@ import { ethers } from 'ethers'
 import { winnersAbi, winnersContractAddress } from '../../utils/constants'
 
 const { ethereum } = window
-const provider =  new ethers.providers.Web3Provider(ethereum)
+const provider = new ethers.providers.Web3Provider(ethereum)
 const signer = provider.getSigner()
 
 const state = {
@@ -10,13 +10,13 @@ const state = {
   firstPlaceStruct: {},
   secondPlaceStruct: {},
   thirdPlaceStruct: {},
-};
+}
 const getters = {
   winners: (state) => state.winners,
   firstPlaceStruct: (state) => state.firstPlaceStruct,
   secondPlaceStruct: (state) => state.secondPlaceStruct,
   thirdPlaceStruct: (state) => state.thirdPlaceStruct,
-};
+}
 const actions = {
   createFirstPlaceStruct({commit}, val) {
     commit('setFirstPlaceStruct', val)
@@ -38,7 +38,7 @@ const actions = {
           getters.firstPlaceStruct.pool_code,
           getters.firstPlaceStruct.standing,
         )
-        await firstPlaceHash.wait();
+        await firstPlaceHash.wait()
 
         const secondPlaceHash = await winnersContract.addWinnerStructToBlockchain(
           getters.secondPlaceStruct.amount,
@@ -46,7 +46,7 @@ const actions = {
           getters.secondPlaceStruct.pool_code,
           getters.secondPlaceStruct.standing,
         )
-        await secondPlaceHash.wait();
+        await secondPlaceHash.wait()
 
         const thirdPlaceHash = await winnersContract.addWinnerStructToBlockchain(
           getters.thirdPlaceStruct.amount,
@@ -54,11 +54,11 @@ const actions = {
           getters.thirdPlaceStruct.pool_code,
           getters.thirdPlaceStruct.standing,
         )
-        await thirdPlaceHash.wait();
+        await thirdPlaceHash.wait()
       }
     } catch (e) {
-      console.error(e);
-      throw new Error("No ethereum object");
+      console.error(e)
+      throw new Error('No ethereum object')
     }
   },
   async getAllWinners ({commit}) {
@@ -71,25 +71,25 @@ const actions = {
           address: winner[1],
           pool_code: winner[2],
           standing: winner[3],
-        }));
+        }))
         commit('setWinners', parcedWinners)
       }
     } catch (e) {
-      console.error(e);
-      throw new Error("No ethereum object");
+      console.error(e)
+      throw new Error('No ethereum object')
     }
   },
-};
+}
 const mutations = {
   setWinners: (state, data) => state.winners = data,
   setFirstPlaceStruct: (state, data) => state.firstPlaceStruct = data,
   setSecondPlaceStruct: (state, data) => state.secondPlaceStruct = data,
   setThirdPlaceStruct: (state, data) => state.thirdPlaceStruct = data,
-};
+}
 
 export default {
   state,
   getters,
   actions,
   mutations,
-};
+}

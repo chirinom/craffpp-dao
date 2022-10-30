@@ -84,7 +84,7 @@ export default {
       isInfoShown: false,
       isExpanded: false,
       tabs: TICKET_VALUES.ticketValues,
-    };
+    }
   },
   methods: {
     ...mapMutations([
@@ -96,9 +96,9 @@ export default {
       return new Date(monthStr+'-1-01').getMonth()+1
     },
     isInThePast(date) {
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-      return date < today;
+      const today = new Date()
+      today.setHours(0, 0, 0, 0)
+      return date < today
     },
     setTicketType (type, value) {
       this.currentTab = type
@@ -113,7 +113,7 @@ export default {
       setTimeout(() => { this.isInfoShown = false }, 3000)
     },
     setOrderValid(val) {
-      const poolDate = this.poolDateCode.slice(3) + '-' +  this.getMonth(this.poolDateCode.slice(0,3)) + '-28'
+      const poolDate = this.poolDateCode.slice(3) + '-' + this.getMonth(this.poolDateCode.slice(0,3)) + '-28'
       // Buy-in and month has been selected and pool selected is not passed
       if (poolDate.length >= 9) {
         this.orderValid = val && !this.isInThePast(new Date(poolDate))
@@ -124,7 +124,7 @@ export default {
       this.isExpanded = val
     }
   },
-};
+}
 </script>
 <style scoped lang="scss">
 .terms {

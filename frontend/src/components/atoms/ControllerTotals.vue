@@ -36,33 +36,33 @@ export default {
       return total
     },
     ethTotal() {
-      const total = this.allTransactions.reduce((a, b) => a + (b['amount'] || 0), 0);
-      return total.toFixed(4);
+      const total = this.allTransactions.reduce((a, b) => a + (b['amount'] || 0), 0)
+      return total.toFixed(4)
     },
     motherNature() {
-      const total = this.allTransactions.reduce((a, b) => a + (b['amount'] || 0), 0);
+      const total = this.allTransactions.reduce((a, b) => a + (b['amount'] || 0), 0)
       const result = total * ( 16 / 100 )
-      return result.toFixed(4);
+      return result.toFixed(4)
     },
     firstPlace() {
-      const total = this.allTransactions.reduce((a, b) => a + (b['amount'] || 0), 0);
+      const total = this.allTransactions.reduce((a, b) => a + (b['amount'] || 0), 0)
       const result = total * ( 40 / 100 )
-      return result.toFixed(4);
+      return result.toFixed(4)
     },
     secondPlace() {
-      const total = this.allTransactions.reduce((a, b) => a + (b['amount'] || 0), 0);
+      const total = this.allTransactions.reduce((a, b) => a + (b['amount'] || 0), 0)
       const result = total * ( 25 / 100 )
-      return result.toFixed(4);
+      return result.toFixed(4)
     },
     thirdPlace() {
-      const total = this.allTransactions.reduce((a, b) => a + (b['amount'] || 0), 0);
+      const total = this.allTransactions.reduce((a, b) => a + (b['amount'] || 0), 0)
       const result = total * ( 15 / 100 )
-      return result.toFixed(4);
+      return result.toFixed(4)
     },
     CraffppCo() {
-      const total = this.allTransactions.reduce((a, b) => a + (b['amount'] || 0), 0);
+      const total = this.allTransactions.reduce((a, b) => a + (b['amount'] || 0), 0)
       const result = total * ( 4 / 100 )
-      return result.toFixed(4);
+      return result.toFixed(4)
     },
   },
 

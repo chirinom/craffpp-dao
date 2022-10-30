@@ -20,10 +20,10 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: "ConnectAndBuyButtons",
+  name: 'ConnectAndBuyButtons',
   props: {
     currentAccount: {
       type: String,
@@ -33,12 +33,12 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["isLoading"]),
+    ...mapGetters(['isLoading']),
   },
   methods: {
-    ...mapActions(["sendTransaction", "connectWallet"]),
+    ...mapActions(['sendTransaction', 'connectWallet']),
   },
-};
+}
 </script>
 
 <style lang="scss" scoped>

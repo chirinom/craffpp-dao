@@ -48,7 +48,10 @@
   },
   "eslintConfig": {
     "rules": {
-      "indent": ["error", 2]
+      "indent": ["error", 2],
+      "quotes": ["error", "single"],
+      "no-multi-spaces": ["error"],
+      "semi": ["error", "never"]
     },
     "root": true,
     "env": {

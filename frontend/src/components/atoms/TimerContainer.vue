@@ -33,7 +33,7 @@ export default {
         { id: 2, text: 'Minutes', time: 25 },
         { id: 3, text: 'Seconds', time: 15 },
       ],
-    };
+    }
   },
   computed: {
     endTime() {
@@ -47,21 +47,21 @@ export default {
       return Math.sign(time) === 1 ? time : '00'
     },
     updateTimer() {
-      this.getTimeRemaining();
+      this.getTimeRemaining()
     },
     getTimeRemaining() {
-      const time = Date.parse(new Date(this.endTime)) - Date.parse(new Date());
-      this.times[0].time = Math.floor(time / (1000 * 60 * 60 * 24));
-      this.times[1].time = Math.floor((time / (1000 * 60 * 60)) % 24);
-      this.times[2].time = Math.floor(time / 1000 / 60 % 60);
-      this.times[3].time = Math.floor(time / 1000 % 60);
+      const time = Date.parse(new Date(this.endTime)) - Date.parse(new Date())
+      this.times[0].time = Math.floor(time / (1000 * 60 * 60 * 24))
+      this.times[1].time = Math.floor((time / (1000 * 60 * 60)) % 24)
+      this.times[2].time = Math.floor(time / 1000 / 60 % 60)
+      this.times[3].time = Math.floor(time / 1000 % 60)
     },
   },
   created() {
-    this.updateTimer();
-    setInterval(this.updateTimer, 1000);
+    this.updateTimer()
+    setInterval(this.updateTimer, 1000)
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

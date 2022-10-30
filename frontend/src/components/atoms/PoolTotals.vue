@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'PoolTotals',
@@ -47,7 +47,7 @@ export default {
       totalEth: 0,
       sampleAddress: '0x0000000000000000000000000000000000000000',
       winnersList: []
-    };
+    }
   },
   watch: { 
     winners: function(newVal, oldVal) {
@@ -58,28 +58,28 @@ export default {
     ...mapGetters(['winners']),
     // TODO: This functions are duplicated
     calcTotal() {
-      const total = this.poolsData.reduce((a, b) => a + (b['amount'] || 0), 0);
-      return total.toFixed(4);
+      const total = this.poolsData.reduce((a, b) => a + (b['amount'] || 0), 0)
+      return total.toFixed(4)
     },
     motherNature() {
-      const total = this.poolsData.reduce((a, b) => a + (b['amount'] || 0), 0);
+      const total = this.poolsData.reduce((a, b) => a + (b['amount'] || 0), 0)
       const result = total * ( 16 / 100 )
-      return result.toFixed(4);
+      return result.toFixed(4)
     },
     firstPlace() {
-      const total = this.poolsData.reduce((a, b) => a + (b['amount'] || 0), 0);
+      const total = this.poolsData.reduce((a, b) => a + (b['amount'] || 0), 0)
       const result = total * ( 40 / 100 )
-      return result.toFixed(4);
+      return result.toFixed(4)
     },
     secondPlace() {
-      const total = this.poolsData.reduce((a, b) => a + (b['amount'] || 0), 0);
+      const total = this.poolsData.reduce((a, b) => a + (b['amount'] || 0), 0)
       const result = total * ( 25 / 100 )
-      return result.toFixed(4);
+      return result.toFixed(4)
     },
     thirdPlace() {
-      const total = this.poolsData.reduce((a, b) => a + (b['amount'] || 0), 0);
+      const total = this.poolsData.reduce((a, b) => a + (b['amount'] || 0), 0)
       const result = total * ( 15 / 100 )
-      return result.toFixed(4);
+      return result.toFixed(4)
     },
     firstPlaceAddress() {
       const total = this.winners.filter(option => 
@@ -112,7 +112,7 @@ export default {
   mounted() {
     this.getAllWinners()
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

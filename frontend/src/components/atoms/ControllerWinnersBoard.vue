@@ -53,12 +53,12 @@ export default {
       'createFirstPlaceStruct',
       'createSecondPlaceStruct',
       'createThirdPlaceStruct',
-      "sendWinnersToBlockchain",
+      'sendWinnersToBlockchain',
     ]),
     async getWinners() {
       // TODO: This function is not 100% efficient (sometimes the data object is not filled)
-      let addressesArray = this.filteredData.map(option => option.addressFrom);
-      let random = Math.floor(Math.random() * addressesArray.length);
+      let addressesArray = this.filteredData.map(option => option.addressFrom)
+      let random = Math.floor(Math.random() * addressesArray.length)
       let first = {}
       let second = {}
       let third = {}
@@ -70,7 +70,7 @@ export default {
       first.pool_code = this.poolCode
       this.createFirstPlaceStruct(first)
       const firstPlaceIndex = addressesArray.indexOf(firstPlace)
-      if (firstPlaceIndex >= 0) addressesArray.splice(firstPlaceIndex, 1);
+      if (firstPlaceIndex >= 0) addressesArray.splice(firstPlaceIndex, 1)
 
       const secondPlace = addressesArray[random]
       this.secondPlaceAddress = secondPlace
@@ -80,7 +80,7 @@ export default {
       second.standing = 'second'
       this.createSecondPlaceStruct(second)
       const secondPlaceIndex = addressesArray.indexOf(secondPlace)
-      if (secondPlaceIndex >= 0) addressesArray.splice(secondPlaceIndex, 1);
+      if (secondPlaceIndex >= 0) addressesArray.splice(secondPlaceIndex, 1)
 
       const thirdPlace = addressesArray[random]
       this.thirdPlaceAddress = thirdPlace
@@ -90,7 +90,7 @@ export default {
       third.standing = 'third'
       this.createThirdPlaceStruct(third)
       const thirdPlaceIndex = addressesArray.indexOf(thirdPlace)
-      if (thirdPlaceIndex >= 0) addressesArray.splice(thirdPlaceIndex, 1);
+      if (thirdPlaceIndex >= 0) addressesArray.splice(thirdPlaceIndex, 1)
     },
   }
 }
