@@ -14,9 +14,6 @@
 export default {
   name: 'TicketListBox',
   props: {
-    currentAccount: {
-      type: String
-    },
     ticketData: {
       type: Array
     }

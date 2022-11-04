@@ -24,7 +24,6 @@ export default {
 <style lang="scss">
 .primary-footer {
   background: #2e478d14;
-  // min-height: 333px;
   padding: 77px 0 77px 0;
   
   .brand {

@@ -3,6 +3,7 @@
     <ControllerTotals/>
     <ControllerFilteredTotals @handleChange="handleChange" />
     <ControllerWinnersBoard :filteredData="filteredData" :poolCode="poolCode" />
+    <ControllerContractBalance />
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import ControllerTotals from '@/components/atoms/ControllerTotals'
 import ControllerFilteredTotals from '@/components/atoms/ControllerFilteredTotals'
 import ControllerWinnersBoard from '@/components/atoms/ControllerWinnersBoard'
+import ControllerContractBalance from '@/components/atoms/ControllerContractBalance'
 import { mapActions } from 'vuex'
 
 export default {
@@ -17,7 +19,8 @@ export default {
   components: {
     ControllerTotals,
     ControllerFilteredTotals,
-    ControllerWinnersBoard
+    ControllerWinnersBoard,
+    ControllerContractBalance
   },
   data() {
     return {

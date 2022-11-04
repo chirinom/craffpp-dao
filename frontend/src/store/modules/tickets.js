@@ -17,7 +17,7 @@ const state = {
   isLoading: false,
   allTickets: [],
   ethBalance: 0,
-  ethHexBalance: 0
+  withdrawAddress: ''
 }
 const getters = {
   currentTicketType: (state) => state.currentTicketType,
@@ -27,6 +27,7 @@ const getters = {
   isLoading: (state) => state.isLoading,
   allTickets: (state) => state.allTickets,
   ethBalance: (state) => state.ethBalance,
+  withdrawAddress: (state) => state.withdrawAddress,
 }
 const actions = {
   async getBalance ({commit}) {
@@ -47,7 +48,7 @@ const actions = {
       if (ethereum) {
         const parsedAmount = ethers.utils.parseEther(state.ethBalance.toString())
         const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
-        await ticketsContract.transferEther('0x612284E26DC7F428Bd6aAC24B1a7b1b0c827A21c', parsedAmount._hex)
+        await ticketsContract.transferEther(state.withdrawAddress, parsedAmount._hex)
       }
     } catch (e) {
       console.error(e)
@@ -112,8 +113,7 @@ const mutations = {
   setIsLoading: (state, data) => state.isLoading = data,
   setAllTickets: (state, data) => state.allTickets = data,
   setBalance: (state, data) => state.ethBalance = data,
-
-  
+  setWithdrawAddress: (state, data) => state.withdrawAddress = data,
 }
 
 export default {

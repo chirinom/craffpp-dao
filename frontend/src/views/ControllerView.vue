@@ -9,7 +9,7 @@ export default {
   name: 'ControllerView',
   components: {
     ControllerBoard
-  },
+  }
 }
 </script>
 

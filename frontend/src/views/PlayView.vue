@@ -33,11 +33,10 @@ export default {
       poolsData: [],
       ticketData: [],
       poolDateCode: '',
-      currentAccount: ''
     }
   },
   computed: {
-    ...mapGetters(['filterObject', 'allTickets'])
+    ...mapGetters(['filterObject', 'allTickets', 'currentAccount'])
   },
   methods: {
     ...mapActions(['getAllTickets', 'checkIfWalletIsConnect']),
@@ -59,17 +58,9 @@ export default {
         this.ticketData = ticketData
       }
     },
-    checkWalletConnected() {
-      this.checkIfWalletIsConnect().then(
-        response => {
-          this.setCurrentAccount(response)
-          this.currentAccount = response
-        }
-      )
-    },
   },
   mounted () {
-    this.checkWalletConnected()
+    this.checkIfWalletIsConnect()
     this.getAllTickets()
   }
 }

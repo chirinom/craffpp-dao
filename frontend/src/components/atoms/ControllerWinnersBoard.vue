@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import {mapActions, mapGetters} from 'vuex'
+import {mapActions } from 'vuex'
 export default {
   name: 'ControllerWinnersBoard',
   props: {
@@ -103,8 +103,8 @@ export default {
     border-radius: 6px;
 
     tr, td{
-      padding: 0 33px;
       margin: 0 auto;
+      vertical-align: inherit;
     }
   }
   .winnersTable {

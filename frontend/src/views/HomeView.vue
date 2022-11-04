@@ -7,15 +7,27 @@
     <div class="picture-play">
       <img :src="require('../assets/images/banner.png')" >
       <router-link to="/play">
-        <button>Play</button>
+        <button v-if="!!currentAccount">Play</button>
+        <button v-else @click="connectWallet">Connect Wallet</button>
       </router-link>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
-  name: 'HomeView'
+  name: 'HomeView',
+  methods: {
+    ...mapActions(['checkIfWalletIsConnect', 'connectWallet']),
+  },
+  computed: {
+    ...mapGetters(['currentAccount'])
+  },
+  mounted() {
+    this.checkIfWalletIsConnect()
+  }
 }
 </script>
 
