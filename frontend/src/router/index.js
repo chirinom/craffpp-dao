@@ -5,8 +5,6 @@ import HowItwork from '../views/HowItwork.vue'
 import ContributionView from '../views/ContributionView.vue'
 import ControllerView from '../views/ControllerView.vue'
 import TermsView from '../views/TermsView.vue'
-import store from '@/store/index.js'
-
 
 const routes = [
   {
@@ -32,13 +30,7 @@ const routes = [
   {
     path: '/controller',
     name: 'ControllerView',
-    component: () => {
-      if (store.getters.currentAccount.toLowerCase() === process.env.VUE_APP_ADMIN_ACCOUNT.toLowerCase()) {
-        return ControllerView
-      } else {
-        return HomeView
-      }
-    },
+    component: ControllerView,
   },
   {
     path: '/terms',
