@@ -1,12 +1,12 @@
 import { ethers } from 'ethers'
 import { ticketsAbi, ticketsContractAddress } from '../../utils/constants'
+import store from '@/store/index.js'
 
 const { ethereum } = window
 const provider = new ethers.providers.Web3Provider(ethereum)
 const signer = provider.getSigner()
 
 const state = {
-  currentAccount: '',
   currentTicketType: 0,
   currentTicketValue: 0,
   currentPoolDateCode: '',
@@ -20,7 +20,6 @@ const state = {
   ethHexBalance: 0
 }
 const getters = {
-  currentAccount: (state) => state.currentAccount,
   currentTicketType: (state) => state.currentTicketType,
   currentTicketValue: (state) => state.currentTicketValue,
   keyword: (state) => state.currentTicketType + state.currentPoolDateCode,
@@ -35,7 +34,7 @@ const actions = {
       if (ethereum) {
         const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
         const transactionsHash = await ticketsContract.getBalance()
-        const data = {value: parseInt(transactionsHash._hex) / (10 ** 18)}
+        const data = parseInt(transactionsHash._hex) / (10 ** 18)
         commit('setBalance', data)
       }
     } catch (e) {
@@ -43,10 +42,10 @@ const actions = {
       throw new Error('No ethereum object')
     }
   },
-  async withdraw({}) {
+  async withdrawFromContract({}) {
     try {
       if (ethereum) {
-        const parsedAmount = ethers.utils.parseEther(state.ethBalance.value.toString())
+        const parsedAmount = ethers.utils.parseEther(state.ethBalance.toString())
         const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
         await ticketsContract.transferEther('0x612284E26DC7F428Bd6aAC24B1a7b1b0c827A21c', parsedAmount._hex)
       }
@@ -63,7 +62,7 @@ const actions = {
         const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
         const ticketsHash = await ticketsContract.buyTicket(
           parsedAmount,
-          state.currentAccount,
+          store.getters.currentAccount,
           state.currentPoolDateCode,
           state.currentTicketType,
           getters.keyword,
@@ -80,70 +79,27 @@ const actions = {
       throw new Error('No ethereum object')
     }
   },
-  getAllTickets ({commit}) {
-    return new Promise((resolve, reject) => {
+  async getAllTickets({commit}) {
+    try {
       if (ethereum) {
-        const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, this.currentAccount? signer: provider)
-        ticketsContract.getAllTickets().then(
-          response => {
-            const parcedTickets = response.map((ticket) => ({
-              ticketOwner: ticket.ticket_owner,
-              timestamp: new Date(ticket.timestamp.toNumber() * 1000).toLocaleString(),
-              poolType: ticket.pool_type,
-              month: ticket.month,
-              keyword: ticket.keyword,
-              amount: parseInt(ticket.amount._hex) / (10 ** 18)
-            }))
-            commit('setAllTickets', parcedTickets)
-            resolve(parcedTickets)
-          },
-          error => {
-            reject(error)
-          }
-        )
+        const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
+        const allTicketsHash = await ticketsContract.getAllTickets()
+        const parcedTickets = allTicketsHash.map((ticket) => ({
+          ticketOwner: ticket.ticket_owner,
+          timestamp: new Date(ticket.timestamp.toNumber() * 1000).toLocaleString(),
+          poolType: ticket.pool_type,
+          month: ticket.month,
+          keyword: ticket.keyword,
+          amount: parseInt(ticket.amount._hex) / (10 ** 18)
+        }))
+        commit('setAllTickets', parcedTickets)
       }
-    })
-  },
-  connectWallet({commit}) {
-    return new Promise ((resolve, reject) => {
-      if (!ethereum) return alert('Please install Metamask')
-      ethereum.request({method: 'eth_requestAccounts'}).then(
-        response => {
-          if (response.length) {
-            commit('setCurrentAccount', response[0])
-            resolve(response[0])
-            window.location.reload() 
-          } else {
-            console.log('No accounts found')
-          }
-        },
-        error => {
-          reject(error)
-        }
-      )
-    })
-  },
-  checkIfWalletIsConnect({commit}) {
-    return new Promise ((resolve, reject) => {
-      if (!ethereum) return alert('Please install Metamask')
-      ethereum.request({method: 'eth_accounts'}).then(
-        response => {
-          if (response.length) {
-            commit('setCurrentAccount', response[0])
-            resolve(response[0])
-          } else {
-            console.log('No accounts found')
-          }
-        },
-        error => {
-          reject(error)
-        }
-      )
-    })
+    } catch (e) {
+      console.error(e)
+    }
   },
 }
 const mutations = {
-  setCurrentAccount: (state, data) => state.currentAccount = data,
   setCurrentTicketType: (state, data) => state.currentTicketType = data,
   setCurrentTicketValue: (state, data) => state.currentTicketValue = data,
   setCurrentPoolDateCode: (state, data) => state.currentPoolDateCode = data,
