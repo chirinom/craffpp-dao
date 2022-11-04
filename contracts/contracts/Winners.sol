@@ -4,6 +4,12 @@ pragma solidity ^0.8.0;
 import "hardhat/console.sol";
 
 contract Winners {
+    address public  owner;
+
+    constructor() {
+        owner = msg.sender;
+    }
+
 
     event Winner(
         string amount,
@@ -29,6 +35,8 @@ contract Winners {
         string memory pool_code,
         string memory pool_standing
     ) public {
+        require(owner == msg.sender, 'Not Owner');
+        
         winners.push(
             WinnerStruct(
                 amount,

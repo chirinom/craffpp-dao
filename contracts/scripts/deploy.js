@@ -1,14 +1,14 @@
 const main = async () => {
-  const Transactions = await hre.ethers.getContractFactory("Transactions");
-  const transactions = await Transactions.deploy();
+  const Tickets = await hre.ethers.getContractFactory("Tickets");
+  const tickets = await Tickets.deploy();
 
   const Winners = await hre.ethers.getContractFactory("Winners");
   const winners = await Winners.deploy();
 
-  await transactions.deployed();
+  await tickets.deployed();
   await winners.deployed();
 
-  console.log("Transactions address: ", transactions.address);
+  console.log("Tickets address: ", tickets.address);
   console.log("Winners address: ", winners.address);
 };
 
