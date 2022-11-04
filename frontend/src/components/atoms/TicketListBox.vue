@@ -5,7 +5,7 @@
         <span class="label">- Amount <span class="text">{{ticket.amount}} eth, </span></span>
         <span class="label">- Entry date <span class="text">{{ticket.timestamp}}</span></span>
       </div>
-      <span class="label">- Wallet <span class="text">{{ticket.addressFrom}}</span></span>
+      <span class="label">- Wallet <span class="text">{{ticket.ticketOwner}}</span></span>
     </div>
   </div>
 </template>

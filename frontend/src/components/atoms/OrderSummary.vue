@@ -46,16 +46,16 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['allTransactions']),
+    ...mapGetters(['allTickets']),
     firstTimeUser() {
-      const result = this.allTransactions.filter((option) => 
-        option.addressFrom.toLowerCase() === this.currentAccount
+      const result = this.allTickets.filter((option) => 
+        option.ticketOwner.toLowerCase() === this.currentAccount
       )
       return result.length === 0
     },
     orderValid() {
-      const firstTime = this.allTransactions.filter((option) => 
-        option.addressFrom.toLowerCase() === this.currentAccount
+      const firstTime = this.allTickets.filter((option) => 
+        option.ticketOwner.toLowerCase() === this.currentAccount
       )
       const orderValid = firstTime.length === 0
         ? !!this.poolDateCode && this.currentValue > 0 && this.termsCheckbox

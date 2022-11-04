@@ -1,5 +1,5 @@
 import { ethers } from 'ethers'
-import { transactionsAbi, transactionsContractAddress } from '../../utils/constants'
+import { ticketsAbi, ticketsContractAddress } from '../../utils/constants'
 
 const { ethereum } = window
 const provider = new ethers.providers.Web3Provider(ethereum)
@@ -15,7 +15,9 @@ const state = {
     month: ''
   },
   isLoading: false,
-  allTransactions: []
+  allTickets: [],
+  ethBalance: 0,
+  ethHexBalance: 0
 }
 const getters = {
   currentAccount: (state) => state.currentAccount,
@@ -24,26 +26,51 @@ const getters = {
   keyword: (state) => state.currentTicketType + state.currentPoolDateCode,
   filterObject: (state) => state.filterObject,
   isLoading: (state) => state.isLoading,
-  allTransactions: (state) => state.allTransactions
+  allTickets: (state) => state.allTickets,
+  ethBalance: (state) => state.ethBalance,
 }
 const actions = {
+  async getBalance ({commit}) {
+    try {
+      if (ethereum) {
+        const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
+        const transactionsHash = await ticketsContract.getBalance()
+        const data = {value: parseInt(transactionsHash._hex) / (10 ** 18)}
+        commit('setBalance', data)
+      }
+    } catch (e) {
+      console.error(e)
+      throw new Error('No ethereum object')
+    }
+  },
+  async withdraw({}) {
+    try {
+      if (ethereum) {
+        const parsedAmount = ethers.utils.parseEther(state.ethBalance.value.toString())
+        const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
+        await ticketsContract.transferEther('0x612284E26DC7F428Bd6aAC24B1a7b1b0c827A21c', parsedAmount._hex)
+      }
+    } catch (e) {
+      console.error(e)
+      throw new Error('No ethereum object')
+    }
+  },
   async sendTransaction ({commit, getters}) {
     commit('setIsLoading', true)
     try {
       if (ethereum) {
         const parsedAmount = ethers.utils.parseEther(state.currentTicketValue.toString())
-
-        const transacionsContract = new ethers.Contract(transactionsContractAddress, transactionsAbi, signer)
-        const transactionHash = await transacionsContract.addToBlockchain(
-          transactionsContractAddress,
+        const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
+        const ticketsHash = await ticketsContract.buyTicket(
           parsedAmount,
+          state.currentAccount,
           state.currentPoolDateCode,
           state.currentTicketType,
           getters.keyword,
           {value: parsedAmount._hex}
         )
 
-        await transactionHash.wait()
+        await ticketsHash.wait()
         commit('setIsLoading', false)
         window.location.reload() 
       }
@@ -53,23 +80,22 @@ const actions = {
       throw new Error('No ethereum object')
     }
   },
-  getAllTransactions ({commit}) {
+  getAllTickets ({commit}) {
     return new Promise((resolve, reject) => {
       if (ethereum) {
-        const transacionsContract = new ethers.Contract(transactionsContractAddress, transactionsAbi, this.currentAccount? signer: provider)
-        transacionsContract.getAllTransactions().then(
+        const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, this.currentAccount? signer: provider)
+        ticketsContract.getAllTickets().then(
           response => {
-            const parcedTransactions = response.map((ticket) => ({
-              addressTo: ticket.receiver,
-              addressFrom: ticket.sender,
+            const parcedTickets = response.map((ticket) => ({
+              ticketOwner: ticket.ticket_owner,
               timestamp: new Date(ticket.timestamp.toNumber() * 1000).toLocaleString(),
               poolType: ticket.pool_type,
               month: ticket.month,
               keyword: ticket.keyword,
               amount: parseInt(ticket.amount._hex) / (10 ** 18)
             }))
-            commit('setAllTransactions', parcedTransactions)
-            resolve(parcedTransactions)
+            commit('setAllTickets', parcedTickets)
+            resolve(parcedTickets)
           },
           error => {
             reject(error)
@@ -128,7 +154,10 @@ const mutations = {
       : state.filterObject.type = data
   },
   setIsLoading: (state, data) => state.isLoading = data,
-  setAllTransactions: (state, data) => state.allTransactions = data,
+  setAllTickets: (state, data) => state.allTickets = data,
+  setBalance: (state, data) => state.ethBalance = data,
+
+  
 }
 
 export default {

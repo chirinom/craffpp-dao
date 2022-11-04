@@ -45,9 +45,6 @@ export default {
       thirdPlaceAddress: '',
     }
   },
-  computed: {
-    ...mapGetters(['allTransactions']),
-  },
   methods: {
     ...mapActions([
       'createFirstPlaceStruct',
@@ -57,7 +54,7 @@ export default {
     ]),
     async getWinners() {
       // TODO: This function is not 100% efficient (sometimes the data object is not filled)
-      let addressesArray = this.filteredData.map(option => option.addressFrom)
+      let addressesArray = this.filteredData.map(option => option.ticketOwner)
       let random = Math.floor(Math.random() * addressesArray.length)
       let first = {}
       let second = {}

@@ -26,14 +26,14 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getAllTransactions']),
+    ...mapActions(['getAllTickets']),
     handleChange(poolCode, data) {
       this.poolCode = poolCode
       this.filteredData = data
     }
   },
   mounted () {
-    this.getAllTransactions()
+    this.getAllTickets()
   }
 }
 </script>

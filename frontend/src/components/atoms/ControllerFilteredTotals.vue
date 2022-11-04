@@ -48,7 +48,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['allTransactions']),
+    ...mapGetters(['allTickets']),
     filteredTotalTickets() {
       const total = this.controllerDashboardData.length
       return total
@@ -84,11 +84,11 @@ export default {
     },
   },
   methods: {
-    ...mapActions(['getAllTransactions']),
+    ...mapActions(['getAllTickets']),
     handleChange(val) {
       val.length === 7 ? this.filterObject.month = val : this.filterObject.type = val
       const poolCode = this.filterObject.type + this.filterObject.month
-      const result = this.allTransactions.filter((option) => 
+      const result = this.allTickets.filter((option) => 
         option.poolType === this.filterObject.type 
                 && option.month === this.filterObject.month
       )
@@ -97,7 +97,7 @@ export default {
     },
   },
   mounted () {
-    this.getAllTransactions()
+    this.getAllTickets()
   }
 }
 </script>

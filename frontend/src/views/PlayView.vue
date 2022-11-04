@@ -31,17 +31,16 @@ export default {
     return {
       poolPassed: false,
       poolsData: [],
-      allTickets: [],
       ticketData: [],
       poolDateCode: '',
       currentAccount: ''
     }
   },
   computed: {
-    ...mapGetters(['filterObject'])
+    ...mapGetters(['filterObject', 'allTickets'])
   },
   methods: {
-    ...mapActions(['getAllTransactions', 'checkIfWalletIsConnect']),
+    ...mapActions(['getAllTickets', 'checkIfWalletIsConnect']),
     ...mapMutations(['setCurrentAccount']),
     setPoolIsPassed(val) {
       this.poolPassed = val
@@ -55,7 +54,7 @@ export default {
       this.poolsData = result
       if (!!this.currentAccount) {
         const ticketData = this.poolsData.filter(option => 
-          option.addressFrom.toLowerCase() === this.currentAccount.toLowerCase()
+          option.ticketOwner.toLowerCase() === this.currentAccount.toLowerCase()
         )
         this.ticketData = ticketData
       }
@@ -71,11 +70,7 @@ export default {
   },
   mounted () {
     this.checkWalletConnected()
-    this.getAllTransactions().then(
-      (response) => {
-        this.allTickets = response
-      }
-    )   
+    this.getAllTickets()
   }
 }
 </script>
