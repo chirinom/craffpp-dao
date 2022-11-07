@@ -5,6 +5,7 @@ const state = {
 }
 const getters = {
   currentAccount: (state) => state.currentAccount,
+  isAdmin: (state) => (state.currentAccount.toLowerCase() === process.env.VUE_APP_ADMIN_ACCOUNT.toLowerCase())
 }
 const actions = {
   connectWallet({commit}) {
@@ -33,6 +34,7 @@ const actions = {
         response => {
           if (response.length) {
             commit('setCurrentAccount', response[0])
+            console.log(response[0].toLowerCase() === process.env.VUE_APP_ADMIN_ACCOUNT.toLowerCase())
             resolve(response[0])
           } else {
             console.log('No accounts found')

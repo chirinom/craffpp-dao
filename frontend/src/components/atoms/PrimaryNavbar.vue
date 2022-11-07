@@ -7,7 +7,7 @@
     <nav>
       <router-link to="/">{{STRINGS.home}}</router-link>
       <router-link to="/play">{{STRINGS.play}}</router-link>
-      <router-link to="/controller">{{STRINGS.controller}}</router-link>
+      <router-link v-if="this.isAdmin" to="/controller">{{STRINGS.controller}}</router-link>
       <router-link to="/how">{{STRINGS.howDoesItWork}}</router-link>
       <i class="fa-brands fa-twitter social-lg"></i>
       <i class="fa-brands fa-instagram social-lg"></i>
@@ -17,12 +17,17 @@
 
 <script>
 import { STRINGS } from '../../utils/strings'
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'PrimaryNavbar',
   data(){
     return {
       STRINGS: STRINGS
     }
+  },
+  computed: {
+    ...mapGetters(['isAdmin'])
   }
 }
 </script>

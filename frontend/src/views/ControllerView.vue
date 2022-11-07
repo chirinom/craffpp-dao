@@ -1,14 +1,18 @@
 <template>
-  <ControllerBoard class="controllersView" />
+  <ControllerBoard v-if="this.isAdmin" class="controllersView" />
 </template>
 
 <script>
 import ControllerBoard from '@/components/molecules/ControllerBoard'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'ControllerView',
   components: {
     ControllerBoard
+  },
+  computed: {
+    ...mapGetters(['isAdmin'])
   }
 }
 </script>
