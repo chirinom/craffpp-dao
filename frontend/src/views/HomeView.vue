@@ -1,14 +1,14 @@
 <template>
   <div class="home-view">
     <div class="banner">
-      <h1>Crypto raffle for the planet and the people</h1>
+      <h1>{{STRINGS.homeHeader}}</h1>
       <h5>Help us sweap the plastic from our oceans and <strong>win some ETH</strong> doing it</h5>
     </div>
     <div class="picture-play">
       <img :src="require('../assets/images/banner.png')" >
       <router-link to="/play">
-        <button v-if="!!currentAccount">Play</button>
-        <button v-else @click="connectWallet">Connect Wallet</button>
+        <button v-if="!!currentAccount">{{STRINGS.play}}</button>
+        <button v-else @click="connectWallet">{{STRINGS.connectWallet}}</button>
       </router-link>
     </div>
   </div>
@@ -16,9 +16,15 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import { STRINGS } from '../utils/strings'
 
 export default {
   name: 'HomeView',
+  data() {
+    return {
+      STRINGS: STRINGS
+    }
+  },
   methods: {
     ...mapActions(['checkIfWalletIsConnect', 'connectWallet']),
   },

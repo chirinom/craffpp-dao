@@ -2,15 +2,16 @@
   <div class="list">
     <div v-for="(ticket, index) in ticketData" :key="index" class="ticket">
       <div class="amount-date">
-        <span class="label">- Amount <span class="text">{{ticket.amount}} eth, </span></span>
-        <span class="label">- Entry date <span class="text">{{ticket.timestamp}}</span></span>
+        <span class="label">{{STRINGS.ticketAmount}}<span class="text">{{ticket.amount}}{{STRINGS.eth}}</span></span>
+        <span class="label">{{STRINGS.ticketEntryDate}}<span class="text">{{ticket.timestamp}}</span></span>
       </div>
-      <span class="label">- Wallet <span class="text">{{ticket.ticketOwner}}</span></span>
+      <span class="label">{{STRINGS.ticketWalletAddress}}<span class="text">{{ticket.ticketOwner}}</span></span>
     </div>
   </div>
 </template>
 
 <script>
+import { STRINGS } from '../../utils/strings'
 export default {
   name: 'TicketListBox',
   props: {
@@ -18,6 +19,11 @@ export default {
       type: Array
     }
   },
+  data() {
+    return {
+      STRINGS: STRINGS
+    }
+  }
 }
 </script>
 

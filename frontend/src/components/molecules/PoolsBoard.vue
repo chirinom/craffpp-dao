@@ -1,9 +1,9 @@
 <template>
   <div class="bingo-board">
     <div>
-      <div class="header">Price pool</div>
+      <div class="header">{{STRINGS.pricePool}}</div>
     </div>
-    <div class="pick">Select month</div>
+    <div class="pick">{{STRINGS.selectMonth}}</div>
     <TabWithMonths @switch-tab="handleMonthChange" />
     <TimerContainer :poolDateCode="poolDateCode" />
     <PoolTotals
@@ -18,6 +18,7 @@
 import TabWithMonths from '@/components/atoms/TabWithMonths'
 import TimerContainer from '@/components/atoms/TimerContainer'
 import PoolTotals from '@/components/atoms/PoolTotals'
+import { STRINGS } from '../../utils/strings'
 
 import { mapMutations } from 'vuex'
 
@@ -26,7 +27,7 @@ export default {
   components: {
     TabWithMonths,
     PoolTotals,
-    TimerContainer
+    TimerContainer,
   },
   props: {
     isPoolPassed: {
@@ -38,6 +39,11 @@ export default {
     poolsData: {
       type: Array
     },
+  },
+  data() {
+    return {
+      STRINGS: STRINGS
+    }
   },
   methods: {
     ...mapMutations(['setFilterObject', 'setCurrentPoolDateCode']),

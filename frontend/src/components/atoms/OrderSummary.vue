@@ -2,23 +2,23 @@
   <div>
     <div class="checkout-container">
       <div class="header-container">
-        <h1 class="checkout-header">Order summary</h1>
+        <h1 class="checkout-header">{{STRINGS.orderSummary}}</h1>
         <i v-if="orderValid" class="far fa-check-circle passed"></i>
       </div>
       <div class="row">
-        <h4>Selected pool </h4><h4>{{poolDateCode? poolDateCode : '-'}}</h4>
+        <h4>{{STRINGS.selectedPool}}</h4><h4>{{poolDateCode? poolDateCode : '-'}}</h4>
       </div>
       <div class="row">
-        <h4>Buy-in amount</h4><h4>{{currentValue}} eth</h4>
+        <h4>{{STRINGS.buyinAmount}}</h4><h4>{{currentValue}} eth</h4>
       </div>
       <div class="row">
-        <h4>Ticket count</h4><h4>({{!!currentValue && !!poolDateCode? 1 : 0}})</h4>
+        <h4>{{STRINGS.ticketCount}}</h4><h4>({{!!currentValue && !!poolDateCode? 1 : 0}})</h4>
       </div>
     </div>
     <div class="terms">
       <div v-show="firstTimeUser">
         <input type="checkbox" v-model="termsCheckbox">
-        <span>I agree to terms and conditions</span>
+        <span>{{STRINGS.agreeTerms}}</span>
       </div>
     </div>
   </div>
@@ -26,6 +26,7 @@
 
 <script>
 import { mapGetters} from 'vuex'
+import { STRINGS } from '../../utils/strings'
 
 export default {
   name: 'OrderSummary',
@@ -42,7 +43,8 @@ export default {
   },
   data(){
     return {
-      termsCheckbox: false
+      termsCheckbox: false,
+      STRINGS: STRINGS
     }
   },
   computed: {

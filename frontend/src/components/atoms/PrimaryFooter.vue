@@ -2,22 +2,29 @@
   <div class="primary-footer">
     <router-link to="/" class="brand">
       <i class="fa-solid fa-fire"></i>
-      <h1>Craffpp</h1>
+      <h1>{{STRINGS.craffpp}}</h1>
     </router-link>
-    <h2>Help us sweap the plastic from our oceans and <strong>win some ETH</strong> doing it</h2>
+    <h5>Help us sweap the plastic from our oceans and <strong>win some ETH</strong> doing it</h5>
     <div class="social">
         <i class="fa-brands fa-twitter social-lg"></i>
         <i class="fa-brands fa-instagram social-lg"></i>
     </div>
       <router-link to="/terms" target="_blank" class="terms">
-        <span>Terms and conditions</span>
+        <span>{{STRINGS.termsAndConditions}}</span>
       </router-link>
   </div>
 </template>
 
 <script>
+import { STRINGS } from '../../utils/strings'
+
 export default {
-  name: 'PrimaryFooter'
+  name: 'PrimaryFooter',
+  data() {
+    return {
+      STRINGS: STRINGS
+    }
+  }
 }
 </script>
 
@@ -30,6 +37,10 @@ export default {
     margin: 0 0 44px 0;
     display: block;
     padding: 0;
+  }
+
+  h5 {
+    font-size: 16px;
   }
 
   .social {

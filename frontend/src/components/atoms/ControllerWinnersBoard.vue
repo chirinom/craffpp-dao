@@ -1,24 +1,24 @@
 <template>
   <div>
-    <h3>Winners Draw</h3>
+    <h3>{{STRINGS.winnersDraw}}</h3>
     <table class="winnersTable">
       <tr>
-        <th>Position</th>
-        <th>Address</th>
-        <th>Actions</th>
+        <th>{{STRINGS.position}}</th>
+        <th>{{STRINGS.address}}</th>
+        <th>{{STRINGS.actions}}</th>
       </tr>
       <tr>
-        <td>First Place</td>
+        <td>{{STRINGS.fristPlace}}</td>
         <td class="address">{{firstPlaceAddress}}</td>
-        <td><button class="buy-btn" @click="getWinners">Select Winners</button></td>
+        <td><button class="buy-btn" @click="getWinners">{{STRINGS.selectWinners}}</button></td>
       </tr>
       <tr>
-        <td>Second Place</td>
+        <td>{{STRINGS.secondPlace}}</td>
         <td class="address">{{secondPlaceAddress}}</td>
-        <td> <button class="buy-btn" @click="sendWinnersToBlockchain">Send Winners</button></td>
+        <td> <button class="buy-btn" @click="sendWinnersToBlockchain">{{STRINGS.sendWinners}}</button></td>
       </tr>
       <tr>
-        <td>Third Place</td>
+        <td>{{STRINGS.thirdPlace}}</td>
         <td class="address">{{thirdPlaceAddress}}</td>
         <td></td>
       </tr>
@@ -28,6 +28,8 @@
 
 <script>
 import {mapActions } from 'vuex'
+import { STRINGS } from '../../utils/strings'
+
 export default {
   name: 'ControllerWinnersBoard',
   props: {
@@ -43,6 +45,7 @@ export default {
       firstPlaceAddress: '',
       secondPlaceAddress: '',
       thirdPlaceAddress: '',
+      STRINGS: STRINGS
     }
   },
   methods: {

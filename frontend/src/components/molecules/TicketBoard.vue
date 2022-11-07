@@ -1,8 +1,8 @@
 <template>
   <div class="ticketbooth">
-    <h2>Ticketbooth</h2>
+    <h2>{{STRINGS.ticketBooth}}</h2>
     <div class="booth-content">
-      <span class="pick">Select buy-in</span>
+      <span class="pick">{{STRINGS.selectBuyin}}</span>
       <div class="ticket-amount">
         <TabWithAmounts
           :tabs="tabs"
@@ -11,7 +11,7 @@
       </div>
       <div  v-if="!!currentAccount" :class="['available-tickets', { expanded: isExpanded }]">
         <div class="header">
-          <span>Your Tickets</span>
+          <span>{{STRINGS.yourTickets}}</span>
           <div class="counter-box">
             <span class="box-number">{{ticketData.length}}</span>
           </div>
@@ -53,6 +53,7 @@ import TabWithAmounts from '@/components/atoms/TabWithAmounts'
 import TicketListBox from '@/components/atoms/TicketListBox'
 import { mapMutations } from 'vuex'
 import TICKET_VALUES from '../../utils/ticket_values.json'
+import { STRINGS } from '../../utils/strings'
 
 export default {
   name: 'TicketBoard',
@@ -84,6 +85,7 @@ export default {
       isInfoShown: false,
       isExpanded: false,
       tabs: TICKET_VALUES.ticketValues,
+      STRINGS: STRINGS,
     }
   },
   methods: {

@@ -1,19 +1,19 @@
 <template>
   <div>
-    <h3>Filtered Totals</h3>
+    <h3>{{STRINGS.filteredTotals}}</h3>
 
     <TabWithAmounts :tabs="tabs" @ticketType="handleChange" />
     <TabWithMonths @switch-tab="handleChange" />
 
     <table class="filteredTable">
       <tr>
-        <td>Total Tickets</td>
-        <td>Total Ethereum</td>
-        <td>Ocean Cleanup</td>
-        <td>First place</td>
-        <td>Second place</td>
-        <td>Third place</td>
-        <td>Craffpp Co.</td>
+        <td>{{STRINGS.totalTickets}}</td>
+        <td>{{STRINGS.totalEthereum}}</td>
+        <td>{{STRINGS.oceanCleanup}}</td>
+        <td>{{STRINGS.fristPlace}}</td>
+        <td>{{STRINGS.secondPlace}}</td>
+        <td>{{STRINGS.thirdPlace}}</td>
+        <td>{{STRINGS.craffpp}}</td>
       </tr>
       <tr>
         <td>{{filteredTotalTickets}}</td>
@@ -33,6 +33,7 @@ import { mapActions, mapGetters } from 'vuex'
 import TabWithMonths from '@/components/atoms/TabWithMonths'
 import TabWithAmounts from '@/components/atoms/TabWithAmounts'
 import TICKET_VALUES from '../../utils/ticket_values.json'
+import { STRINGS } from '../../utils/strings'
 
 export default {
   name: 'ControllerFilteredTotals',
@@ -45,6 +46,7 @@ export default {
       controllerDashboardData: [],
       filterObject: {},
       tabs: TICKET_VALUES.ticketValues,
+      STRINGS: STRINGS
     }
   },
   computed: {

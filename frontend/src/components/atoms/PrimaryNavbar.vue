@@ -2,13 +2,13 @@
   <div class="primary-nav">
     <router-link to="/" class="brand">
       <i class="fa-solid fa-fire"></i>
-      <h1>Craffpp</h1>
+      <h1>{{STRINGS.craffpp}}</h1>
     </router-link>
     <nav>
-      <router-link to="/">Home</router-link>
-      <router-link to="/play">Play</router-link>
-      <router-link to="/controller">Controller</router-link>
-      <router-link to="/how">How does it work</router-link>
+      <router-link to="/">{{STRINGS.home}}</router-link>
+      <router-link to="/play">{{STRINGS.play}}</router-link>
+      <router-link to="/controller">{{STRINGS.controller}}</router-link>
+      <router-link to="/how">{{STRINGS.howDoesItWork}}</router-link>
       <i class="fa-brands fa-twitter social-lg"></i>
       <i class="fa-brands fa-instagram social-lg"></i>
     </nav>
@@ -16,8 +16,14 @@
 </template>
 
 <script>
+import { STRINGS } from '../../utils/strings'
 export default {
-  name: 'PrimaryNavbar'
+  name: 'PrimaryNavbar',
+  data(){
+    return {
+      STRINGS: STRINGS
+    }
+  }
 }
 </script>
 

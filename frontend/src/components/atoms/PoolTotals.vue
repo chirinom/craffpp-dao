@@ -1,24 +1,24 @@
 <template>
 <div class="totals">
   <div class="title-price">
-    <h2 class="ocean">Ocean cleanup</h2>
+    <h2 class="ocean">{{STRINGS.oceanCleanup}}</h2>
     <i class="fa-brands fa-ethereum"></i>
     <h2 class="eth-num">{{ motherNature }}</h2>
   </div>
    <div class="title-price">
-    <h2 class="label">First place</h2>
+    <h2 class="label">{{STRINGS.fristPlace}}</h2>
     <i class="fa-brands fa-ethereum"></i>
     <h2 class="eth-num">{{ firstPlace }}</h2>
   </div>
   <span :class="isPoolPassed? '' : 'wallet'">{{isPoolPassed? firstPlaceAddress : sampleAddress}}</span>
    <div class="title-price">
-    <h2 class="label">Second place</h2>
+    <h2 class="label">{{STRINGS.secondPlace}}</h2>
     <i class="fa-brands fa-ethereum"></i>
     <h2 class="eth-num">{{ secondPlace }}</h2>
   </div>
   <span :class="isPoolPassed? '' : 'wallet'">{{isPoolPassed? secondPlaceAddress : sampleAddress}}</span>
    <div class="title-price">
-    <h2 class="label">Third place</h2>
+    <h2 class="label">{{STRINGS.thirdPlace}}</h2>
     <i class="fa-brands fa-ethereum"></i>
     <h2 class="eth-num">{{ thirdPlace }}</h2>
   </div>
@@ -28,6 +28,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import { STRINGS } from '../../utils/strings'
 
 export default {
   name: 'PoolTotals',
@@ -46,7 +47,8 @@ export default {
     return {
       totalEth: 0,
       sampleAddress: '0x0000000000000000000000000000000000000000',
-      winnersList: []
+      winnersList: [],
+      STRINGS: STRINGS
     }
   },
   watch: { 

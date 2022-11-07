@@ -1,15 +1,15 @@
 <template>
   <div>
-    <h3>Totals</h3>
+    <h3>{{STRINGS.totals}}</h3>
     <table class="totalsTable">
       <tr>
-        <td>Total Tickets</td>
-        <td>Total Ethereum</td>
-        <td>Ocean Cleanup</td>
-        <td>First place</td>
-        <td>Second place</td>
-        <td>Third place</td>
-        <td>Craffpp Co.</td>
+        <td>{{STRINGS.totalTickets}}</td>
+        <td>{{STRINGS.totalEthereum}}</td>
+        <td>{{STRINGS.oceanCleanup}}</td>
+        <td>{{STRINGS.fristPlace}}</td>
+        <td>{{STRINGS.secondPlace}}</td>
+        <td>{{STRINGS.thirdPlace}}</td>
+        <td>{{STRINGS.craffpp}}</td>
       </tr>
       <tr>
         <td>{{totalTickets}}</td>
@@ -26,9 +26,15 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { STRINGS } from '../../utils/strings'
 
 export default {
   name: 'ControllerTotals',
+  data() {
+    return {
+      STRINGS: STRINGS
+    }
+  },
   computed: {
     ...mapGetters(['allTickets']),
     totalTickets() {

@@ -6,21 +6,22 @@
       :class="['buy-btn', isLoading ? 'loading' : null]"
       :disabled="isLoading || !orderValid"
     >
-    <vue-loaders
-      v-if="isLoading"
-      class="loader"
-      name="ball-spin-fade-loader"
-      color="#fff"
-      scale="0.35"
-    />
+      <vue-loaders
+        v-if="isLoading"
+        class="loader"
+        name="ball-spin-fade-loader"
+        color="#fff"
+        scale="0.35"
+      />
       <span v-else>Buy ticket</span>
     </button>
-    <button v-else @click="connectWallet" class="buy-btn">Connect your wallet</button>
+    <button v-else @click="connectWallet" class="buy-btn">{{STRINGS.connectWallet}}</button>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import { STRINGS } from '../../utils/strings'
 
 export default {
   name: 'ConnectAndBuyButtons',
@@ -31,6 +32,11 @@ export default {
     orderValid: {
       type: Boolean,
     },
+  },
+  data() {
+    return {
+      STRINGS: STRINGS
+    }
   },
   computed: {
     ...mapGetters(['isLoading']),
