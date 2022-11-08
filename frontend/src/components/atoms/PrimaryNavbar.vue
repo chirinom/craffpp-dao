@@ -6,7 +6,7 @@
     </router-link>
     <nav>
       <router-link to="/">{{STRINGS.home}}</router-link>
-      <router-link to="/play">{{STRINGS.play}}</router-link>
+      <router-link to="/donate">{{STRINGS.donate}}</router-link>
       <router-link v-if="this.isAdmin" to="/controller">{{STRINGS.controller}}</router-link>
       <router-link to="/how">{{STRINGS.howDoesItWork}}</router-link>
       <i class="fa-brands fa-twitter social-lg"></i>
