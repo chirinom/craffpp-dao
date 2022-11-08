@@ -75,13 +75,10 @@ export default {
       margin-right: 32px;
       border-bottom: 2px solid transparent;
     }
-    span:hover {
-      color: rgb(46, 71, 141);
-      border-bottom: 2px solid rgb(11, 45, 139);
-    }
+    span:hover,
     .selected {
-      color: rgb(98, 108, 138);
-      border-bottom: 2px solid rgb(46, 71, 141);
+      color: #3e5badc7;
+      border-bottom: 2px solid #3e5badc7;
     }
     .tab {
       margin-left: 32px;
