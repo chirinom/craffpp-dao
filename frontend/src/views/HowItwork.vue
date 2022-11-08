@@ -2,68 +2,40 @@
   <div class="how-does-it-work">
     <div class="cards-container">
       <div class="card-steps">
-        <img
-          class="img2 how-image"
-          :src="require('@/assets/connect.png')"
-          alt=""
-        />
-        <p>
-          Connect your Metamask wallet to Craffpp platform
-        </p>
+        <img class="img2 how-image" :src="require('@/assets/connect.png')" />
+        <p>{{STRINGS.connectMetamask}}</p>
       </div>
       <img class="arrow1" :src="require('@/assets/arrow1.png')" />
       <div class="card-steps middle">
-        <img
-          class="how-image"
-          :src="require('@/assets/select.png')"
-          alt=""
-        />
-        <p>
-          Select the buy-in and month of the raffle you want to participate. Each buy-in
-          represent a set of winners (First, second and third place). You will be able to see
-          the cumulative ETH total on every raffle per Buy-in amount.
-          Then click Buy ticket and confirm transaction.
-        </p>
+        <img class="how-image" :src="require('@/assets/select.png')" />
+        <p>{{STRINGS.selectBuyinMonth}}</p>
       </div>
       <img class="arrow2" :src="require('@/assets/arrow2.png')" />
       <div class="card-steps middle">
-        <img
-          class="how-image"
-          :src="require('@/assets/draw.png')"
-          alt=""
-        />
-        <p>
-          Raffles are decided the 28th of every month. The winner addresses
-          are selected randomly. One address can win multiple prices in a sigle raffle. Meaning
-          a single address can win all first, second and third position prices having bought at 
-          least 3 tickets. The more tickets the more chances.
-        </p>
+        <img class="how-image" :src="require('@/assets/draw.png')" />
+        <p>{{STRINGS.raffles}}</p>
       </div>
         <img class="arrow3" :src="require('@/assets/arrow3.png')" />
         <div class="card-steps">
-        <img
-          class="how-image"
-          :src="require('@/assets/transfer.png')"
-          alt=""
-        />
-        <p>
-          Once a raffle is decided, the winning addresses will appear in the price pool board.
-          Winner addresses receive their corresponding winning ETH amounts in no more than 24 hours.
-        </p>
+        <img class="how-image" :src="require('@/assets/transfer.png')" />
+        <p>{{STRINGS.transfers}}</p>
       </div>
     </div>
     <h3>Raffles Price Distirbution</h3>
-    <p class="distribution">
-      Ocean and coastline cleanup 16%,  First place 40%, Second place 25% and Third place 15%.
-      Remaining 4% for development team and platform maintainance.
-    </p>
+    <p class="distribution">{{STRINGS.priceDistribution}}</p>
   </div>
 </template>
 
 <script>
+import { STRINGS } from '../utils/strings'
 
 export default {
   name: 'HowDoesItWork',
+  data() {
+    return {
+      STRINGS: STRINGS
+    }
+  }
 }
 </script>
 <style scoped lang="scss">
