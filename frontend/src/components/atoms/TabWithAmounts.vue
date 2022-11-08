@@ -92,6 +92,7 @@ export default {
   font-size: 14px;
   line-height: 24px;
   border-radius: 6px;
+  background: none;
   cursor: pointer;
   width: 100%;
   &:hover {

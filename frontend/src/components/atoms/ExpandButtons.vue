@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="btn-container">
     <button v-show="isExpanded" class="keyup-btn">
     <i
       @click="closeTicketList"
@@ -7,7 +7,7 @@
       class="fa-solid fa-chevron-up"
     />
   </button>
-  <button v-show="!isExpanded" class="dropdown-btn">
+  <button v-show="!isExpanded" class="keydown-btn">
     <i
       @click="extendTicketList"
       @keyup="extendTicketList"
@@ -39,33 +39,44 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dropdown-btn  {
+.btn-container {
+  width: 20px;
+  margin: 0 auto;
+}
+.keydown-btn  {
   border: none;
   text-decoration: none;
+  background: none;
+  position: relative;
+
   & i {
-    font-size: 15px;
+    font-size: 18px;
     margin-top: 4px;
     cursor: pointer;
     color:#3e5badc7;
+
     &:hover {
       color: #2e478d;
+      font-size: 19px;
     }
   }
 }
 .keyup-btn {
   border: none;
   text-decoration: none;
-  position: absolute;
   bottom: 0;
   background-color: transparent;
+  position: relative;
 
     & i {
-    font-size: 15px;
+    font-size: 18px;
     margin-top: 4px;
     cursor: pointer;
     color:#3e5badc7;
+
     &:hover {
       color: #2e478d;
+      font-size: 19px;
     }
   }
 }

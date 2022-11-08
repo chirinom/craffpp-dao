@@ -157,6 +157,7 @@ export default {
     border-radius: 6px;
     width: 100%;
     display: flex;
+    background: none;
   }
 }
 .pick {
@@ -190,14 +191,14 @@ export default {
 }
 
 .available-tickets {
-  border: 1px solid lightgrey;
+  // border: 1px solid lightgrey;
   font-weight: 700;
   color: rgba(60, 60, 67, 0.6);
-  cursor: pointer;
+  // cursor: pointer;
   width: 100%;
   border-radius: 6px;
   margin: 23px 0 11px;
-  background-color: #2e478d14;
+  // background-color: #2e478d14;
   padding: 11px 0 0 0;
   position: relative;
 
@@ -212,7 +213,7 @@ export default {
 }
 .box-number {
   padding: 0 6px;
-  background-color: lightgray;
+  // background-color: lightgray;
   border-radius: 4px;
   color:#3e5badc7;
   font-weight: bold;
@@ -246,8 +247,8 @@ export default {
   justify-content: center;
 
   & span {
-    margin: 1px 4px;
-    font-size: 12px;
+    margin: 0px 4px;
+    font-size: 14px;
   }
 }
 </style>

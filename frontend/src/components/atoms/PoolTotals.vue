@@ -131,15 +131,10 @@ export default {
   letter-spacing: 2px;
   margin: 20px 0;
 }
-.label {
-  color: #2e478d;
+.label, .ocean {
+  color: #3e5badc7;
   font-family: "Patua One", cursive;  
   margin: 25px 33px 0 0;
-}
-.ocean {
-  font-family: "Patua One", cursive;  
-  margin: 25px 33px 0 0;
-  color:rgba(117, 117, 148, 0.6)
 }
 .title-price {
   display: flex;

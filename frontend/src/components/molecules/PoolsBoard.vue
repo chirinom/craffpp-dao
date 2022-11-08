@@ -70,7 +70,7 @@ export default {
   font-family: "Patua One";
   font-size: 33px;
   font-weight: bold;
-  color:#2e478d;
+  color:#3e5badc7;
   padding: 22px 0 0 0;
 
 }
