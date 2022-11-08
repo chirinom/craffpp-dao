@@ -6,8 +6,8 @@
         :key="index"
         :time="times"
       >
-        <div v-if="!!time.time" class="card-block">
-          <h4 class="card-title">{{timerIsNegative(time.time) }}</h4>
+        <div class="card-block">
+          <h4 class="card-title">{{timerIsNegative(digitInCero(time.time)) }}</h4>
         <div class="card-footer">
           {{time.text}}
         </div>
@@ -43,6 +43,9 @@ export default {
     }
   },
   methods: {
+    digitInCero(time) {
+      return time === 0? '00': time
+    },
     timerIsNegative(time) {
       return Math.sign(time) === 1 ? time : '00'
     },

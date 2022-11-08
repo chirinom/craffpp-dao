@@ -1,8 +1,8 @@
 <template>
   <div class="contribution">
     <div class="introduction">
-      <p>{{STRINGS.panamaBio}}<br><br>{{STRINGS.panamaCrisis}}<br><br>{{STRINGS.panamaContribution}}</p>
       <img :src="require('@/assets/images/bahia_pty_1.jpeg')" alt="" />
+      <p>{{STRINGS.panamaBio}}<br><br>{{STRINGS.panamaCrisis}}<br><br>{{STRINGS.panamaContribution}}</p>
     </div>
   </div>
 </template>
