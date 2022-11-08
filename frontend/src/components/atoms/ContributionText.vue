@@ -17,19 +17,11 @@
         <br />
         For every pool we create, 16% of the profits will go to the
         reenforcement of efforts to take out as much trash as possible outside
-        of Panamá coastlines. This includes, donating to local ong's
-        specialliced in the matter and also creating events to collect trash and
-        transport it to recycling facilities.
-        <br />
-        <br />
-        Every contribution made to our Mother Nature will be posted in this page
-        with some pictures and relevant information.
+        of Panamá coastlines. This includes, donating to local ONG's
+        specialliced in the matter and the collection and
+        recycling of the plastic.
       </p>
-    </div>
-    <div class="section">
       <img :src="require('@/assets/images/bahia_pty_1.jpeg')" alt="" />
-      <img :src="require('@/assets/images/bahia_pty_2.jpeg')" alt="" />
-      <img :src="require('@/assets/images/mineria_pty_1.jpeg')" alt="" />
     </div>
   </div>
 </template>
@@ -37,35 +29,31 @@
 <script>
 
 export default {
-  name: 'ContributionView',
+  name: 'ContributionText',
   components: {
 
   },
 }
 </script>
 <style scoped lang="scss">
-.contribution {
-  justify-content: space-between;
-  padding: 34px 333px;
-}
 .introduction {
-  padding: 44px;
-}
-.section {
   display: flex;
   justify-content: space-around;
-  margin: 33px;
-  & img {
-    width: 333px;
-    height: 222px;
+  background: #000000e0;
+  color: white;
+  padding: 77px;
+
+  p {
+    font-size: 19px;
+    max-width: 1111px;
+  }
+
+  img {
+    width: 444px;
+    height: auto;
   }
 }
-@media (max-width: 1536px) {
-}
-@media (max-width: 1280px) {
-}
-@media (max-width: 1024px) {
-}
+
 @media (max-width: 768px) {
   .contribution {
     display: block;
@@ -73,17 +61,12 @@ export default {
   .introduction {
     padding: 8px;
   }
-  .section {
-    display: block;
-    margin: 0px;
-    & img {
-      width: 100%;
-      height: 222px;
-      margin: 4px 0;
-    }
+  img {
+    width: 100%;
+    height: 222px;
+    margin: 4px 0;
   }
-}
-@media (max-width: 640px) {
+  
 }
 @media (max-width: 511px) {
   .contribution {

@@ -3,49 +3,59 @@
     <div class="cards-container">
       <div class="card-steps">
         <img
-          class="how-image"
-          :src="require('@/assets/images/no-avatar-legal.png')"
+          class="img2 how-image"
+          :src="require('@/assets/connect.png')"
           alt=""
         />
         <p>
-          Make sure you have already connected your wallet to our platform. Once
-          connected you should be able to see your connection status green,
-          otherwise you will see a red dot next to your connection status.h
+          Connect your Metamask wallet to Craffpp platform
         </p>
       </div>
-      <div class="card-steps">
+      <img class="arrow1" :src="require('@/assets/arrow1.png')" />
+      <div class="card-steps middle">
         <img
           class="how-image"
-          :src="require('@/assets/images/no-avatar-legal.png')"
+          :src="require('@/assets/select.png')"
           alt=""
         />
         <p>
-          Select the month and pool price amount you want to participate.
-          Following This you just have to click on buy ticket and your wallet
-          should receive a transaction request. Accept it, and you are good to
-          go.
+          Select the buy-in and month of the raffle you want to participate. Each buy-in
+          represent a set of winners (First, second and third place). You will be able to see
+          the cumulative ETH total on every raffle per Buy-in amount.
+          Then click Buy ticket and confirm transaction.
         </p>
       </div>
-      <div class="card-steps">
+      <img class="arrow2" :src="require('@/assets/arrow2.png')" />
+      <div class="card-steps middle">
         <img
           class="how-image"
-          :src="require('@/assets/images/no-avatar-legal.png')"
+          :src="require('@/assets/draw.png')"
           alt=""
         />
         <p>
-          You will be able to see the cumulative total of ETH on your selected
-          pool and any other. In case of winning, your wallet address will apear
-          in podium list and when this happens you shall receive as well a
-          transaction request on your wallet, but this time it will be a direct
-          deposit :)
+          Raffles are decided the 28th of every month. The winner addresses
+          are selected randomly. One address can win multiple prices in a sigle raffle. Meaning
+          a single address can win all first, second and third position prices having bought at 
+          least 3 tickets. The more tickets the more chances.
+        </p>
+      </div>
+        <img class="arrow3" :src="require('@/assets/arrow3.png')" />
+        <div class="card-steps">
+        <img
+          class="how-image"
+          :src="require('@/assets/transfer.png')"
+          alt=""
+        />
+        <p>
+          Once a raffle is decided, the winning addresses will appear in the price pool board.
+          Winner addresses receive their corresponding winning ETH amounts in no more than 24 hours.
         </p>
       </div>
     </div>
-    <h3>Price Distirbution</h3>
+    <h3>Raffles Price Distirbution</h3>
     <p class="distribution">
-      The cumulative total of ETH will be distributed on each pool the following way. 16% its
-      going to ocean and coastline cleanup. First place will get 40%, second
-      place 25% and third place 15%. The last 4% goes to development team and platform maintainance.
+      Ocean and coastline cleanup 16%,  First place 40%, Second place 25% and Third place 15%.
+      Remaining 4% for development team and platform maintainance.
     </p>
   </div>
 </template>
@@ -54,28 +64,51 @@
 
 export default {
   name: 'HowDoesItWork',
-  methods: {},
-  data() {
-    return {
-    }
-  },
 }
 </script>
 <style scoped lang="scss">
 .how-does-it-work {
-  padding: 44px 444px 222px;
+  padding: 111px 222px 222px;
 }
 .how-image {
-  width: 100%;
-  height: 177px;
   object-fit: cover;
+  width: 111px;
+  height: 111px;
+  opacity: 60%;
 }
 .cards-container {
   display: flex;
-  margin-top: 33px;
+  justify-content: space-between;
+  position: relative;
 }
 .card-steps {
-  padding: 33px;
-  max-width: 333px;
+  margin: 33px;
+}
+.arrow1, .arrow2, .arrow3 {
+  width: 444px;
+  position: absolute;
+  top: -88px;
+  left: 18px;
+  opacity: 33%;
+}
+.arrow2 {
+  width: 444px;
+  position: absolute;
+  top: -22px;
+  left: 397px;
+  opacity: 33%;
+}
+.arrow3 {
+  width: 444px;
+  position: absolute;
+  top: -82px;
+  left: 777px;
+  opacity: 33%;
+}
+.middle {
+  margin-top: 111px;
+}
+h3 {
+  margin: 77px 0 0;
 }
 </style>

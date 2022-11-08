@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import PlayView from '../views/PlayView.vue'
 import HowItwork from '../views/HowItwork.vue'
-import ContributionView from '../views/ContributionView.vue'
 import ControllerView from '../views/ControllerView.vue'
 import TermsView from '../views/TermsView.vue'
 
@@ -21,11 +20,6 @@ const routes = [
     path: '/how',
     name: 'howItWork',
     component: HowItwork,
-  },
-  {
-    path: '/contribution',
-    name: 'contributionView',
-    component: ContributionView,
   },
   {
     path: '/controller',
