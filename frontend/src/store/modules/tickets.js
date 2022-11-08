@@ -10,10 +10,7 @@ const state = {
   currentTicketType: 0,
   currentTicketValue: 0,
   currentPoolDateCode: '',
-  filterObject: {
-    type: '',
-    month: ''
-  },
+  filterObject: { type: '', month: ''},
   isLoading: false,
   allTickets: [],
   ethBalance: 0,

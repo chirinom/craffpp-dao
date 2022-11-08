@@ -8,43 +8,28 @@ const getters = {
   isAdmin: (state) => (state.currentAccount.toLowerCase() === process.env.VUE_APP_ADMIN_ACCOUNT.toLowerCase())
 }
 const actions = {
-  connectWallet({commit}) {
-    return new Promise ((resolve, reject) => {
+  async connectWallet({commit}) {
+    try {
       if (!ethereum) return alert('Please install Metamask')
-      ethereum.request({method: 'eth_requestAccounts'}).then(
-        response => {
-          if (response.length) {
-            commit('setCurrentAccount', response[0])
-            resolve(response[0])
-            window.location.reload() 
-          } else {
-            console.log('No accounts found')
-          }
-        },
-        error => {
-          reject(error)
-        }
-      )
-    })
+      const result = await ethereum.request({method: 'eth_requestAccounts'})
+      if (result.length) {
+        commit('setCurrentAccount', result[0])
+        window.location.reload() 
+      }
+    } catch (e) {
+      console.error(e)
+      throw new Error('No ethereum object')
+    }
   },
-  checkIfWalletIsConnect({commit}) {
-    return new Promise ((resolve, reject) => {
+  async checkIfWalletIsConnect({commit}) {
+    try {
       if (!ethereum) return alert('Please install Metamask')
-      ethereum.request({method: 'eth_accounts'}).then(
-        response => {
-          if (response.length) {
-            commit('setCurrentAccount', response[0])
-            console.log(response[0].toLowerCase() === process.env.VUE_APP_ADMIN_ACCOUNT.toLowerCase())
-            resolve(response[0])
-          } else {
-            console.log('No accounts found')
-          }
-        },
-        error => {
-          reject(error)
-        }
-      )
-    })
+      const result = await ethereum.request({method: 'eth_accounts'})
+      result.length ? commit('setCurrentAccount', result[0]) : console.log('No accounts found')
+    } catch (e) {
+      console.error(e)
+      throw new Error('No ethereum object')
+    }
   },
 }
 const mutations = {
