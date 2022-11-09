@@ -2,7 +2,7 @@ import { ethers } from 'ethers'
 import { winnersAbi, winnersContractAddress } from '../../utils/constants'
 
 const { ethereum } = window
-const provider = new ethers.providers.Web3Provider(ethereum)
+const provider = new ethers.providers.Web3Provider(window.ethereum)
 const signer = provider.getSigner()
 
 const state = {
@@ -64,7 +64,7 @@ const actions = {
   async getAllWinners ({commit}) {
     try {
       if (ethereum) {
-        const winnersContract = new ethers.Contract(winnersContractAddress, winnersAbi, signer)
+        const winnersContract = new ethers.Contract(winnersContractAddress, winnersAbi, provider)
         const winnersResponse = await winnersContract.getAllWinners()
         const parcedWinners = winnersResponse.map((winner) => ({
           amount: winner[0],

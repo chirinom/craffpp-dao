@@ -3,21 +3,25 @@
     <div class="cards-container">
       <div class="card-steps">
         <img class="img2 how-image" :src="require('@/assets/connect.png')" />
+        <h2>{{STRINGS.connectWallet}}</h2>
         <p>{{STRINGS.connectMetamask}}</p>
       </div>
       <img class="arrow1" :src="require('@/assets/arrow1.png')" />
       <div class="card-steps middle">
         <img class="how-image" :src="require('@/assets/select.png')" />
+        <h2>{{STRINGS.chooseBuyin}}</h2>
         <p>{{STRINGS.selectBuyinMonth}}</p>
       </div>
       <img class="arrow2" :src="require('@/assets/arrow2.png')" />
       <div class="card-steps middle">
         <img class="how-image" :src="require('@/assets/draw.png')" />
+        <h2>{{STRINGS.winnerSelected}}</h2>
         <p>{{STRINGS.raffles}}</p>
       </div>
-        <img class="arrow3" :src="require('@/assets/arrow3.png')" />
-        <div class="card-steps">
+      <img class="arrow3" :src="require('@/assets/arrow3.png')" />
+      <div class="card-steps">
         <img class="how-image transfer" :src="require('@/assets/transfer.png')" />
+        <h2>{{STRINGS.recievePrice}}</h2>
         <p>{{STRINGS.transfers}}</p>
       </div>
     </div>

@@ -4,7 +4,7 @@ import store from '@/store/index.js'
 import { notify } from '@kyvg/vue3-notification'
 
 const { ethereum } = window
-const provider = new ethers.providers.Web3Provider(ethereum)
+const provider = new ethers.providers.Web3Provider(window.ethereum)
 const signer = provider.getSigner()
 
 const state = {
@@ -69,32 +69,32 @@ const actions = {
         )
         
         await ticketsHash.wait()
-        commit('setIsLoading', false)
         notify({title: 'Succesfully bought (1) ' + state.currentTicketType + ' ticket for ' + state.currentPoolDateCode + ' raffle 🎉'})
-        await new Promise(resolve => setTimeout(resolve, 3000))
+        await new Promise(resolve => setTimeout(resolve, 4444))
+        commit('setIsLoading', false)
         window.location.reload() 
       } 
     } catch (e) {
-      e.error.code === -32000 ? notify({title: 'Insuficient Funds', type: 'warn',}) : null
+      console.error(e)
       commit('setIsLoading', false)
+      e.error.code === -32000 ? notify({title: 'Insuficient Funds 😿', type: 'warn',}) : null
       throw new Error('No ethereum object')
     }
   },
   async getAllTickets({commit}) {
     try {
-      if (ethereum) {
-        const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
-        const allTicketsHash = await ticketsContract.getAllTickets()
-        const parcedTickets = allTicketsHash.map((ticket) => ({
-          ticketOwner: ticket.ticket_owner,
-          timestamp: new Date(ticket.timestamp.toNumber() * 1000).toLocaleString(),
-          poolType: ticket.pool_type,
-          month: ticket.month,
-          keyword: ticket.keyword,
-          amount: parseInt(ticket.amount._hex) / (10 ** 18)
-        }))
-        commit('setAllTickets', parcedTickets)
-      }
+      const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, provider)
+      const allTicketsHash = await ticketsContract.getAllTickets()
+      const parcedTickets = allTicketsHash.map((ticket) => ({
+        ticketOwner: ticket.ticket_owner,
+        timestamp: new Date(ticket.timestamp.toNumber() * 1000).toLocaleString(),
+        poolType: ticket.pool_type,
+        month: ticket.month,
+        keyword: ticket.keyword,
+        amount: parseInt(ticket.amount._hex) / (10 ** 18)
+      }))
+      commit('setAllTickets', parcedTickets)
+      
     } catch (e) {
       console.error(e)
     }
