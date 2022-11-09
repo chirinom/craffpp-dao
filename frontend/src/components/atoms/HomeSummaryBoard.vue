@@ -67,4 +67,25 @@ export default {
   width: 111px;
   opacity: 11%;
 }
+
+@media (max-width: 1650px) {
+  .summary-container {
+    padding: 33px 444px 88px;
+  }
+}
+@media (max-width: 1333px) {
+  .summary-container {
+    padding: 33px 222px 88px;
+  }
+}
+@media (max-width: 1089px) {
+  .summary-container {
+    padding: 33px 111px 88px;
+  }
+}
+@media (max-width: 777px) {
+  .summary-container {
+    padding: 33px 33px 88px;
+  }
+}
 </style>

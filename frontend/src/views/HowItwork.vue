@@ -59,7 +59,7 @@ export default {
 .card-steps {
   margin: 33px;
 }
-.arrow1, .arrow2, .arrow3 {
+.arrow1 {
   width: 444px;
   position: absolute;
   top: -88px;
@@ -85,5 +85,38 @@ export default {
 }
 h3 {
   margin: 77px 0 0;
+}
+
+@media (max-width: 1650px) {
+  .middle {
+    margin-top: 0;
+  }
+  .how-does-it-work {
+    padding: 111px;
+  }
+  .arrow1, .arrow2, .arrow3 { display: none}
+  .cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 1333px) {}
+@media (max-width: 1089px) {
+  .how-does-it-work {
+    padding: 44px;
+  }
+  .cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .card-steps {
+    margin: 22px 0 0 0;
+  }
+
+}
+@media (max-width: 777px) {
+  .how-does-it-work {
+    padding: 22px;
+  }
 }
 </style>

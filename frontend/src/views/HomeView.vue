@@ -121,7 +121,6 @@ export default {
     .home-view {
       padding: 33px 22px;
       display: inline-block;
-      width: 100%;
       margin: 0 auto;
 
     button {
@@ -132,7 +131,6 @@ export default {
       font-size: 44px;
     }
   }
-
 }
 @media (max-width: 777px) {
     .home-view {

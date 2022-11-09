@@ -34,7 +34,7 @@ export default {
   }
 
   img {
-    width: 444px;
+    max-width: 444px;
     height: auto;
   }
 }
@@ -44,18 +44,19 @@ export default {
     display: block;
   }
   .introduction {
-    padding: 8px;
-  }
-  img {
-    width: 100%;
-    height: 222px;
-    margin: 4px 0;
+    padding: 22px;
+    display: block;
+
+      p {
+        font-size: 14px;
+      }
+
+    img {
+      width: 100%;
+      height: 222px;
+      margin: 4px 0;
+    }
   }
   
-}
-@media (max-width: 511px) {
-  .contribution {
-    padding: 11px 22px;
-  }
 }
 </style>

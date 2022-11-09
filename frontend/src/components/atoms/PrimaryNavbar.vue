@@ -100,7 +100,6 @@ nav {
     display: none;
   }
   .brand {
-    padding: 0;
     justify-content: center;
   }
 }
