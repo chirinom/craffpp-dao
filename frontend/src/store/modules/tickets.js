@@ -1,6 +1,7 @@
 import { ethers } from 'ethers'
 import { ticketsAbi, ticketsContractAddress } from '../../utils/constants'
 import store from '@/store/index.js'
+import { notify } from '@kyvg/vue3-notification'
 
 const { ethereum } = window
 const provider = new ethers.providers.Web3Provider(ethereum)
@@ -66,13 +67,15 @@ const actions = {
           getters.keyword,
           {value: parsedAmount._hex}
         )
-
+        
         await ticketsHash.wait()
         commit('setIsLoading', false)
+        notify({title: 'Succesfully bought (1) ' + state.currentTicketType + ' ticket for ' + state.currentPoolDateCode + ' raffle 🎉'})
+        await new Promise(resolve => setTimeout(resolve, 3000))
         window.location.reload() 
-      }
+      } 
     } catch (e) {
-      console.error(e)
+      e.error.code === -32000 ? notify({title: 'Insuficient Funds', type: 'warn',}) : null
       commit('setIsLoading', false)
       throw new Error('No ethereum object')
     }

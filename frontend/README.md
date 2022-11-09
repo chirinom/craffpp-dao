@@ -32,3 +32,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Customize vue alerts
+See https://www.npmjs.com/package/@kyvg/vue3-notification

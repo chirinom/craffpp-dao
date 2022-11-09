@@ -5,6 +5,11 @@ import store from './store'
 
 import 'vue-loaders/dist/vue-loaders.css'
 import VueLoaders from 'vue-loaders'
+import Notifications from '@kyvg/vue3-notification'
 
-
-createApp(App).use(VueLoaders).use(store).use(router).mount('#app')
+createApp(App)
+  .use(Notifications)
+  .use(VueLoaders)
+  .use(store)
+  .use(router)
+  .mount('#app')

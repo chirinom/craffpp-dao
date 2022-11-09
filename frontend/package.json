@@ -11,6 +11,7 @@
     "db:serve": "json-server --watch db.json --port=8000"
   },
   "dependencies": {
+    "@kyvg/vue3-notification": "^2.6.1",
     "axios": "^0.27.2",
     "core-js": "^3.8.3",
     "dotenv": "^16.0.1",
@@ -48,10 +49,21 @@
   },
   "eslintConfig": {
     "rules": {
-      "indent": ["error", 2],
-      "quotes": ["error", "single"],
-      "no-multi-spaces": ["error"],
-      "semi": ["error", "never"]
+      "indent": [
+        "error",
+        2
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "no-multi-spaces": [
+        "error"
+      ],
+      "semi": [
+        "error",
+        "never"
+      ]
     },
     "root": true,
     "env": {
