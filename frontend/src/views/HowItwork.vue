@@ -17,7 +17,7 @@
       </div>
         <img class="arrow3" :src="require('@/assets/arrow3.png')" />
         <div class="card-steps">
-        <img class="how-image" :src="require('@/assets/transfer.png')" />
+        <img class="how-image transfer" :src="require('@/assets/transfer.png')" />
         <p>{{STRINGS.transfers}}</p>
       </div>
     </div>
@@ -47,6 +47,9 @@ export default {
   width: 111px;
   height: 111px;
   opacity: 60%;
+}
+.transfer {
+  width: 155px;
 }
 .cards-container {
   display: flex;

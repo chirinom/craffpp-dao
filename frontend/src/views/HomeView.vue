@@ -13,6 +13,7 @@
         </router-link>
       </div>
     </div>
+    <HomeSummaryboard />
     <ContributionText />
   </div>
 </template>
@@ -21,11 +22,13 @@
 import { mapActions, mapGetters } from 'vuex'
 import { STRINGS } from '../utils/strings'
 import ContributionText from '@/components/atoms/ContributionText'
+import HomeSummaryboard from '@/components/atoms/HomeSummaryBoard'
 
 export default {
   name: 'HomeView',
   components: {
-    ContributionText
+    ContributionText,
+    HomeSummaryboard
   },
   data() {
     return {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="balance-container">
     <h3>Contract Balance</h3>
     <table class="balanceTable">
       <tr>
@@ -45,8 +45,8 @@ export default {
       addressValid: false
     }
   },
-  watch : {
-    ethAddress : function (val) {
+  watch: {
+    ethAddress: function (val) {
       this.addressValid = ethers.utils.isAddress(val)
       this.setWithdrawAddress(val)
     }
@@ -68,11 +68,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.balance-container {
+  background-color: #2e478d14;
+  padding: 22px;
+  margin: 33px auto;
+
+  h3 {
+    margin: 0 auto 22px;
+  }
+}
 .balanceTable {
-    margin: 33px auto;
     text-align: center;
-    background-color: #2e478d14;
-    padding: 22px;
     width: 100%;
     border-radius: 6px;
 

@@ -42,5 +42,7 @@ export const STRINGS = {
   priceDistribution: 'Each paid buy-in in distributed in the raffle the following way; Ocean and coastline cleanup 16%,  First place 40%, Second place 25% and Third place 15%. Remaining 4% for development team and platform maintainance.',
   panamaBio: 'Panamá, is a country full of biodiversity, it is in fact well known for hosting one of the most wide varieties of plants and animal species in both land and sea. Only in Panamá, 220 species of freshwater fish and 1,157 species of marine fish have been identified. Panamá is also home to 3.4% of the world\'s amphibian species.',
   panamaCrisis: 'The list could go on and on but. What is important here is, that all this coastline, and rivers are currently in danger because of the huge amount of trash comming from different rivers all around the country, specially the ones closer to the city.',
-  panamaContribution: 'For every pool we create, 16% of the profits will go to the reenforcement of efforts to take out as much trash as possible outside of Panamá coastlines. This includes, donating to local ONG\'s specialliced in the matter and the collection and recycling of the plastic.'
+  panamaContribution: 'For every pool we create, 16% of the profits will go to the reenforcement of efforts to take out as much trash as possible outside of Panamá coastlines. This includes, donating to local ONG\'s specialliced in the matter and the collection and recycling of the plastic.',
+  totalRaised: 'Total raised for garbage collection',
+  totalGivedBack: 'Total gived back to the people'
 }

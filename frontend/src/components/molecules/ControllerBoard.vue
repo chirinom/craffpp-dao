@@ -15,7 +15,7 @@ import ControllerContractBalance from '@/components/atoms/ControllerContractBala
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'ControllerBoards',
+  name: 'ControllerBoard',
   components: {
     ControllerTotals,
     ControllerFilteredTotals,

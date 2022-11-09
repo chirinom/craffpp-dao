@@ -31,7 +31,7 @@ export default {
 <style lang="scss">
 .primary-footer {
   background: #2e478d14;
-  padding:  44px 0 55px;
+  padding:  44px 0;
   
   .brand {
     margin: 0 0 44px 0;
