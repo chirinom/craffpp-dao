@@ -14,12 +14,19 @@
 <script>
 import PrimaryNavbar from '@/components/atoms/PrimaryNavbar'
 import PrimaryFooter from '@/components/atoms/PrimaryFooter'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'App',
   components: {
     PrimaryNavbar,
     PrimaryFooter
+  },
+  methods: {
+    ...mapActions(['getAllTickets'])
+  },
+  mounted() {
+    this.getAllTickets()
   }
 }
 </script>

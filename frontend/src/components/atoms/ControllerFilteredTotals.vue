@@ -86,7 +86,6 @@ export default {
     },
   },
   methods: {
-    ...mapActions(['getAllTickets']),
     handleChange(val) {
       val.length === 7 ? this.filterObject.month = val : this.filterObject.type = val
       const poolCode = this.filterObject.type + this.filterObject.month
@@ -98,9 +97,6 @@ export default {
       this.$emit('handleChange', poolCode, result)
     },
   },
-  mounted () {
-    this.getAllTickets()
-  }
 }
 </script>
 

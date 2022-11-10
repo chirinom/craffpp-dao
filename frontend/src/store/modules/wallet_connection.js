@@ -25,7 +25,7 @@ const actions = {
     try {
       if (!ethereum) return alert('Please install Metamask')
       const result = await ethereum.request({method: 'eth_accounts'})
-      result.length ? commit('setCurrentAccount', result[0]) : console.log('No accounts found')
+      result.length ? commit('setCurrentAccount', result[0]) : null
     } catch (e) {
       console.error(e)
       throw new Error('No ethereum object')

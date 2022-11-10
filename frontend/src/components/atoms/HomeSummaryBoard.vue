@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 import { STRINGS } from '../../utils/strings'
 
 export default {
@@ -37,10 +37,6 @@ export default {
       return result.toFixed(4)
     },
   },
-  methods: { ...mapActions(['getAllTickets']) },
-  mounted () {
-    this.getAllTickets()
-  }
 }
 </script>
 

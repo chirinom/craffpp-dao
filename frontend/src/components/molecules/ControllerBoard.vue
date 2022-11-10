@@ -12,7 +12,6 @@ import ControllerTotals from '@/components/atoms/ControllerTotals'
 import ControllerFilteredTotals from '@/components/atoms/ControllerFilteredTotals'
 import ControllerWinnersBoard from '@/components/atoms/ControllerWinnersBoard'
 import ControllerContractBalance from '@/components/atoms/ControllerContractBalance'
-import { mapActions } from 'vuex'
 
 export default {
   name: 'ControllerBoard',
@@ -29,14 +28,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getAllTickets']),
     handleChange(poolCode, data) {
       this.poolCode = poolCode
       this.filteredData = data
     }
   },
-  mounted () {
-    this.getAllTickets()
-  }
 }
 </script>

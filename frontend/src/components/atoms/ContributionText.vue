@@ -28,9 +28,10 @@ export default {
   padding: 77px;
 
   p {
-    font-size: 19px;
+    font-size: 18px;
     max-width: 1111px;
-    margin: 22px
+    margin: 22px;
+    text-align: left;
   }
 
   img {
@@ -47,9 +48,9 @@ export default {
     padding: 22px;
     display: block;
 
-      p {
-        font-size: 14px;
-      }
+    p {
+      font-size: 14px;
+    }
 
     img {
       width: 100%;

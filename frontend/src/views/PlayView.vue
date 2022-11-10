@@ -39,7 +39,7 @@ export default {
     ...mapGetters(['filterObject', 'allTickets', 'currentAccount'])
   },
   methods: {
-    ...mapActions(['getAllTickets', 'checkIfWalletIsConnect']),
+    ...mapActions(['checkIfWalletIsConnect']),
     ...mapMutations(['setCurrentAccount']),
     setPoolIsPassed(val) {
       this.poolPassed = val
@@ -61,7 +61,6 @@ export default {
   },
   mounted () {
     this.checkIfWalletIsConnect()
-    this.getAllTickets()
   }
 }
 </script>
