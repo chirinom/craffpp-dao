@@ -1,3 +1,4 @@
+import { notify } from '@kyvg/vue3-notification'
 const { ethereum } = window
 
 const state = {
@@ -10,20 +11,20 @@ const getters = {
 const actions = {
   async connectWallet({commit}) {
     try {
-      if (!ethereum) return alert('Please install Metamask')
       const result = await ethereum.request({method: 'eth_requestAccounts'})
       if (result.length) {
         commit('setCurrentAccount', result[0])
         window.location.reload() 
       }
     } catch (e) {
+      notify({title: 'Please install Metamask', type: 'warn'})
       console.error(e)
       throw new Error('No ethereum object')
     }
   },
   async checkIfWalletIsConnect({commit}) {
     try {
-      if (!ethereum) return alert('Please install Metamask')
+      if (!ethereum) notify({title: 'Please install Metamask', type: 'warn'})
       const result = await ethereum.request({method: 'eth_accounts'})
       result.length ? commit('setCurrentAccount', result[0]) : null
     } catch (e) {

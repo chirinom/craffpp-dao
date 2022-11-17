@@ -78,26 +78,23 @@ const actions = {
     } catch (e) {
       console.error(e)
       commit('setIsLoading', false)
-      e.error.code === -32000 ? notify({title: 'Insuficient Funds 😿', type: 'warn',}) : null
+      e.error.code === -32000 ? notify({title: 'Insuficient Funds 😿', type: 'warn'}) : null
       throw new Error('No ethereum object')
     }
   },
   async getAllTickets({commit}) {
     try {
-      console.log(provider, '11')
-      if (ethereum && provider) {
-        const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, provider)
-        const allTicketsHash = await ticketsContract.getAllTickets()
-        const parcedTickets = allTicketsHash.map((ticket) => ({
-          ticketOwner: ticket.ticket_owner,
-          timestamp: new Date(ticket.timestamp.toNumber() * 1000).toLocaleString(),
-          poolType: ticket.pool_type,
-          month: ticket.month,
-          keyword: ticket.keyword,
-          amount: parseInt(ticket.amount._hex) / (10 ** 18)
-        }))
-        commit('setAllTickets', parcedTickets)
-      }
+      const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, provider)
+      const allTicketsHash = await ticketsContract.getAllTickets()
+      const parcedTickets = allTicketsHash.map((ticket) => ({
+        ticketOwner: ticket.ticket_owner,
+        timestamp: new Date(ticket.timestamp.toNumber() * 1000).toLocaleString(),
+        poolType: ticket.pool_type,
+        month: ticket.month,
+        keyword: ticket.keyword,
+        amount: parseInt(ticket.amount._hex) / (10 ** 18)
+      }))
+      commit('setAllTickets', parcedTickets)
     } catch (e) {
       console.error(e)
     }

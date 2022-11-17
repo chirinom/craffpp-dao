@@ -1,5 +1,4 @@
 import { ethers } from 'ethers'
-import Web3 from 'web3'
 import { winnersAbi, winnersContractAddress } from '../../utils/constants'
 
 const API_KEY = process.env.VUE_APP_API_KEY
@@ -64,17 +63,16 @@ const actions = {
   },
   async getAllWinners ({commit}) {
     try {
-      if (ethereum && provider) {
-        const winnersContract = new ethers.Contract(winnersContractAddress, winnersAbi, provider)
-        const winnersResponse = await winnersContract.getAllWinners()
-        const parcedWinners = winnersResponse.map((winner) => ({
-          amount: winner[0],
-          address: winner[1],
-          pool_code: winner[2],
-          standing: winner[3],
-        }))
-        commit('setWinners', parcedWinners)
-      }
+      const winnersContract = new ethers.Contract(winnersContractAddress, winnersAbi, provider)
+      const winnersResponse = await winnersContract.getAllWinners()
+      const parcedWinners = winnersResponse.map((winner) => ({
+        amount: winner[0],
+        address: winner[1],
+        pool_code: winner[2],
+        standing: winner[3],
+      }))
+      commit('setWinners', parcedWinners)
+
     } catch (e) {
       console.error(e)
       throw new Error('No ethereum object')
