@@ -19,7 +19,7 @@ export default {
 
 <style scoped lang="scss">
 .controllersView {
-  padding: 44px 444px 222px;
+  padding: 44px 222px;
 }
 @media (max-width: 1333px) {
   .controllersView {
