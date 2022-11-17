@@ -25,7 +25,7 @@ export default {
   methods: {
     ...mapActions(['getAllTickets'])
   },
-  mounted() {
+  created() {
     this.getAllTickets()
   }
 }
