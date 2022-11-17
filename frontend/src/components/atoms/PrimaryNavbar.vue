@@ -9,8 +9,8 @@
       <router-link to="/donate">{{STRINGS.donate}}</router-link>
       <router-link v-if="this.isAdmin" to="/controller">{{STRINGS.controller}}</router-link>
       <router-link to="/how">{{STRINGS.howDoesItWork}}</router-link>
-      <i class="fa-brands fa-twitter social-lg"></i>
-      <i class="fa-brands fa-instagram social-lg"></i>
+      <a href="https://discord.gg/drZfVMB2YW" target="_blank"><i class="fa-brands fa-discord"></i></a>
+      <a href="https://www.instagram.com/craffpp/" target="_blank"><i class="fa-brands fa-instagram social-lg"></i></a>
     </nav>
   </div>
 </template>
@@ -36,12 +36,12 @@ export default {
 .primary-nav {
   display: flex;
   justify-content: space-between;
-    width: 100%;
+  width: 100%;
 }
 .brand {
     font-family: "Patua One", cursive;
-    display: flex;
     color:#3e5badc7;
+    display: flex;
     padding: 50px 0 0 77px;
     font-size: 22px;
     text-decoration: none;

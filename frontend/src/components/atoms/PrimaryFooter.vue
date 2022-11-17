@@ -6,8 +6,8 @@
     </router-link>
     <h5>Help us sweap the plastic from our oceans and <strong>win some ETH</strong> doing it</h5>
     <div class="social">
-        <i class="fa-brands fa-twitter social-lg"></i>
-        <i class="fa-brands fa-instagram social-lg"></i>
+      <a href="https://discord.gg/drZfVMB2YW" target="_blank"><i class="fa-brands fa-discord"></i></a>
+      <a href="https://www.instagram.com/craffpp/" target="_blank"><i class="fa-brands fa-instagram social-lg"></i></a>
     </div>
       <router-link to="/terms" target="_blank" class="terms">
         <span>{{STRINGS.termsAndConditions}}</span>
@@ -46,6 +46,9 @@ export default {
   .social {
     font-size: 22px;
     margin: 22px;
+font-weight: bold;
+    color: #2c3e50;
+    text-decoration: none;
 
     i {
       margin: 0 11px;
