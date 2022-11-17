@@ -3,10 +3,10 @@ import { ticketsAbi, ticketsContractAddress } from '../../utils/constants'
 import store from '@/store/index.js'
 import { notify } from '@kyvg/vue3-notification'
 
-const ethereum = window.ethereum
-// const provider = new ethers.providers.Web3Provider(window.ethereum)
-const signer = window.provider?.getSigner()
-const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
+const API_KEY = process.env.VUE_APP_API_KEY
+const { ethereum } = window
+const provider = new ethers.providers.JsonRpcProvider(`https://eth-goerli.g.alchemy.com/v2/${API_KEY}`)
+const signer = provider.getSigner()
 
 const state = {
   currentTicketType: 0,
@@ -32,7 +32,7 @@ const actions = {
   async getBalance ({commit}) {
     try {
       if (ethereum) {
-        // const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
+        const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
         const transactionsHash = await ticketsContract.getBalance()
         const data = parseInt(transactionsHash._hex) / (10 ** 18)
         commit('setBalance', data)
@@ -45,8 +45,8 @@ const actions = {
   async withdrawFromContract({}) {
     try {
       if (ethereum) {
+        const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
         const parsedAmount = ethers.utils.parseEther(state.ethBalance.toString())
-        // const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
         await ticketsContract.transferEther(state.withdrawAddress, parsedAmount._hex)
       }
     } catch (e) {
@@ -58,8 +58,8 @@ const actions = {
     commit('setIsLoading', true)
     try {
       if (ethereum) {
+        const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
         const parsedAmount = ethers.utils.parseEther(state.currentTicketValue.toString())
-        // const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
         const ticketsHash = await ticketsContract.buyTicket(
           parsedAmount,
           store.getters.currentAccount,
@@ -84,23 +84,20 @@ const actions = {
   },
   async getAllTickets({commit}) {
     try {
-      // const provider = new ethers.providers.Web3Provider(window.ethereum)
-      // console.log('Provider:', provider)
-      console.log('Signer:', signer)
-      console.log('Ethereum:', ethereum)
-
-      // const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, provider)
-      // const allTicketsHash = await ticketsContract.getAllTickets()
-      // const parcedTickets = allTicketsHash.map((ticket) => ({
-      //   ticketOwner: ticket.ticket_owner,
-      //   timestamp: new Date(ticket.timestamp.toNumber() * 1000).toLocaleString(),
-      //   poolType: ticket.pool_type,
-      //   month: ticket.month,
-      //   keyword: ticket.keyword,
-      //   amount: parseInt(ticket.amount._hex) / (10 ** 18)
-      // }))
-      // commit('setAllTickets', parcedTickets)
-      
+      console.log(provider, '11')
+      if (ethereum && provider) {
+        const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, provider)
+        const allTicketsHash = await ticketsContract.getAllTickets()
+        const parcedTickets = allTicketsHash.map((ticket) => ({
+          ticketOwner: ticket.ticket_owner,
+          timestamp: new Date(ticket.timestamp.toNumber() * 1000).toLocaleString(),
+          poolType: ticket.pool_type,
+          month: ticket.month,
+          keyword: ticket.keyword,
+          amount: parseInt(ticket.amount._hex) / (10 ** 18)
+        }))
+        commit('setAllTickets', parcedTickets)
+      }
     } catch (e) {
       console.error(e)
     }

@@ -1,8 +1,10 @@
 import { ethers } from 'ethers'
+import Web3 from 'web3'
 import { winnersAbi, winnersContractAddress } from '../../utils/constants'
 
+const API_KEY = process.env.VUE_APP_API_KEY
 const { ethereum } = window
-const provider = new ethers.providers.Web3Provider(ethereum)
+const provider = new ethers.providers.JsonRpcProvider(`https://eth-goerli.g.alchemy.com/v2/${API_KEY}`)
 const signer = provider.getSigner()
 
 const state = {
@@ -31,7 +33,6 @@ const actions = {
     try {
       if (ethereum) {
         const winnersContract = new ethers.Contract(winnersContractAddress, winnersAbi, signer)
-
         const firstPlaceHash = await winnersContract.addWinnerStructToBlockchain(
           getters.firstPlaceStruct.amount,
           getters.firstPlaceStruct.address,
@@ -63,18 +64,16 @@ const actions = {
   },
   async getAllWinners ({commit}) {
     try {
-      if (ethereum) {
-        console.log('Ethereum:', ethereum)
-        // const provider = signer.provider
-        // const winnersContract = new ethers.Contract(winnersContractAddress, winnersAbi, signer)
-        // const winnersResponse = await winnersContract.getAllWinners()
-        // const parcedWinners = winnersResponse.map((winner) => ({
-        //   amount: winner[0],
-        //   address: winner[1],
-        //   pool_code: winner[2],
-        //   standing: winner[3],
-        // }))
-        // commit('setWinners', parcedWinners)
+      if (ethereum && provider) {
+        const winnersContract = new ethers.Contract(winnersContractAddress, winnersAbi, provider)
+        const winnersResponse = await winnersContract.getAllWinners()
+        const parcedWinners = winnersResponse.map((winner) => ({
+          amount: winner[0],
+          address: winner[1],
+          pool_code: winner[2],
+          standing: winner[3],
+        }))
+        commit('setWinners', parcedWinners)
       }
     } catch (e) {
       console.error(e)
