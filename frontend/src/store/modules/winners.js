@@ -2,9 +2,6 @@ import { ethers } from 'ethers'
 import { winnersAbi, winnersContractAddress } from '../../utils/constants'
 
 const API_KEY = process.env.VUE_APP_API_KEY
-const { ethereum } = window
-const provider = new ethers.providers.Web3Provider(ethereum)
-const signer = provider.getSigner()
 
 const state = {
   winners: [],
@@ -30,7 +27,9 @@ const actions = {
   },
   async sendWinnersToBlockchain ({getters}) {
     try {
-      if (ethereum) {
+      if (window.ethereum) {
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        const signer = provider.getSigner()
         const winnersContract = new ethers.Contract(winnersContractAddress, winnersAbi, signer)
         const firstPlaceHash = await winnersContract.addWinnerStructToBlockchain(
           getters.firstPlaceStruct.amount,

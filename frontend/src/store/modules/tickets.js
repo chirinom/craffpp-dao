@@ -1,12 +1,9 @@
 import { ethers } from 'ethers'
 import { ticketsAbi, ticketsContractAddress } from '../../utils/constants'
-import store from '@/store/index.js'
 import { notify } from '@kyvg/vue3-notification'
+import store from '@/store/index.js'
 
 const API_KEY = process.env.VUE_APP_API_KEY
-const { ethereum } = window
-const provider = new ethers.providers.Web3Provider(ethereum)
-const signer = provider.getSigner()
 
 const state = {
   currentTicketType: 0,
@@ -31,7 +28,9 @@ const getters = {
 const actions = {
   async getBalance ({commit}) {
     try {
-      if (ethereum) {
+      if (window.ethereum) {
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        const signer = provider.getSigner()
         const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
         const transactionsHash = await ticketsContract.getBalance()
         const data = parseInt(transactionsHash._hex) / (10 ** 18)
@@ -44,8 +43,8 @@ const actions = {
   },
   async withdrawFromContract({}) {
     try {
-      if (ethereum) {
-        const provider = new ethers.providers.Web3Provider(ethereum)
+      if (window.ethereum) {
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
         const signer = provider.getSigner()
         const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
         const parsedAmount = ethers.utils.parseEther(state.ethBalance.toString())
@@ -59,7 +58,9 @@ const actions = {
   async sendTransaction ({commit, getters}) {
     commit('setIsLoading', true)
     try {
-      if (ethereum) {
+      if (window.ethereum) {
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        const signer = provider.getSigner()
         const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
         const parsedAmount = ethers.utils.parseEther(state.currentTicketValue.toString())
         const ticketsHash = await ticketsContract.buyTicket(
