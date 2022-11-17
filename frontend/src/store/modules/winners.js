@@ -3,7 +3,7 @@ import { winnersAbi, winnersContractAddress } from '../../utils/constants'
 
 const API_KEY = process.env.VUE_APP_API_KEY
 const { ethereum } = window
-const provider = new ethers.providers.JsonRpcProvider(`https://eth-goerli.g.alchemy.com/v2/${API_KEY}`)
+const provider = new ethers.providers.Web3Provider(ethereum)
 const signer = provider.getSigner()
 
 const state = {
@@ -63,6 +63,7 @@ const actions = {
   },
   async getAllWinners ({commit}) {
     try {
+      const provider = new ethers.providers.JsonRpcProvider(`https://eth-goerli.g.alchemy.com/v2/${API_KEY}`)
       const winnersContract = new ethers.Contract(winnersContractAddress, winnersAbi, provider)
       const winnersResponse = await winnersContract.getAllWinners()
       const parcedWinners = winnersResponse.map((winner) => ({

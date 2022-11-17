@@ -5,7 +5,7 @@ import { notify } from '@kyvg/vue3-notification'
 
 const API_KEY = process.env.VUE_APP_API_KEY
 const { ethereum } = window
-const provider = new ethers.providers.JsonRpcProvider(`https://eth-goerli.g.alchemy.com/v2/${API_KEY}`)
+const provider = new ethers.providers.Web3Provider(ethereum)
 const signer = provider.getSigner()
 
 const state = {
@@ -45,6 +45,8 @@ const actions = {
   async withdrawFromContract({}) {
     try {
       if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum)
+        const signer = provider.getSigner()
         const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
         const parsedAmount = ethers.utils.parseEther(state.ethBalance.toString())
         await ticketsContract.transferEther(state.withdrawAddress, parsedAmount._hex)
@@ -84,6 +86,7 @@ const actions = {
   },
   async getAllTickets({commit}) {
     try {
+      const provider = new ethers.providers.JsonRpcProvider(`https://eth-goerli.g.alchemy.com/v2/${API_KEY}`)
       const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, provider)
       const allTicketsHash = await ticketsContract.getAllTickets()
       const parcedTickets = allTicketsHash.map((ticket) => ({

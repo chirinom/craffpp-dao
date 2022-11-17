@@ -24,7 +24,6 @@ const actions = {
   },
   async checkIfWalletIsConnect({commit}) {
     try {
-      if (!ethereum) notify({title: 'Please install Metamask', type: 'warn'})
       const result = await ethereum.request({method: 'eth_accounts'})
       result.length ? commit('setCurrentAccount', result[0]) : null
     } catch (e) {
