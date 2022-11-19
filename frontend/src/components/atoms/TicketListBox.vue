@@ -1,10 +1,8 @@
 <template>
   <div class="list">
     <div v-for="(ticket, index) in ticketData" :key="index" class="ticket">
-      <div class="amount-date">
-        <span class="label">{{STRINGS.ticketAmount}}<span class="text">{{ticket.amount}}{{STRINGS.eth}}</span></span>
-        <span class="label">{{STRINGS.ticketEntryDate}}<span class="text">{{ticket.timestamp}}</span></span>
-      </div>
+      <span class="label">{{STRINGS.ticketAmount}}<span class="text">{{ticket.amount}}{{STRINGS.eth}}</span></span>
+      <span class="label">{{STRINGS.ticketEntryDate}}<span class="text">{{ticket.timestamp}}</span></span>
       <span class="label">{{STRINGS.ticketWalletAddress}}<span class="text">{{ticket.ticketOwner}}</span></span>
     </div>
   </div>
@@ -47,6 +45,7 @@ export default {
     padding: 4px;
     border-bottom: 1px solid lightgrey;
     background-color: #f5f5f5;
+    display: flex;
   }
   & .label {
     font-weight: bold;

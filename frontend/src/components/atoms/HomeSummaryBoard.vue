@@ -81,7 +81,8 @@ export default {
 }
 @media (max-width: 777px) {
   .summary-container {
-    padding: 33px 33px 88px;
+    padding: 33px 22px 88px;
+    justify-content: center;
   }
 }
 </style>

@@ -71,7 +71,7 @@ export default {
   font-size: 33px;
   font-weight: bold;
   color:#3e5badc7;
-  padding: 22px 0 0 0;
+  padding: 22px 0;
 
 }
 .pick {

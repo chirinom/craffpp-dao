@@ -11,5 +11,20 @@ export const MONTH_TABS = [
   { text: 'June', value: 'jun2023' },
   { text: 'July', value: 'jul2023' },
   { text: 'August', value: 'aug2023' },
-  { text: 'September', value: 'sep2023' }
+  { text: 'September', value: 'sep2023' },
+  { text: 'October', value: 'oct2023' },
+  { text: 'November', value: 'nov2023' },
+  { text: 'December', value: 'dec2023' },
+  // { text: 'January', value: 'jan2024' },
+  // { text: 'February', value: 'feb2024' },
+  // { text: 'March', value: 'mar2024' },
+  // { text: 'April', value: 'apr2024' },
+  // { text: 'May', value: 'may2024' },
+  // { text: 'June', value: 'jun2024' },
+  // { text: 'July', value: 'jul2024' },
+  // { text: 'August', value: 'aug2024' },
+  // { text: 'September', value: 'sep2024' },
+  // { text: 'October', value: 'oct2024' },
+  // { text: 'November', value: 'nov2024' },
+  // { text: 'December', value: 'dec2024' }
 ]

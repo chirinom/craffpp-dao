@@ -191,14 +191,11 @@ export default {
 }
 
 .available-tickets {
-  // border: 1px solid lightgrey;
   font-weight: 700;
   color: rgba(60, 60, 67, 0.6);
-  // cursor: pointer;
   width: 100%;
   border-radius: 6px;
   margin: 23px 0 11px;
-  // background-color: #2e478d14;
   padding: 11px 0 0 0;
   position: relative;
 
@@ -213,7 +210,6 @@ export default {
 }
 .box-number {
   padding: 0 6px;
-  // background-color: lightgray;
   border-radius: 4px;
   color:#3e5badc7;
   font-weight: bold;
@@ -223,12 +219,13 @@ export default {
   .ticketbooth {
     width: 100%;
     margin: 24px 0;
+
     & h2 {
       margin: 0;
       font-weight: 700;
       font-size: 33px;
       line-height: 24px;
-      padding: 22px 0 0 0;
+      padding: 22px 0;
     }
     & .ticket-amount {
       border-radius: 6px;

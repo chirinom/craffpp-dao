@@ -9,8 +9,8 @@
       <router-link to="/donate">{{STRINGS.donate}}</router-link>
       <router-link v-if="this.isAdmin" to="/controller">{{STRINGS.controller}}</router-link>
       <router-link to="/how">{{STRINGS.howDoesItWork}}</router-link>
-      <a href="https://discord.gg/drZfVMB2YW" target="_blank"><i class="fa-brands fa-discord"></i></a>
-      <a href="https://www.instagram.com/craffpp/" target="_blank"><i class="fa-brands fa-instagram social-lg"></i></a>
+      <a class="social" href="https://discord.gg/drZfVMB2YW" target="_blank"><i class="fa-brands fa-discord"></i></a>
+      <a class="social" href="https://www.instagram.com/craffpp/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
     </nav>
   </div>
 </template>
@@ -96,7 +96,7 @@ nav {
   nav {
     font-size: 14px;
   }
-  .social-lg {
+  .social {
     display: none;
   }
   .brand {
@@ -104,11 +104,17 @@ nav {
   }
 }
 @media (max-width: 768px) {
+  .brand {
+    font-size: 33px;
+    display: block;
+  }
   nav {
-    padding: 24px 0;
+    padding: 55px 22px 0;
+    font-size: 18px;
+
     a {
       font-weight: bold;
-      margin: 0 6px;
+      margin: 0 11px;
     }
   }
 }

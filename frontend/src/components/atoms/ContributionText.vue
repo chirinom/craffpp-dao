@@ -50,6 +50,8 @@ export default {
 
     p {
       font-size: 14px;
+      text-align: justify;
+      margin: 22px 0;
     }
 
     img {

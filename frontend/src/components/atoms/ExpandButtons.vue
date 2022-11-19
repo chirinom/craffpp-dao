@@ -4,14 +4,14 @@
     <i
       @click="closeTicketList"
       @keyup="closeTicketList"
-      class="fa-solid fa-chevron-up"
+      class="fa-solid fa-caret-up"
     />
   </button>
   <button v-show="!isExpanded" class="keydown-btn">
     <i
       @click="extendTicketList"
       @keyup="extendTicketList"
-      class="fa-solid fa-chevron-down" 
+      class="fa-solid fa-caret-down" 
     />
   </button>
   </div>
@@ -50,7 +50,7 @@ export default {
   position: relative;
 
   & i {
-    font-size: 18px;
+    font-size: 22px;
     margin-top: 4px;
     cursor: pointer;
     color:#3e5badc7;
@@ -69,7 +69,7 @@ export default {
   position: relative;
 
     & i {
-    font-size: 18px;
+    font-size: 22px;
     margin-top: 4px;
     cursor: pointer;
     color:#3e5badc7;

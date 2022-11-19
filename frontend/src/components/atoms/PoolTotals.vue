@@ -153,8 +153,15 @@ export default {
 }
 @media (max-width: 768px) {
   .totals {
-  padding: 22px 22px 77px;
-}
+    padding: 22px 0 77px;
+    font-size: 18px;
+  }
+  .eth-num {
+    font-size: 18px;
+  }
+  .label, .ocean {
+    font-size: 18px;
+  }
 }
 
 </style>

@@ -113,7 +113,7 @@ export default {
 @media (max-width: 768px) {
   .amount-btn {
     padding: 11px 3px;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 15px;
     border-radius: 6px;
     width: 100%;

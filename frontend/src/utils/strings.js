@@ -6,7 +6,7 @@ export const STRINGS = {
   yourTickets: 'Your Tickets',
   ticketAmount: '- Amount ',
   ticketEntryDate: '- Entry date ',
-  ticketWalletAddress: '- Wallet ',
+  ticketWalletAddress: '- Wallet Address ',
   eth: ' eth, ',
   craffpp: 'Craffpp',
   home: 'Home',

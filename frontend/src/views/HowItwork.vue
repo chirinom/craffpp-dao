@@ -114,13 +114,13 @@ h3 {
     grid-template-columns: 1fr;
   }
   .card-steps {
-    margin: 22px 0 0 0;
+    margin: 55px 0 0 0;
   }
 
 }
 @media (max-width: 777px) {
   .how-does-it-work {
-    padding: 22px;
+    padding: 22px 22px 77px;
   }
 }
 </style>
