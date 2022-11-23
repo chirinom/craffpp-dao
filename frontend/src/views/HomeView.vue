@@ -6,7 +6,7 @@
         <h5>Help us sweap the plastic from our oceans and <strong>win some ETH</strong> doing it</h5>
       </div>
       <div class="picture-play">
-        <img :src="require('../assets/images/banner.png')" >
+        <img :src="require('../assets/images/bahia.jpg')" >
         <router-link to="/donate">
           <button v-if="!!currentAccount">{{STRINGS.donate}}</button>
           <button v-else @click="connectWallet">{{STRINGS.connectWallet}}</button>
@@ -79,7 +79,8 @@ export default {
 .banner {
   padding: 133px 133px 0 0;
   text-align: left;
-  color: #2e478d;
+  // color: #2e478d;
+  color: #49ABF2;
   line-height: 66px;
 
   h1 {
