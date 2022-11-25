@@ -53,11 +53,10 @@ export default {
     font-size: 22px;
     margin-top: 4px;
     cursor: pointer;
-    color:#3e5badc7;
+    color: $primary;
 
     &:hover {
-      color: #2e478d;
-      font-size: 19px;
+      color: $secondary;
     }
   }
 }
@@ -72,11 +71,10 @@ export default {
     font-size: 22px;
     margin-top: 4px;
     cursor: pointer;
-    color:#3e5badc7;
+    color: $primary;
 
     &:hover {
-      color: #2e478d;
-      font-size: 19px;
+      color: $secondary;
     }
   }
 }

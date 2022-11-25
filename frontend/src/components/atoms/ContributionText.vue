@@ -1,7 +1,7 @@
 <template>
   <div class="contribution">
     <div class="introduction">
-      <img :src="require('@/assets/images/bahia.jpg')" alt="" />
+      <img :src="require('@/assets/images/turtle.png')" alt="" />
       <p>{{STRINGS.panamaBio}}<br><br>{{STRINGS.panamaCrisis}}<br><br>{{STRINGS.panamaContribution}}</p>
     </div>
   </div>
@@ -30,13 +30,14 @@ export default {
   p {
     font-size: 18px;
     max-width: 1111px;
-    margin: 22px;
+    margin: 0;
     text-align: left;
   }
 
   img {
     max-width: 444px;
     height: auto;
+    object-fit:  cover;
   }
 }
 

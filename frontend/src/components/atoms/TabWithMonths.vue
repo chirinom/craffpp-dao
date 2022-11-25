@@ -77,8 +77,8 @@ export default {
     }
     span:hover,
     .selected {
-      color: #3e5badc7;
-      border-bottom: 2px solid #3e5badc7;
+      color: $primary;
+      border-bottom: 2px solid $primary;
     }
     .tab {
       margin-left: 32px;

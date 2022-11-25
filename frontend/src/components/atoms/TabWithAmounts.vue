@@ -74,7 +74,7 @@ export default {
       border-bottom: 2px solid rgb(11, 45, 139);
     }
     .selected {
-      background-color: #3e5badc7;
+      background-color: $primary;
       color: #fff;
     }
     .tab {
@@ -96,7 +96,7 @@ export default {
   cursor: pointer;
   width: 100%;
   &:hover {
-    background-color: #3e5badc7;
+    background-color: $primary;
     color: #fff;
   }
 }

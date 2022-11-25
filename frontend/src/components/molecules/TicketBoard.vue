@@ -13,7 +13,7 @@
         <div class="header">
           <span>{{STRINGS.yourTickets}}</span>
           <div class="counter-box">
-            <span class="box-number">{{ticketData.length}}</span>
+            <div class="box-number">{{ticketData.length}}</div>
           </div>
         </div>
         <TicketListBox  
@@ -151,7 +151,7 @@ export default {
     font-size: 33px;
     line-height: 24px;
     font-family: "Patua One", cursive;
-    color: #3e5badc7;
+    color: $primary;
   }
   & .ticket-amount {
     border-radius: 6px;
@@ -167,7 +167,7 @@ export default {
   margin: 4px 4px 7px;
 
   & i {
-    color: #3e5badc7;
+    color: $primary;
     cursor: pointer;
   }
 }
@@ -211,7 +211,7 @@ export default {
 .box-number {
   padding: 0 6px;
   border-radius: 4px;
-  color:#3e5badc7;
+  color: $primary;
   font-weight: bold;
 }
 
@@ -246,6 +246,10 @@ export default {
   & span {
     margin: 0px 4px;
     font-size: 14px;
+    color: $primary-black;
   }
+   & div {
+    font-size: 14px;
+   }
 }
 </style>

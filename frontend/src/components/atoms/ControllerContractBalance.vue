@@ -99,13 +99,13 @@ export default {
   line-height: 14px;
   cursor: pointer;
   width: 100%;
-  background-color: #3e5badc7;
+  background-color: $primary;
   color: #fff;
   border-radius: 6px;
   max-height: 42px;
 
   &:hover {
-    background-color: #2e478d;
+    background-color: $secondary;
   }
   &:disabled {
     background-color: #7a85a3c7;

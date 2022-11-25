@@ -10,7 +10,7 @@
       <a href="https://www.instagram.com/craffpp/" target="_blank"><i class="fa-brands fa-instagram social-lg"></i></a>
     </div>
       <router-link to="/terms" target="_blank" class="terms">
-        <span>{{STRINGS.termsAndConditions}}</span>
+        {{STRINGS.termsAndConditions}}
       </router-link>
   </div>
 </template>
@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .primary-footer {
   background: #2e478d14;
   padding:  44px 22px;
@@ -41,17 +41,28 @@ export default {
 
   h5 {
     font-size: 16px;
+    color: $primary-grey;
   }
+
+  .terms {
+    color: $primary-black;
+    text-decoration: none;
+  } 
 
   .social {
     font-size: 22px;
     margin: 22px;
-font-weight: bold;
-    color: #2c3e50;
-    text-decoration: none;
+    font-weight: bold;
+    color: $primary-black;
+ 
+
+    a {
+      color: $primary-black;
+    } 
 
     i {
       margin: 0 11px;
+      color: $primary-black;
     }
   }
 }

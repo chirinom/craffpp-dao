@@ -81,7 +81,7 @@ export default {
   font-family: 'Pacifico', cursive;
   font-size: 73px;
   margin: 0 27px;
-  color:rgb(46, 71, 141);
+  color: $primary;
   height: 110px;
 }
 .card-footer {

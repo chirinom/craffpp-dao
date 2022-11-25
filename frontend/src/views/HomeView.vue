@@ -68,19 +68,23 @@ export default {
       line-height: 24px;
       cursor: pointer;
       width: 100%;
-      background-color: #3e5badc7;
+      max-width: 422px;
+      background-color: $primary;
       color: #fff;
       border-radius: 6px;
       max-height: 42px;
       margin: 33px 0;
+
+      &:hover {
+        background-color: $secondary;
+      }
     }
   }
 }
 .banner {
   padding: 133px 133px 0 0;
   text-align: left;
-  // color: #2e478d;
-  color: #49ABF2;
+  color: $primary;
   line-height: 66px;
 
   h1 {
@@ -91,7 +95,7 @@ export default {
   h5 {
     font-size: 16px;
     font-family: "Patua One", cursive;
-    color: rgba(60, 60, 67, 0.6);
+    color: $primary-grey;
     font-weight: 100;
     margin: 0;
   }
@@ -107,20 +111,23 @@ export default {
 
     .banner {
       padding: 0;
-      text-align: center;
+      margin: auto;
     }
 
     .picture-play {
-      flex-direction: column-reverse;
       width: 100%;
     }
   }
 }
-@media (max-width: 1333px) {}
+@media (max-width: 1333px) {
+  .banner {
+      text-align: center;
+  }
+}
 
 @media (max-width: 1089px) {
     .home-view {
-      padding: 33px 22px;
+      padding: 33px 111px;
       display: inline-block;
       margin: 0 auto;
 
@@ -134,7 +141,8 @@ export default {
   }
 }
 @media (max-width: 777px) {
-    .home-view {
+  .home-view {
+    padding: 33px 22px;
 
     h1 {
       font-size: 44px;
@@ -146,7 +154,6 @@ export default {
       width: 100%;
       height: 333px;
     }
-
   }
 }
 </style>

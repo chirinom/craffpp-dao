@@ -44,11 +44,12 @@ export default {
 .summary-container {
   display: flex;
   justify-content: space-between;
-  padding: 33px 622px 88px;
+  padding: 33px 444px 222px;
 
   h1 {
     font-family: 'Koulen', cursive;
     margin-top: 0;
+    font-size: 44px;
   }
 
   i {
@@ -56,7 +57,8 @@ export default {
   }
 
   span {
-    font-size: 14px;
+    font-size: 18px;
+    color: $primary-grey;
   }
 }
 .image {

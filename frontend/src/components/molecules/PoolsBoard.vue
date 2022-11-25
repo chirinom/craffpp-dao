@@ -70,7 +70,7 @@ export default {
   font-family: "Patua One";
   font-size: 33px;
   font-weight: bold;
-  color:#3e5badc7;
+  color: $primary;
   padding: 22px 0;
 
 }
@@ -81,7 +81,7 @@ export default {
   text-align: left;
 
   & i {
-    color: #3e5badc7;
+    color:  $primary;
     cursor: pointer;
 
   }

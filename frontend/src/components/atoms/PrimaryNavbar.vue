@@ -40,7 +40,7 @@ export default {
 }
 .brand {
     font-family: "Patua One", cursive;
-    color:#3e5badc7;
+    color: $primary;
     display: flex;
     padding: 50px 0 0 77px;
     font-size: 22px;
@@ -67,13 +67,13 @@ nav {
 
   a {
     font-weight: bold;
-    color: #2c3e50;
+    color: $primary-black;
     margin: 0 33px;
     text-decoration: none;
     position:relative;
 
     &.router-link-exact-active {
-      color:#3e5badc7;
+      color: $primary;
     }
   }
 }

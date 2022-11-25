@@ -2,25 +2,33 @@
 <div class="totals">
   <div class="title-price">
     <h2 class="ocean">{{STRINGS.oceanCleanup}}</h2>
-    <i class="fa-brands fa-ethereum"></i>
-    <h2 class="eth-num">{{ motherNature }}</h2>
+    <div class="title-price">
+      <i class="fa-brands fa-ethereum"></i>
+      <h2 class="eth-num">{{ motherNature }}</h2>
+    </div>
   </div>
    <div class="title-price">
     <h2 class="label">{{STRINGS.fristPlace}}</h2>
-    <i class="fa-brands fa-ethereum"></i>
-    <h2 class="eth-num">{{ firstPlace }}</h2>
+    <div class="eth-price">
+      <i class="fa-brands fa-ethereum"></i>
+      <h2 class="eth-num">{{ firstPlace }}</h2>
+    </div>
   </div>
   <span :class="isPoolPassed? '' : 'wallet'">{{isPoolPassed? firstPlaceAddress : sampleAddress}}</span>
    <div class="title-price">
     <h2 class="label">{{STRINGS.secondPlace}}</h2>
-    <i class="fa-brands fa-ethereum"></i>
-    <h2 class="eth-num">{{ secondPlace }}</h2>
+    <div class="eth-price">
+      <i class="fa-brands fa-ethereum"></i>
+      <h2 class="eth-num">{{ secondPlace }}</h2>
+    </div>
   </div>
   <span :class="isPoolPassed? '' : 'wallet'">{{isPoolPassed? secondPlaceAddress : sampleAddress}}</span>
    <div class="title-price">
     <h2 class="label">{{STRINGS.thirdPlace}}</h2>
-    <i class="fa-brands fa-ethereum"></i>
-    <h2 class="eth-num">{{ thirdPlace }}</h2>
+    <div class="eth-price">
+      <i class="fa-brands fa-ethereum"></i>
+      <h2 class="eth-num">{{ thirdPlace }}</h2>
+    </div>
   </div>
   <span :class="isPoolPassed? '' : 'wallet'">{{isPoolPassed? thirdPlaceAddress : sampleAddress}}</span>
 </div>
@@ -119,7 +127,7 @@ export default {
 
 <style lang="scss" scoped>
 .totals {
-  padding: 22px 55px 77px;
+  padding: 22px 288px 77px;
 }
 .fa-ethereum {
   margin: 28px 4px 0 0;
@@ -132,15 +140,18 @@ export default {
   margin: 20px 0;
 }
 .label, .ocean {
-  color: #3e5badc7;
+  color: $primary-black;
   font-family: "Patua One", cursive;  
-  margin: 25px 33px 0 0;
+  margin: 25px 0 0 0;
 }
 .title-price {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   height: 50px;
   margin: 0 0 10px 0;
+}
+.eth-price {
+  display: flex;
 }
 .wallet {
   font-size: 12px;
