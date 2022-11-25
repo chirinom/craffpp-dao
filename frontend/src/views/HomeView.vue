@@ -152,7 +152,6 @@ export default {
     img {
       max-width: 422px;
       width: 100%;
-      height: 333px;
     }
   }
 }
