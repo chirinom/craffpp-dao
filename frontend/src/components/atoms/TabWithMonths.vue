@@ -70,7 +70,6 @@ export default {
     span {
       width: max-content;
       display: block;
-      transition: color 0.3s ease, border 0.3s ease;
       cursor: pointer;
       margin-right: 32px;
       border-bottom: 2px solid transparent;
