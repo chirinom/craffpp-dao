@@ -1,7 +1,7 @@
 <template>
   <div class="primary-footer">
     <router-link to="/" class="brand">
-      <i class="fa-solid fa-fire"></i>
+      <img :src="require('../../assets/logo.png')" >
       <h1>{{STRINGS.craffpp}}</h1>
     </router-link>
     <h5>Help us sweap the plastic from our oceans and <strong>win some ETH</strong> doing it</h5>
@@ -34,9 +34,20 @@ export default {
   padding:  44px 22px;
   
   .brand {
-    margin: 0 0 44px 0;
-    display: block;
+    font-family: "Patua One", cursive;
+    color: $primary;
     padding: 0;
+    font-size: 22px;
+    text-decoration: none;
+
+    img {
+      width: 77px;
+    }
+
+
+    h1 {
+      margin: 0;
+    }
   }
 
   h5 {

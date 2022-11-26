@@ -1,7 +1,7 @@
 <template>
   <div class="primary-nav">
     <router-link to="/" class="brand">
-      <i class="fa-solid fa-fire"></i>
+      <img :src="require('../../assets/logo.png')" >
       <h1>{{STRINGS.craffpp}}</h1>
     </router-link>
     <nav>
@@ -32,7 +32,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .primary-nav {
   display: flex;
   justify-content: space-between;
@@ -47,13 +47,13 @@ export default {
     text-decoration: none;
 
     h1 {
-      margin: 0;
+      margin: 0 0 0  77px;
     }
-
-  & .fa-fire {
-    font-size: 66px;
-    margin: -15px 7px;
-  }
+    img {
+      width: 77px;
+      position: absolute;
+      top: 40px;
+    }
 }
 nav {
   padding: 72px 111px 0px;
@@ -61,9 +61,6 @@ nav {
   font-size: 22px;
   word-wrap: break-word;
 
-  i {
-    margin: 0 11px;
-  }
 
   a {
     font-weight: bold;
@@ -88,8 +85,17 @@ nav {
     padding: 54px 0 0;
   }
   .brand {
-    padding: 55px 0 0 0;
+    padding: 111px 0 0 0;
     justify-content: center;
+    display: block;
+
+    h1 {
+      margin: 0;
+    }
+
+    img {
+      position: inherit;
+    }
   }
 }
 @media (max-width: 1000px) {
@@ -101,12 +107,14 @@ nav {
   }
   .brand {
     justify-content: center;
+    padding: 44px 22px 0;
+
   }
 }
 @media (max-width: 768px) {
   .brand {
     font-size: 33px;
-    display: block;
+
   }
   nav {
     padding: 55px 22px 0;

@@ -103,6 +103,7 @@ export default {
 
 @media (max-width: 1650px) {
   .home-view {
+    padding: 33px 111px;
 
     h5 {
       line-height: 33px;
@@ -110,8 +111,9 @@ export default {
     }
 
     .banner {
-      padding: 0;
+      padding: 44px;
       margin: auto;
+      text-align: left;
     }
 
     .picture-play {
@@ -120,14 +122,16 @@ export default {
   }
 }
 @media (max-width: 1333px) {
-  .banner {
-      text-align: center;
+  .home-view {
+
+    .banner {
+        text-align: center;
+    }
   }
 }
 
 @media (max-width: 1089px) {
     .home-view {
-      padding: 33px 111px;
       display: inline-block;
       margin: 0 auto;
 
@@ -137,6 +141,7 @@ export default {
 
     .banner {
       font-size: 44px;
+      padding: 0;
     }
   }
 }
