@@ -2,18 +2,21 @@
   <div class="list">
     <div v-for="(ticket, index) in ticketData" :key="index" class="ticket">
       <div class="ticket-wrapper">
-        <div class="text-container">
-          <h4 class="label">{{STRINGS.ticketAmount}}</h4>
-          <span class="text">{{ticket.amount}}{{STRINGS.eth}}</span>
+        <div>
+          <div class="text-container">
+            <h4 class="label">{{STRINGS.ticketAmount}}</h4>
+            <span class="text">{{ticket.amount}}{{STRINGS.eth}}</span>
+          </div>
+          <div class="text-container">
+            <h4 class="label">{{STRINGS.ticketEntryDate}}</h4>
+            <span class="text">{{ticket.timestamp}}</span>  
+          </div>
+          <div class="text-container">
+            <h4 class="label">{{STRINGS.ticketWalletAddress}}</h4>
+            <span class="text">{{ticket.ticketOwner}}</span>
+          </div>
         </div>
-        <div class="text-container">
-          <h4 class="label">{{STRINGS.ticketEntryDate}}</h4>
-          <span class="text">{{ticket.timestamp}}</span>  
-        </div>
-        <div class="text-container">
-          <h4 class="label">{{STRINGS.ticketWalletAddress}}</h4>
-          <span class="text">{{ticket.ticketOwner}}</span>
-        </div>
+        <img :src="require('../../assets/logo_lightgrey.png')" >
       </div>
     </div>
   </div>
@@ -67,13 +70,23 @@ export default {
   }
 }
 .ticket-wrapper {
-  padding: 4px;
+  padding: 4px 11px;
   border-bottom: 1px dashed lightgrey;
   border-left: 1px dashed lightgrey;
   background-color: #f5f5f5;
+  display: flex;
+  justify-content: space-between;
 
   .text-container {
     display: flex;
+  }
+
+  .bubu {
+    display: flex;
+  }
+
+  img {
+    width: 48px
   }
 }
 </style>
