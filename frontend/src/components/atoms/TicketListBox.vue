@@ -68,7 +68,7 @@ export default {
 }
 .ticket-wrapper {
   padding: 4px;
-  border-bottom: 1px solid lightgrey;
+  border-bottom: 1px dashed lightgrey;
   border-left: 1px dashed lightgrey;
   background-color: #f5f5f5;
 
