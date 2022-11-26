@@ -1,7 +1,7 @@
 <template>
   <div class="primary-nav">
     <router-link to="/" class="brand">
-      <img :src="require('../../assets/logo.png')" >
+      <img :src="require('../../assets/logo2.png')" >
       <h1>{{STRINGS.craffpp}}</h1>
     </router-link>
     <nav>
