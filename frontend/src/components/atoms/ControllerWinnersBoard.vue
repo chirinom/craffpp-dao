@@ -20,7 +20,7 @@
       <tr>
         <td>{{STRINGS.thirdPlace}}</td>
         <td class="address">{{thirdPlaceAddress}}</td>
-        <td class="danger" v-if="poolIsSettled">POOL ALREADY SETTLED</td>
+        <td v-if="poolIsSettled" class="danger">POOL ALREADY SETTLED</td>
       </tr>
     </table>
   </div>
