@@ -1,4 +1,5 @@
 export const STRINGS = {
+  winnersPayment: 'Winners Payment',
   addressCount: 'Address Count',
   pricePool: 'Price pool',
   selectMonth: 'SelectMonth',
@@ -43,7 +44,7 @@ export const STRINGS = {
   selectBuyinMonth: 'Choose buy-in option and month of the raffle. Then click on Buy Ticket and confirm transaction. The cumulative ETH total on every raffle per Buy-in amount is shown on the price pool board.',
   raffles: 'Winners are randomly selected on the 28th of each month.  One address can win multiple prices in a single raffle by buying more than one ticket. ',
   transfers: 'The winning addresses will appear in the price pool board. The winning addresses will receive their prize to their wallet in less than 24 hours.',
-  priceDistribution: 'Each buy-in in distributed in the raffle the following way; Ocean and coastline cleanup 16%,  First place 40%, Second place 25% and Third place 15%. Remaining 4% for development team and platform maintainance.',
+  priceDistribution: 'Each buy-in is distributed in the raffle the following way; Ocean and coastline cleanup 16%,  First place 40%, Second place 25% and Third place 15%. Remaining 4% for development team and platform maintainance.',
   panamaBio: 'Panamá is a country rich in biodiversity. It is home to a wide variety of plants and animal species, both on land and in sea. In Panamá alone, 220 species of freshwater fish and 1,157 species of marine fish have been identified. Panamá is also home to 3.4% of the world\'s amphibian species. This makes it a truly unique and fascinating place to explore.',
   panamaCrisis: 'The list of dangers to our coastline and rivers is long and growing. Trash from different rivers all around the country, especially those closer to the city, pose a huge threat to these natural resources. We must take action to protect them.',
   panamaContribution: 'When you buy a ticket for our raffle, you\'re not only getting a chance to win a fabulous prize, you\'re also helping us to clean up Panama\'s coastlines! 16% of the profits from each raffle will go towards collection and recycling of the garbage ass well as funding local NGOs who are dedicated to this cause. So buy a ticket today and feel good about supporting a great cause!',
