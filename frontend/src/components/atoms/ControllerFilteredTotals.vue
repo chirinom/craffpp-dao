@@ -94,7 +94,13 @@ export default {
                 && option.month === this.filterObject.month
       )
       this.controllerDashboardData = result
-      this.$emit('handleChange', poolCode, result)
+      this.$emit('handleChange',
+        poolCode,
+        result,
+        this.filteredFirstPlace,
+        this.filteredSecondPlace,
+        this.filteredThirdPlace
+      )
     },
   },
 }

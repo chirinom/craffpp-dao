@@ -1,8 +1,16 @@
 <template>
   <div>
     <ControllerTotals/>
-    <ControllerFilteredTotals @handleChange="handleChange" />
-    <ControllerWinnersBoard :filteredData="filteredData" :poolCode="poolCode" />
+    <ControllerFilteredTotals
+      @handleChange="handleChange"
+    />
+    <ControllerWinnersBoard
+      :firstPlaceAmount="firstPlaceAmount"
+      :secondPlaceAmount="secondPlaceAmount"
+      :thirdPlaceAmount="thirdPlaceAmount"
+      :filteredData="filteredData"
+      :poolCode="poolCode"
+    />
     <ControllerContractBalance />
   </div>
 </template>
@@ -23,15 +31,21 @@ export default {
   },
   data() {
     return {
+      firstPlaceAmount: 0,
+      secondPlaceAmount: 0,
+      thirdPlaceAmount: 0,
       filteredData: [],
       poolCode: ''
     }
   },
   methods: {
-    handleChange(poolCode, data) {
+    handleChange(poolCode, data, first, second, third) {
       this.poolCode = poolCode
       this.filteredData = data
-    }
+      this.firstPlaceAmount = first
+      this.secondPlaceAmount = second
+      this.thirdPlaceAmount = third
+    },
   },
 }
 </script>

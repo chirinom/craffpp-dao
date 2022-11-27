@@ -14,7 +14,7 @@
       <h2 class="eth-num">{{ firstPlace }}</h2>
     </div>
   </div>
-  <span :class="isPoolPassed? '' : 'wallet'">{{isPoolPassed? firstPlaceAddress : sampleAddress}}</span>
+  <span :class="['address', isPoolPassed? '' : 'wallet', currentAccount === firstPlaceAddress? 'winner' : '']">{{isPoolPassed? firstPlaceAddress : sampleAddress}}</span>
    <div class="title-price">
     <h2 class="label">{{STRINGS.secondPlace}}</h2>
     <div class="eth-price">
@@ -22,7 +22,7 @@
       <h2 class="eth-num">{{ secondPlace }}</h2>
     </div>
   </div>
-  <span :class="isPoolPassed? '' : 'wallet'">{{isPoolPassed? secondPlaceAddress : sampleAddress}}</span>
+  <span :class="['address', isPoolPassed? '' : 'wallet', currentAccount === secondPlaceAddress? 'winner' : '']">{{isPoolPassed? secondPlaceAddress : sampleAddress}}</span>
    <div class="title-price">
     <h2 class="label">{{STRINGS.thirdPlace}}</h2>
     <div class="eth-price">
@@ -30,7 +30,7 @@
       <h2 class="eth-num">{{ thirdPlace }}</h2>
     </div>
   </div>
-  <span :class="isPoolPassed? '' : 'wallet'">{{isPoolPassed? thirdPlaceAddress : sampleAddress}}</span>
+  <span :class="['address', isPoolPassed? '' : 'wallet', currentAccount === thirdPlaceAddress? 'winner' : '']">{{isPoolPassed? thirdPlaceAddress : sampleAddress}}</span>
 </div>
 </template>
 
@@ -65,8 +65,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['winners']),
-    // TODO: This functions are duplicated
+    ...mapGetters(['winners','filterObject', 'currentAccount']),
     calcTotal() {
       const total = this.poolsData.reduce((a, b) => a + (b['amount'] || 0), 0)
       return total.toFixed(4)
@@ -92,8 +91,8 @@ export default {
       return result.toFixed(4)
     },
     firstPlaceAddress() {
-      const total = this.winners.filter(option => 
-        option.pool_code.substr(option.pool_code.length -7) === this.poolDateCode 
+      const total = this.winners.filter(option =>
+        option.pool_code === this.filterObject.type + this.filterObject.month
         && option.standing === 'first'
       )
       const result = total.map(option => option.address)
@@ -101,7 +100,7 @@ export default {
     },
     secondPlaceAddress() {
       const total = this.winners.filter(option => 
-        option.pool_code.substr(option.pool_code.length -7) === this.poolDateCode 
+        option.pool_code === this.filterObject.type + this.filterObject.month
         && option.standing === 'second'
       )
       const result = total.map(option => option.address)
@@ -109,7 +108,7 @@ export default {
     },
     thirdPlaceAddress() {
       const total = this.winners.filter(option => 
-        option.pool_code.substr(option.pool_code.length -7) === this.poolDateCode 
+        option.pool_code === this.filterObject.type + this.filterObject.month
         && option.standing === 'third'
       )
       const result = total.map(option => option.address)
@@ -149,9 +148,13 @@ export default {
   justify-content: space-around;
   height: 50px;
   margin: 0 0 10px 0;
+  font-size: 14px;
 }
 .eth-price {
   display: flex;
+}
+.address {
+  font-size: 14px;
 }
 .wallet {
   font-size: 12px;
@@ -161,6 +164,9 @@ export default {
   padding: 3px;
   filter: blur(4px);
   word-break: break-all;
+}
+.winner {
+  color: #0bd50b;
 }
 @media (max-width: 768px) {
   .totals {

@@ -76,7 +76,7 @@ const actions = {
         notify({title: 'Succesfully bought (1) ' + state.currentTicketType + ' ticket for ' + state.currentPoolDateCode + ' raffle 🎉'})
         await new Promise(resolve => setTimeout(resolve, 4444))
         commit('setIsLoading', false)
-        window.location.reload() 
+        window.location.reload()
       } 
     } catch (e) {
       console.error(e)

@@ -10,24 +10,24 @@
       <tr>
         <td>{{STRINGS.fristPlace}}</td>
         <td class="address">{{firstPlaceAddress}}</td>
-        <td><button class="buy-btn" @click="getWinners">{{STRINGS.selectWinners}}</button></td>
+        <td><button :disabled="poolIsSettled" class="buy-btn" @click="getWinners">{{STRINGS.selectWinners}}</button></td>
       </tr>
       <tr>
         <td>{{STRINGS.secondPlace}}</td>
         <td class="address">{{secondPlaceAddress}}</td>
-        <td> <button class="buy-btn" @click="sendWinnersToBlockchain">{{STRINGS.sendWinners}}</button></td>
+        <td> <button :disabled="poolIsSettled" class="buy-btn" @click="sendWinnersToBlockchain">{{STRINGS.sendWinners}}</button></td>
       </tr>
       <tr>
         <td>{{STRINGS.thirdPlace}}</td>
         <td class="address">{{thirdPlaceAddress}}</td>
-        <td></td>
+        <td class="danger" v-if="poolIsSettled">POOL ALREADY SETTLED</td>
       </tr>
     </table>
   </div>
 </template>
 
 <script>
-import {mapActions } from 'vuex'
+import {mapActions, mapGetters } from 'vuex'
 import { STRINGS } from '../../utils/strings'
 
 export default {
@@ -38,6 +38,15 @@ export default {
     },
     poolCode: {
       type: String
+    },
+    firstPlaceAmount: {
+      type: [Number, String]
+    },
+    secondPlaceAmount: {
+      type: [Number, String]
+    },
+    thirdPlaceAmount: {
+      type: [Number, String]
     }
   },
   data() {
@@ -48,6 +57,13 @@ export default {
       STRINGS: STRINGS
     }
   },
+  computed: {
+    ...mapGetters(['winners']),
+    poolIsSettled() {
+      const result = this.winners.filter(option => option.pool_code === this.poolCode)
+      return result.length === 3
+    }
+  },
   methods: {
     ...mapActions([
       'createFirstPlaceStruct',
@@ -56,25 +72,25 @@ export default {
       'sendWinnersToBlockchain',
     ]),
     async getWinners() {
-      // TODO: This function is not 100% efficient (sometimes the data object is not filled)
-      let addressesArray = this.filteredData.map(option => option.ticketOwner)
-      let random = Math.floor(Math.random() * addressesArray.length)
       let first = {}
       let second = {}
       let third = {}
+      let addressesArray = this.filteredData.map(option => option.ticketOwner)
+      let random = Math.floor(Math.random() * addressesArray.length)
 
       const firstPlace = addressesArray[random]
       this.firstPlaceAddress = firstPlace
-      first.amount = this.filteredFirstPlace
+      first.amount = this.firstPlaceAmount
       first.address = firstPlace
       first.pool_code = this.poolCode
+      first.standing = 'first'
       this.createFirstPlaceStruct(first)
       const firstPlaceIndex = addressesArray.indexOf(firstPlace)
       if (firstPlaceIndex >= 0) addressesArray.splice(firstPlaceIndex, 1)
 
       const secondPlace = addressesArray[random]
       this.secondPlaceAddress = secondPlace
-      second.amount = this.filteredSecondPlace
+      second.amount = this.secondPlaceAmount
       second.address = secondPlace
       second.pool_code = this.poolCode
       second.standing = 'second'
@@ -84,7 +100,7 @@ export default {
 
       const thirdPlace = addressesArray[random]
       this.thirdPlaceAddress = thirdPlace
-      third.amount = this.filteredThirdPlace
+      third.amount = this.thirdPlaceAmount
       third.address = thirdPlace
       third.pool_code = this.poolCode
       third.standing = 'third'
@@ -142,5 +158,9 @@ export default {
     background-color: #7a85a3c7;
     cursor: not-allowed;
   }
+}
+.danger {
+  color: red;
+  font-weight: bold;
 }
 </style>

@@ -118,6 +118,7 @@ export default {
       const poolDate = this.poolDateCode.slice(3) + '-' + this.getMonth(this.poolDateCode.slice(0,3)) + '-28'
       // Buy-in and month has been selected and pool selected is not passed
       if (poolDate.length >= 9) {
+        // this.orderValid = val
         this.orderValid = val && !this.isInThePast(new Date(poolDate))
         this.$emit('poolPassed', this.isInThePast(new Date(poolDate)))
       }

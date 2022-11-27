@@ -1,5 +1,6 @@
 import { ethers } from 'ethers'
 import { winnersAbi, winnersContractAddress } from '../../utils/constants'
+import { notify } from '@kyvg/vue3-notification'
 
 const API_KEY = process.env.VUE_APP_API_KEY
 
@@ -27,34 +28,36 @@ const actions = {
   },
   async sendWinnersToBlockchain ({getters}) {
     try {
-      if (window.ethereum) {
-        const provider = new ethers.providers.Web3Provider(window.ethereum)
-        const signer = provider.getSigner()
-        const winnersContract = new ethers.Contract(winnersContractAddress, winnersAbi, signer)
-        const firstPlaceHash = await winnersContract.addWinnerStructToBlockchain(
-          getters.firstPlaceStruct.amount,
-          getters.firstPlaceStruct.address,
-          getters.firstPlaceStruct.pool_code,
-          getters.firstPlaceStruct.standing,
-        )
-        await firstPlaceHash.wait()
+      const provider = new ethers.providers.Web3Provider(window.ethereum)
+      const signer = provider.getSigner()
+      const winnersContract = new ethers.Contract(winnersContractAddress, winnersAbi, signer)
 
-        const secondPlaceHash = await winnersContract.addWinnerStructToBlockchain(
-          getters.secondPlaceStruct.amount,
-          getters.secondPlaceStruct.address,
-          getters.secondPlaceStruct.pool_code,
-          getters.secondPlaceStruct.standing,
-        )
-        await secondPlaceHash.wait()
+      const firstPlaceHash = await winnersContract.addWinnerStructToBlockchain(
+        getters.firstPlaceStruct.amount,
+        getters.firstPlaceStruct.address,
+        getters.firstPlaceStruct.pool_code,
+        getters.firstPlaceStruct.standing,
+      )
+      await firstPlaceHash.wait()
 
-        const thirdPlaceHash = await winnersContract.addWinnerStructToBlockchain(
-          getters.thirdPlaceStruct.amount,
-          getters.thirdPlaceStruct.address,
-          getters.thirdPlaceStruct.pool_code,
-          getters.thirdPlaceStruct.standing,
-        )
-        await thirdPlaceHash.wait()
-      }
+      const secondPlaceHash = await winnersContract.addWinnerStructToBlockchain(
+        getters.secondPlaceStruct.amount,
+        getters.secondPlaceStruct.address,
+        getters.secondPlaceStruct.pool_code,
+        getters.secondPlaceStruct.standing,
+      )
+      await secondPlaceHash.wait()
+
+      const thirdPlaceHash = await winnersContract.addWinnerStructToBlockchain(
+        getters.thirdPlaceStruct.amount,
+        getters.thirdPlaceStruct.address,
+        getters.thirdPlaceStruct.pool_code,
+        getters.thirdPlaceStruct.standing,
+      )
+      await thirdPlaceHash.wait()
+
+      notify({title: 'Succesfully sent winners struct to blockchain'})
+      window.location.reload()
     } catch (e) {
       console.error(e)
       throw new Error('No ethereum object')
