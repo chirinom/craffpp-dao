@@ -3,6 +3,7 @@
     <h3>{{STRINGS.totals}}</h3>
     <table class="totalsTable">
       <tr>
+        <td>{{STRINGS.addressCount}}</td>
         <td>{{STRINGS.totalTickets}}</td>
         <td>{{STRINGS.totalEthereum}}</td>
         <td>{{STRINGS.oceanCleanup}}</td>
@@ -12,6 +13,7 @@
         <td>{{STRINGS.craffpp}}</td>
       </tr>
       <tr>
+        <td>{{addressCount}}</td>
         <td>{{totalTickets}}</td>
         <td>{{ethTotal}}</td>
         <td>{{motherNature}}</td>
@@ -37,6 +39,11 @@ export default {
   },
   computed: {
     ...mapGetters(['allTickets']),
+    addressCount() {
+      let addresses = this.allTickets.map(option => option.ticketOwner)
+      let unique = [...new Set(addresses)]
+      return unique.length
+    },
     totalTickets() {
       const total = this.allTickets.length
       return total

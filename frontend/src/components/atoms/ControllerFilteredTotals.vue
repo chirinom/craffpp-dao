@@ -7,7 +7,7 @@
 
     <table class="filteredTable">
       <tr>
-         <td>Total Addresses</td>
+        <td>{{STRINGS.addressCount}}</td>
         <td>{{STRINGS.totalTickets}}</td>
         <td>{{STRINGS.totalEthereum}}</td>
         <td>{{STRINGS.oceanCleanup}}</td>

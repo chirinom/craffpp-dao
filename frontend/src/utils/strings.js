@@ -1,4 +1,5 @@
 export const STRINGS = {
+  addressCount: 'Address Count',
   pricePool: 'Price pool',
   selectMonth: 'SelectMonth',
   ticketBooth: 'Ticketbooth',
@@ -25,7 +26,7 @@ export const STRINGS = {
   agreeTerms: 'I agree to terms and conditions',
   winnersDraw: 'Winners Draw',
   selectWinners: 'Select winners',
-  sendWinners: 'Send winners',
+  sendWinners: 'Send winners to blockchain',
   position: 'Position',
   address: 'Address',
   actions: 'Actions',
