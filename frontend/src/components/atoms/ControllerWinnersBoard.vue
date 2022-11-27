@@ -10,19 +10,39 @@
       <tr>
         <td>{{STRINGS.fristPlace}}</td>
         <td class="address">{{firstPlaceAddress}}</td>
-        <td><button :disabled="poolIsSettled" class="buy-btn" @click="getWinners">{{STRINGS.selectWinners}}</button></td>
+        <td>
+          <button
+            :disabled="poolCode.length <= 10 ? true : poolIsSettled || !poolNotEnded"
+            class="buy-btn"
+            @click="getWinners"
+          >
+            {{STRINGS.selectWinners}}
+          </button>
+        </td>
       </tr>
       <tr>
         <td>{{STRINGS.secondPlace}}</td>
         <td class="address">{{secondPlaceAddress}}</td>
-        <td> <button :disabled="poolIsSettled" class="buy-btn" @click="sendWinnersToBlockchain">{{STRINGS.sendWinners}}</button></td>
+        <td>
+          <button
+            :disabled="poolCode.length <= 10 ? true : poolIsSettled || !poolNotEnded"
+            class="buy-btn"
+            @click="sendWinnersToBlockchain"
+          >
+            {{STRINGS.sendWinners}}
+          </button>
+        </td>
       </tr>
       <tr>
         <td>{{STRINGS.thirdPlace}}</td>
         <td class="address">{{thirdPlaceAddress}}</td>
-        <td v-if="poolIsSettled" class="danger">POOL ALREADY SETTLED</td>
       </tr>
     </table>
+    <div v-if="poolCode.length >= 10" class="indicators">
+      <h4 v-if="poolIsSettled" class="danger">POOL ALREADY SETTLED</h4>
+      <h4 v-if="poolNotEnded && !poolIsSettled" class="success">READDY TO SETTLE</h4>
+      <h4 v-if="!poolNotEnded" class="danger">TIMER HAS NOT ENDED</h4>
+    </div>
   </div>
 </template>
 
@@ -61,7 +81,12 @@ export default {
     ...mapGetters(['winners']),
     poolIsSettled() {
       const result = this.winners.filter(option => option.pool_code === this.poolCode)
-      return result.length === 3
+      return result.length > 1
+    },
+    poolNotEnded() {
+      const poolDate = this.poolCode.slice(-4) + '-' + this.getMonth(this.poolCode.slice(-7,-4)) + '-28'
+      const result = this.isInThePast(new Date(poolDate))
+      return result
     }
   },
   methods: {
@@ -71,6 +96,14 @@ export default {
       'createThirdPlaceStruct',
       'sendWinnersToBlockchain',
     ]),
+    getMonth(monthStr){
+      return new Date(monthStr+'-1-01').getMonth()+1
+    },
+    isInThePast(date) {
+      const today = new Date()
+      today.setHours(0, 0, 0, 0)
+      return date < today
+    },
     async getWinners() {
       let first = {}
       let second = {}
@@ -162,5 +195,14 @@ export default {
 .danger {
   color: red;
   font-weight: bold;
+}
+.success {
+  color: #0bd50b;
+  font-weight: bold;
+}
+.indicators {
+  text-align: right;
+  font-size: 18px;
+  margin: 0 22px 0 0;
 }
 </style>

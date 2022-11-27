@@ -94,10 +94,13 @@ export default {
   methods: {
     handleChange(val) {
       val.length === 7 ? this.filterObject.month = val : this.filterObject.type = val
-      const poolCode = this.filterObject.type + this.filterObject.month
+      const type = this.filterObject.type? this.filterObject.type : null
+      const month = this.filterObject.month? this.filterObject.month : null
+      const poolCode = type + month
+
       const result = this.allTickets.filter((option) => 
         option.poolType === this.filterObject.type 
-                && option.month === this.filterObject.month
+        && option.month === this.filterObject.month
       )
       this.controllerDashboardData = result
       this.$emit('handleChange',

@@ -117,7 +117,7 @@ const mutations = {
   setIsLoading: (state, data) => state.isLoading = data,
   setAllTickets: (state, data) => state.allTickets = data,
   setBalance: (state, data) => state.ethBalance = data,
-  setWithdrawAddress: (state, data) => state.withdrawAddress = data,
+  setWithdrawAddress: (state, data) => state.withdrawAddress = data
 }
 
 export default {
