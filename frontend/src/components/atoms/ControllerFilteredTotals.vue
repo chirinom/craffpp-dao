@@ -7,6 +7,7 @@
 
     <table class="filteredTable">
       <tr>
+         <td>Total Addresses</td>
         <td>{{STRINGS.totalTickets}}</td>
         <td>{{STRINGS.totalEthereum}}</td>
         <td>{{STRINGS.oceanCleanup}}</td>
@@ -16,7 +17,7 @@
         <td>{{STRINGS.craffpp}}</td>
       </tr>
       <tr>
-        <td>{{filteredTotalTickets}}</td>
+        <td>{{filteredAddressCount}}</td>
         <td>{{filteredEthTotal}}</td>
         <td>{{filteredMotherNature}}</td>
         <td>{{filteredFirstPlace}}</td>
@@ -29,7 +30,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 import TabWithMonths from '@/components/atoms/TabWithMonths'
 import TabWithAmounts from '@/components/atoms/TabWithAmounts'
 import TICKET_VALUES from '../../utils/ticket_values.json'
@@ -51,6 +52,11 @@ export default {
   },
   computed: {
     ...mapGetters(['allTickets']),
+    filteredAddressCount() {
+      let addresses = this.controllerDashboardData.map(option => option.ticketOwner)
+      let unique = [...new Set(addresses)]
+      return unique.length
+    },
     filteredTotalTickets() {
       const total = this.controllerDashboardData.length
       return total

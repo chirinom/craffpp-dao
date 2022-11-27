@@ -38,26 +38,24 @@ const actions = {
         getters.firstPlaceStruct.pool_code,
         getters.firstPlaceStruct.standing,
       )
-      await firstPlaceHash.wait()
-
       const secondPlaceHash = await winnersContract.addWinnerStructToBlockchain(
         getters.secondPlaceStruct.amount,
         getters.secondPlaceStruct.address,
         getters.secondPlaceStruct.pool_code,
         getters.secondPlaceStruct.standing,
       )
-      await secondPlaceHash.wait()
-
       const thirdPlaceHash = await winnersContract.addWinnerStructToBlockchain(
         getters.thirdPlaceStruct.amount,
         getters.thirdPlaceStruct.address,
         getters.thirdPlaceStruct.pool_code,
         getters.thirdPlaceStruct.standing,
       )
+
+      await firstPlaceHash.wait()
+      await secondPlaceHash.wait()
       await thirdPlaceHash.wait()
 
       notify({title: 'Succesfully sent winners struct to blockchain'})
-      window.location.reload()
     } catch (e) {
       console.error(e)
       throw new Error('No ethereum object')
