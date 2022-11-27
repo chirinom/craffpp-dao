@@ -1,7 +1,5 @@
 <template>
-  <div class="confetti-container">
-    <!-- <button @click="start">Start</button> -->
-    <!-- <button @click="stop">Stop</button> -->
+  <div>
   </div>
 </template>
 
@@ -20,12 +18,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.confetti-container {
-    // position: absolute;
-    z-index: 10000;
-
-    button {
-        position: absolute;
-    }
-}
 </style>
