@@ -5,7 +5,7 @@
       <tr>
         <th></th>
         <th></th>
-        <th>Actions</th>
+        <th></th>
       </tr>
       <tr>
         <td>Eth Balance</td>

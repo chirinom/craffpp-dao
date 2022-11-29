@@ -30,7 +30,6 @@ export const STRINGS = {
   sendWinners: 'Send winners to blockchain',
   position: 'Position',
   address: 'Address',
-  actions: 'Actions',
   totals: 'Totals',
   totalTickets: 'Total Tickets',
   totalEthereum: 'Total Ethereum',

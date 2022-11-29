@@ -5,7 +5,7 @@
       <tr>
         <th>{{STRINGS.position}}</th>
         <th>{{STRINGS.address}}</th>
-        <th>{{STRINGS.actions}}</th>
+        <th></th>
       </tr>
       <tr>
         <td>{{STRINGS.fristPlace}}</td>
