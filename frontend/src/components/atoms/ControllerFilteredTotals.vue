@@ -1,10 +1,8 @@
 <template>
   <div>
-    <h3>{{STRINGS.filteredTotals}}</h3>
-
     <TabWithAmounts :tabs="tabs" @ticketType="handleChange" />
     <TabWithMonths @switch-tab="handleChange" />
-
+    <h3>{{STRINGS.filteredTotals}}</h3>
     <table class="filteredTable">
       <tr>
         <td>{{STRINGS.addressCount}}</td>

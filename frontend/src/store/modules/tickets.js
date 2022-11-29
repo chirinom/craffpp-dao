@@ -13,7 +13,6 @@ const state = {
   isLoading: false,
   allTickets: [],
   ethBalance: 0,
-  withdrawAddress: ''
 }
 const getters = {
   currentTicketType: (state) => state.currentTicketType,
@@ -22,8 +21,7 @@ const getters = {
   filterObject: (state) => state.filterObject,
   isLoading: (state) => state.isLoading,
   allTickets: (state) => state.allTickets,
-  ethBalance: (state) => state.ethBalance,
-  withdrawAddress: (state) => state.withdrawAddress,
+  ethBalance: (state) => state.ethBalance
 }
 const actions = {
   async getBalance ({commit}) {
@@ -41,14 +39,17 @@ const actions = {
       throw new Error('No ethereum object')
     }
   },
-  async withdrawFromContract({}) {
+  async withdrawFromContract({}, data) {
     try {
       if (window.ethereum) {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         const signer = provider.getSigner()
         const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
-        const parsedAmount = ethers.utils.parseEther(state.ethBalance.toString())
-        await ticketsContract.transferEther(state.withdrawAddress, parsedAmount._hex)
+        const parsedAmount = ethers.utils.parseEther(data.amount.toString())
+        await ticketsContract.transferEther(data.address, parsedAmount._hex)
+        notify({title: 'Succesfully withdraw from contract🎉'})
+        await new Promise(resolve => setTimeout(resolve, 4444))
+        window.location.reload()
       }
     } catch (e) {
       console.error(e)
@@ -102,7 +103,7 @@ const actions = {
     } catch (e) {
       console.error(e)
     }
-  },
+  }
 }
 const mutations = {
   setCurrentTicketType: (state, data) => state.currentTicketType = data,
@@ -117,7 +118,6 @@ const mutations = {
   setIsLoading: (state, data) => state.isLoading = data,
   setAllTickets: (state, data) => state.allTickets = data,
   setBalance: (state, data) => state.ethBalance = data,
-  setWithdrawAddress: (state, data) => state.withdrawAddress = data
 }
 
 export default {

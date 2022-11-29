@@ -12,7 +12,7 @@
         <td class="address">{{firstPlaceAddress}}</td>
         <td>
           <button
-            :disabled="poolCode.length <= 10 ? true : poolIsSettled || !poolNotEnded"
+            :disabled="poolCode.length <= 10 ? true : poolAlreadySettled || !timerHasntEnded"
             class="buy-btn"
             @click="getWinners"
           >
@@ -25,7 +25,7 @@
         <td class="address">{{secondPlaceAddress}}</td>
         <td>
           <button
-            :disabled="poolCode.length <= 10 ? true : poolIsSettled || !poolNotEnded"
+            :disabled="poolCode.length <= 10 ? true : poolAlreadySettled || !timerHasntEnded"
             class="buy-btn"
             @click="sendWinnersToBlockchain"
           >
@@ -39,9 +39,9 @@
       </tr>
     </table>
     <div v-if="poolCode.length >= 10" class="indicators">
-      <h4 v-if="poolIsSettled" class="danger">POOL ALREADY SETTLED</h4>
-      <h4 v-if="poolNotEnded && !poolIsSettled" class="success">READDY TO SETTLE</h4>
-      <h4 v-if="!poolNotEnded" class="danger">TIMER HAS NOT ENDED</h4>
+      <h4 v-if="poolAlreadySettled" class="danger">POOL ALREADY SETTLED</h4>
+      <h4 v-if="timerHasntEnded && !poolAlreadySettled" class="success">READDY TO SETTLE</h4>
+      <h4 v-if="!timerHasntEnded" class="danger">TIMER HAS NOT ENDED</h4>
     </div>
   </div>
 </template>
@@ -79,11 +79,11 @@ export default {
   },
   computed: {
     ...mapGetters(['winners']),
-    poolIsSettled() {
+    poolAlreadySettled() {
       const result = this.winners.filter(option => option.pool_code === this.poolCode)
-      return result.length > 1
+      return result.length >= 1
     },
-    poolNotEnded() {
+    timerHasntEnded() {
       const poolDate = this.poolCode.slice(-4) + '-' + this.getMonth(this.poolCode.slice(-7,-4)) + '-28'
       const result = this.isInThePast(new Date(poolDate))
       return result
@@ -191,6 +191,9 @@ export default {
     background-color: #7a85a3c7;
     cursor: not-allowed;
   }
+}
+h4 {
+  margin: 0;
 }
 .danger {
   color: red;

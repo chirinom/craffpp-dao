@@ -1,6 +1,6 @@
 // UPDATE: update months after every pool draw (28th every month)
 export const MONTH_TABS = [
-  // { text: 'October', value: 'oct2022' },
+  { text: 'October', value: 'oct2022' },
   { text: 'November', value: 'nov2022' },
   { text: 'Decemeber', value: 'dec2022' },
   { text: 'January', value: 'jan2023' },

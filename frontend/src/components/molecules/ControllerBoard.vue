@@ -11,6 +11,7 @@
       :filteredData="filteredData"
       :poolCode="poolCode"
     />
+    <ControllerPaymentBoard :poolCode="poolCode" />
     <ControllerContractBalance />
   </div>
 </template>
@@ -19,6 +20,7 @@
 import ControllerTotals from '@/components/atoms/ControllerTotals'
 import ControllerFilteredTotals from '@/components/atoms/ControllerFilteredTotals'
 import ControllerWinnersBoard from '@/components/atoms/ControllerWinnersBoard'
+import ControllerPaymentBoard from '@/components/atoms/ControllerPaymentBoard'
 import ControllerContractBalance from '@/components/atoms/ControllerContractBalance'
 
 export default {
@@ -27,6 +29,7 @@ export default {
     ControllerTotals,
     ControllerFilteredTotals,
     ControllerWinnersBoard,
+    ControllerPaymentBoard,
     ControllerContractBalance
   },
   data() {

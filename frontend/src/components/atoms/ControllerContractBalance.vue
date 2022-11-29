@@ -13,15 +13,20 @@
         <td><button class="get-balance" @click="getBalance">Get balance</button></td>
       </tr>
       <tr>
+        <td>Withdraw Amount</td>
+          <input type="text" class="address" v-model="withdrawAmount">
+        <td></td>
+      </tr>
+      <tr>
         <td>Address to withdraw</td>
         <input type="text" class="address" v-model="ethAddress">
         <td>
           <button
               :disabled="!addressValid"
               class="get-balance"
-              @click="withdrawFromContract"
+              @click="setWithdraw"
           >
-            Withdraw balance
+            Withdraw from Contract
           </button>
         </td>
       </tr>
@@ -34,7 +39,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions, mapMutations} from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import { ethers } from 'ethers'
 
 export default {
@@ -42,13 +47,13 @@ export default {
   data() {
     return {
       ethAddress: '',
-      addressValid: false
+      addressValid: false,
+      withdrawAmount: 0
     }
   },
   watch: {
     ethAddress: function (val) {
       this.addressValid = ethers.utils.isAddress(val)
-      this.setWithdrawAddress(val)
     }
   },
   computed: {
@@ -56,9 +61,9 @@ export default {
   },
   methods: {
     ...mapActions(['withdrawFromContract','getBalance']),
-    ...mapMutations(['setWithdrawAddress']),
-    setTransferEth() {
-      this.transferEthFromContract()
+    setWithdraw() {
+      const data = {amount: this.withdrawAmount, address: this.ethAddress}
+      this.withdrawFromContract(data)
     }
   },
   mountted () {
