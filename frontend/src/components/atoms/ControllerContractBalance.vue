@@ -9,7 +9,7 @@
       </tr>
       <tr>
         <td>Eth Balance</td>
-        <td class="address">{{ethBalance}}</td>
+        <td class="address eth">{{ethBalance}}</td>
         <td><button class="get-balance" @click="getBalance">Get balance</button></td>
       </tr>
       <tr>
@@ -94,6 +94,10 @@ export default {
     .address {
       min-width: 222px;
     }
+}
+.eth {
+  font-size: 16px;
+  font-weight: bold;
 }
 // TODO: This css is repeated
 .get-balance {

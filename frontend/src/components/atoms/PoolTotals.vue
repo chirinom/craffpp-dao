@@ -129,7 +129,7 @@ export default {
   padding: 22px 288px 77px;
 }
 .fa-ethereum {
-  margin: 28px 4px 0 0;
+  margin: 30px 4px 0 0;
   font-size: 15px;
   text-align: right;
 }
@@ -168,6 +168,12 @@ export default {
 .winner {
   color: #0bd50b;
 }
+@media (max-width: 1333px) {
+  .totals {
+    padding: 22px 144px 77px;
+  }
+}
+@media (max-width: 1089px) {}
 @media (max-width: 768px) {
   .totals {
     padding: 22px 0 77px;
