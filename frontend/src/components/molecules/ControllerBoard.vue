@@ -18,9 +18,9 @@
 
 <script>
 import ControllerTotals from '@/components/atoms/ControllerTotals'
-import ControllerFilteredTotals from '@/components/atoms/ControllerFilteredTotals'
+import ControllerFilteredTotals from '@/components/molecules/ControllerFilteredTotals'
 import ControllerWinnersBoard from '@/components/atoms/ControllerWinnersBoard'
-import ControllerPaymentBoard from '@/components/atoms/ControllerPaymentBoard'
+import ControllerPaymentBoard from '@/components/molecules/ControllerPaymentBoard'
 import ControllerContractBalance from '@/components/atoms/ControllerContractBalance'
 
 export default {
