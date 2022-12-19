@@ -1,4 +1,6 @@
 export const STRINGS = {
+  archive: 'Archive',
+  craffppTotal: 'Craffpp Total',
   winnersPayment: 'Winners Payment',
   addressCount: 'Address Count',
   pricePool: 'Price pool',
@@ -48,5 +50,24 @@ export const STRINGS = {
   panamaCrisis: 'The list of dangers to our coastline and rivers is long and growing. Trash from different rivers all around the country, especially those closer to the city, pose a huge threat to these natural resources. We must take action to protect them.',
   panamaContribution: 'When you buy a ticket for our raffle, you\'re not only getting a chance to win a fabulous prize, you\'re also helping us to clean up Panama\'s coastlines! 16% of the profits from each raffle will go towards collection and recycling of the garbage ass well as funding local NGOs who are dedicated to this cause. So buy a ticket today and feel good about supporting a great cause!',
   totalRaised: 'Total raised for garbage collection',
-  totalGivedBack: 'Total gived back to the people'
+  totalGivedBack: 'Total gived back to the people',
+  termsHeader: 'TERMS AND CONDITIONS',
+  termsIntroduction: 'These Website Standard Terms and Conditions written on this webpage shall manage your use of our website, Craffpp, accessible at craffpp.com.',
+  termsIntroductionSecond: 'By using our Website, you accepted these terms and conditions in full. If you disagree with these terms and conditions or any part of these terms and conditions, you must not use our Website.',
+  termsDescription: 'The Craffpp raffle is a monthly event organized by Craffpp where participants can purchase tickets using Ethereum. The raffle will be held on the 28th of every month, and the winners will be determined through a random selection process, saving all tickets and winners on the Ethereum blockchain.',
+  termsPriceDistribution: 'The price distribution for the raffle will be as follows:',
+  termsPriceDistribution40: '40% of the total prize pool will go to the first place winner',
+  termsPriceDistribution25: '25% of the total prize pool will go to the second place winner',
+  termsPriceDistribution15: '15% of the total prize pool will go to the third place winner',
+  termsPriceDistribution16: '16% of the total prize pool will go towards ocean and coastline cleanup efforts',
+  termsPriceDistribution4: '4% of the total prize pool will go towards development and maintenance of the platform',
+  termsPurchase: 'To participate in the raffle, you must purchase a ticket using Ethereum. The price of a ticket will be determined by Craffpp and may vary through time. All ticket purchases are final and non-refundable.',
+  termsPurchaseSecond: 'By purchasing a ticket and participating in the raffle, you acknowledge that you are aware of and agree to the terms and conditions set forth in this document.',
+  termsWinners: 'The winners of the raffle will be determined through a random selection process, saving all tickets and winners in the Ethereum blockchain. The selection of the winners will be final and non-negotiable.',
+  termsClaiming: 'The winners will receive the price in the same address used to buy the ticket withing 24h after a raffle is settled.',
+  termsTaxes: 'All winners are responsible for paying any applicable taxes on their prizes. Craffpp is not responsible for paying any taxes on behalf of the winners.',
+  termsLiability: 'Craffpp shall not be liable for any damages or losses of any kind arising from or in connection with the raffle or the use of the prizes.',
+  termsChangeTerms: 'Craffpp reserves the right to change the terms and conditions of the raffle at any time without notice. It is the responsibility of the participants to stay informed of any changes to the terms and conditions.',
+  termsLaw: 'These terms and conditions shall be governed by and construed in accordance with the laws of Panamá and any disputes shall be subject to the exclusive jurisdiction of the courts of Panamá',
+  termsLawSecond: 'By participating in the raffle, you acknowledge that you have read and agree to be bound by these terms and conditions.'
 }
