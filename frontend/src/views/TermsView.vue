@@ -31,7 +31,7 @@
       <p>{{STRINGS.termsChangeTerms}}</p>
       <li>Governing Law</li>
       <p>{{STRINGS.termsLaw}}</p>
-      <p>{{STRINGS.termsLaw}}</p>
+      <p>{{STRINGS.termsLawSecond}}</p>
     </ol>
   </div>
 </template>
