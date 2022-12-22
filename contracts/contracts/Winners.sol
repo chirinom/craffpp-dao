@@ -10,13 +10,12 @@ contract Winners {
         owner = msg.sender;
     }
 
-
     event Winner(
         string amount,
         string winnerAddress,
         string pool_code,
         string pool_standing,
-        uint256 timestamp
+        string pool_type
     );
 
     struct WinnerStruct {
@@ -24,7 +23,7 @@ contract Winners {
         string winner_address;
         string pool_code;
         string pool_standing;
-        uint256 timestamp;
+        string pool_type;
     }
 
     WinnerStruct[] winners;
@@ -33,7 +32,8 @@ contract Winners {
         string memory amount,
         string memory winner_address,
         string memory pool_code,
-        string memory pool_standing
+        string memory pool_standing,
+        string memory pool_type
     ) public {
         require(owner == msg.sender, 'Not Owner');
         
@@ -43,25 +43,14 @@ contract Winners {
                 winner_address,
                 pool_code,
                 pool_standing,
-                block.timestamp
+                pool_type
             )
         );
 
-        emit Winner(
-            amount,
-            winner_address,
-            pool_code,
-            pool_standing,
-            block.timestamp
-        );
+        emit Winner(amount, winner_address, pool_code, pool_standing, pool_type);
     }
 
-
-    function getAllWinners()
-        public
-        view
-        returns (WinnerStruct[] memory)
-    {
+    function getAllWinners() public view returns (WinnerStruct[] memory) {
         return winners;
     }
 }
