@@ -36,19 +36,22 @@ const actions = {
         getters.firstPlaceStruct.amount,
         getters.firstPlaceStruct.address,
         getters.firstPlaceStruct.pool_code,
-        getters.firstPlaceStruct.standing,
+        getters.firstPlaceStruct.pool_standing,
+        getters.firstPlaceStruct.pool_type,
       )
       const secondPlaceHash = await winnersContract.addWinnerStructToBlockchain(
         getters.secondPlaceStruct.amount,
         getters.secondPlaceStruct.address,
         getters.secondPlaceStruct.pool_code,
-        getters.secondPlaceStruct.standing,
+        getters.secondPlaceStruct.pool_standing,
+        getters.secondPlaceStruct.pool_type,
       )
       const thirdPlaceHash = await winnersContract.addWinnerStructToBlockchain(
         getters.thirdPlaceStruct.amount,
         getters.thirdPlaceStruct.address,
         getters.thirdPlaceStruct.pool_code,
-        getters.thirdPlaceStruct.standing,
+        getters.thirdPlaceStruct.pool_standing,
+        getters.thirdPlaceStruct.pool_type,
       )
 
       await firstPlaceHash.wait()
@@ -70,7 +73,8 @@ const actions = {
         amount: winner[0],
         address: winner[1],
         pool_code: winner[2],
-        standing: winner[3],
+        pool_standing: winner[3],
+        pool_type: winner[4],
       }))
       commit('setWinners', parcedWinners)
 

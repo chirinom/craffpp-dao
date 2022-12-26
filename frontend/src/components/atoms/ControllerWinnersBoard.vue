@@ -110,13 +110,15 @@ export default {
       let third = {}
       let addressesArray = this.filteredData.map(option => option.ticketOwner)
       let random = Math.floor(Math.random() * addressesArray.length)
+      const poolType = this.poolCode.slice(0, -7)
 
       const firstPlace = addressesArray[random]
       this.firstPlaceAddress = firstPlace
       first.amount = this.firstPlaceAmount
       first.address = firstPlace
       first.pool_code = this.poolCode
-      first.standing = 'first'
+      first.pool_standing = 'first'
+      first.pool_type = poolType
       this.createFirstPlaceStruct(first)
       const firstPlaceIndex = addressesArray.indexOf(firstPlace)
       if (firstPlaceIndex >= 0) addressesArray.splice(firstPlaceIndex, 1)
@@ -126,7 +128,8 @@ export default {
       second.amount = this.secondPlaceAmount
       second.address = secondPlace
       second.pool_code = this.poolCode
-      second.standing = 'second'
+      second.pool_standing = 'second'
+      second.pool_type = poolType
       this.createSecondPlaceStruct(second)
       const secondPlaceIndex = addressesArray.indexOf(secondPlace)
       if (secondPlaceIndex >= 0) addressesArray.splice(secondPlaceIndex, 1)
@@ -136,7 +139,8 @@ export default {
       third.amount = this.thirdPlaceAmount
       third.address = thirdPlace
       third.pool_code = this.poolCode
-      third.standing = 'third'
+      third.pool_standing = 'third'
+      third.pool_type = poolType
       this.createThirdPlaceStruct(third)
       const thirdPlaceIndex = addressesArray.indexOf(thirdPlace)
       if (thirdPlaceIndex >= 0) addressesArray.splice(thirdPlaceIndex, 1)

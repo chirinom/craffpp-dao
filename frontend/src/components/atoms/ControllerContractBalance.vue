@@ -10,7 +10,7 @@
       <tr>
         <td>Eth Balance</td>
         <td class="address eth">{{ethBalance}}</td>
-        <td><button class="get-balance" @click="getBalance">Get balance</button></td>
+        <td></td>
       </tr>
       <tr>
         <td>Withdraw Amount</td>
@@ -22,7 +22,7 @@
         <input type="text" class="address" v-model="ethAddress">
         <td>
           <button
-              :disabled="!addressValid"
+              :disabled="!addressValid || !withrawValid"
               class="get-balance"
               @click="setWithdraw"
           >
@@ -58,6 +58,10 @@ export default {
   },
   computed: {
     ...mapGetters(['ethBalance']),
+    withrawValid() {
+      const result = this.ethBalance >= this.withdrawAmount
+      return result
+    }
   },
   methods: {
     ...mapActions(['withdrawFromContract','getBalance']),
@@ -66,7 +70,7 @@ export default {
       this.withdrawFromContract(data)
     }
   },
-  mountted () {
+  mounted () {
     this.getBalance()
   }
 }

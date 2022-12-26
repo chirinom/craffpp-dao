@@ -1,20 +1,29 @@
 <template>
   <div class="bingo-board">
-    <div>
-      <div class="header">{{STRINGS.pricePool}}</div>
+    <div v-if="showArchive" class="wrapper">
+      <div class="header archive">{{STRINGS.archive}}</div>
+      <ArchivePage />
+      <button class="archive-btn" @click="setShowArchive">Price pool <i class="fa-solid fa-angles-right"></i></button>
     </div>
-    <div class="pick">{{STRINGS.selectMonth}}</div>
-    <TabWithMonths @switch-tab="handleMonthChange" />
-    <TimerContainer :poolDateCode="poolDateCode" />
-    <PoolTotals
-      :poolsData="poolsData"
-      :isPoolPassed="isPoolPassed"
-      :poolDateCode='poolDateCode'
-    />
+    <div class="wrapper" v-else>
+      <div>
+        <div class="header">{{STRINGS.pricePool}}</div>
+      </div>
+      <div class="pick">{{STRINGS.selectMonth}}</div>
+      <TabWithMonths @switch-tab="handleMonthChange" />
+      <TimerContainer :poolDateCode="poolDateCode" />
+      <PoolTotals
+        :poolsData="poolsData"
+        :isPoolPassed="isPoolPassed"
+        :poolDateCode='poolDateCode'
+      />
+      <button class="archive-btn" @click="setShowArchive"><i class="fa-solid fa-angles-left"></i>  Archive</button>
+    </div>
   </div>
 </template>
 
 <script>
+import ArchivePage from '@/components/molecules/ArchivePage'
 import TabWithMonths from '@/components/atoms/TabWithMonths'
 import TimerContainer from '@/components/atoms/TimerContainer'
 import PoolTotals from '@/components/atoms/PoolTotals'
@@ -25,6 +34,7 @@ import { mapMutations } from 'vuex'
 export default {
   name: 'PoolsBoard',
   components: {
+    ArchivePage,
     TabWithMonths,
     PoolTotals,
     TimerContainer,
@@ -42,7 +52,8 @@ export default {
   },
   data() {
     return {
-      STRINGS: STRINGS
+      STRINGS: STRINGS,
+      showArchive: false
     }
   },
   methods: {
@@ -52,6 +63,9 @@ export default {
       this.setFilterObject(val)
       this.$emit('monthChange', val)
     },
+    setShowArchive() {
+      this.showArchive = !this.showArchive
+    }
   },
 }
 </script>
@@ -64,7 +78,8 @@ export default {
   height: fit-content;
   min-height: 464px;
   margin: 44px 0 0 0;
-  padding: 0 15px 15px;
+  padding: 0 15px 44px;
+  position: relative;
 }
 .header {
   font-family: "Patua One";
@@ -72,6 +87,10 @@ export default {
   font-weight: bold;
   color: $primary;
   padding: 22px 0;
+
+  &.archive {
+    color: $primary-light;
+  }
 
 }
 .pick {
@@ -86,4 +105,25 @@ export default {
 
   }
 }
+
+// Create wrapper component
+.archive-btn {
+  border: none;
+  background: none;
+  padding: 11px 0;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  left: 22px;
+  bottom: 0;
+  cursor: pointer;
+  color: $primary-grey;
+
+  &:hover {
+    color: $primary-light;
+  }
+}
+// .wrapper {
+//   position: relative;
+// }
 </style>

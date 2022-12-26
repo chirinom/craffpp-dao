@@ -93,7 +93,7 @@ export default {
     firstPlaceAddress() {
       const total = this.winners.filter(option =>
         option.pool_code === this.filterObject.type + this.filterObject.month
-        && option.standing === 'first'
+        && option.pool_standing === 'first'
       )
       const result = total.map(option => option.address)
       return result[0]
@@ -101,7 +101,7 @@ export default {
     secondPlaceAddress() {
       const total = this.winners.filter(option => 
         option.pool_code === this.filterObject.type + this.filterObject.month
-        && option.standing === 'second'
+        && option.pool_standing === 'second'
       )
       const result = total.map(option => option.address)
       return result[0]
@@ -109,7 +109,7 @@ export default {
     thirdPlaceAddress() {
       const total = this.winners.filter(option => 
         option.pool_code === this.filterObject.type + this.filterObject.month
-        && option.standing === 'third'
+        && option.pool_standing === 'third'
       )
       const result = total.map(option => option.address)
       return result[0]
@@ -168,9 +168,14 @@ export default {
 .winner {
   color: #0bd50b;
 }
-@media (max-width: 1333px) {
+@media (max-width: 1650px) {
   .totals {
     padding: 22px 144px 77px;
+  }
+}
+@media (max-width: 1333px) {
+  .totals {
+    padding: 22px 55px 77px;
   }
 }
 @media (max-width: 1089px) {}

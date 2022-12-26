@@ -3,17 +3,25 @@
     <div v-for="(ticket, index) in ticketData" :key="index" class="ticket">
       <div class="ticket-wrapper">
         <div>
-          <div class="text-container">
+          <div v-if="ticket.amount" class="text-container">
             <h4 class="label">{{STRINGS.ticketAmount}}</h4>
             <span class="text">{{ticket.amount}}{{STRINGS.eth}}</span>
           </div>
-          <div class="text-container">
+          <div v-if="ticket.timestamp" class="text-container">
             <h4 class="label">{{STRINGS.ticketEntryDate}}</h4>
             <span class="text">{{ticket.timestamp}}</span>  
           </div>
-          <div class="text-container">
+          <div v-if="ticket.ticketOwner" class="text-container">
             <h4 class="label">{{STRINGS.ticketWalletAddress}}</h4>
             <span class="text">{{ticket.ticketOwner}}</span>
+          </div>
+          <div v-if="ticket.address" class="text-container">
+            <h4 class="label">{{STRINGS.ticketWalletAddress}}</h4>
+            <span class="text">{{ticket.address}}</span>
+          </div>
+          <div v-if="ticket.pool_code" class="text-container">
+            <h4 class="label">Pool Code</h4>
+            <span class="text">{{ticket.pool_code}}</span>
           </div>
         </div>
         <img :src="require('../../assets/logo_lightgrey.png')" >
@@ -28,7 +36,7 @@ export default {
   name: 'TicketListBox',
   props: {
     ticketData: {
-      type: Array
+      type: [Array, Object]
     }
   },
   data() {

@@ -30,8 +30,8 @@ export default {
   p {
     font-size: 18px;
     max-width: 1111px;
-    margin: 0;
-    text-align: left;
+    margin: 0 0 0 44px;
+    text-align: justify;
   }
 
   img {

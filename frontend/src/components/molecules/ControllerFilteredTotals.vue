@@ -8,20 +8,22 @@
         <td>{{STRINGS.addressCount}}</td>
         <td>{{STRINGS.totalTickets}}</td>
         <td>{{STRINGS.totalEthereum}}</td>
-        <td>{{STRINGS.oceanCleanup}}</td>
         <td>{{STRINGS.fristPlace}}</td>
         <td>{{STRINGS.secondPlace}}</td>
         <td>{{STRINGS.thirdPlace}}</td>
+        <td>{{STRINGS.oceanCleanup}}</td>
         <td>{{STRINGS.craffpp}}</td>
+        <td>{{STRINGS.craffppTotal}}</td>
       </tr>
       <tr>
         <td>{{filteredAddressCount}}</td>
         <td>{{filteredEthTotal}}</td>
-        <td>{{filteredMotherNature}}</td>
         <td>{{filteredFirstPlace}}</td>
         <td>{{filteredSecondPlace}}</td>
         <td>{{filteredThirdPlace}}</td>
+        <td>{{filteredMotherNature}}</td>
         <td>{{filteredCraffppCo}}</td>
+        <td>{{filteredCraffppTotal}}</td>
       </tr>
     </table>
   </div>
@@ -63,11 +65,6 @@ export default {
       const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0)
       return total.toFixed(4)
     },
-    filteredMotherNature() {
-      const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0)
-      const result = total * ( 16 / 100 )
-      return result.toFixed(4)
-    },
     filteredFirstPlace() {
       const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0)
       const result = total * ( 40 / 100 )
@@ -83,9 +80,19 @@ export default {
       const result = total * ( 15 / 100 )
       return result.toFixed(4)
     },
+    filteredMotherNature() {
+      const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0)
+      const result = total * ( 16 / 100 )
+      return result.toFixed(4)
+    },
     filteredCraffppCo() {
       const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0)
       const result = total * ( 4 / 100 )
+      return result.toFixed(4)
+    },
+    filteredCraffppTotal() {
+      const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0)
+      const result = total * ( 20 / 100 )
       return result.toFixed(4)
     },
   },
