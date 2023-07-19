@@ -25,7 +25,7 @@
         <p>{{STRINGS.transfers}}</p>
       </div>
     </div>
-    <h3>Raffles Price Distirbution</h3>
+    <h3>Pools Price Distirbution</h3>
     <p class="distribution">{{STRINGS.priceDistribution}}</p>
   </div>
 </template>

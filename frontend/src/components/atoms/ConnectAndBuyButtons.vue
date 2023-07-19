@@ -10,7 +10,7 @@
         v-if="isLoading"
         class="loader"
         name="ball-spin-fade-loader"
-        color="#fff"
+        color="#0091fb"
         scale="0.35"
       />
       <span v-else>Buy ticket</span>
@@ -60,7 +60,7 @@ export default {
   background-color: $primary;
   color: #fff;
   border-radius: 6px;
-  max-height: 42px;
+  height: 44px;
 
   &:hover {
     background-color: $secondary;

@@ -5,7 +5,7 @@
         v-for="tab in tabs"
         class="amount-btn"
         ref=""
-        :class="{ selected: tab.value === selectedTab, 'tabs-container': isHorizontalScrollActive  }"
+        :class="{ selected: tab.value === selectedTab }"
         :key="tab.value"
         @click="switchTab(tab.value)"
         @keyup="switchTab(tab.value)"
