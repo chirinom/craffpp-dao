@@ -11,8 +11,6 @@ Welcome to Craffpp, the Crypto Raffle platform that gives people a chance to win
 - [Usage](#usage)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 

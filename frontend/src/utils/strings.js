@@ -4,7 +4,7 @@ export const STRINGS = {
   winnersPayment: 'Winners Payment',
   addressCount: 'Address Count',
   pricePool: 'Price pool',
-  selectMonth: 'SelectMonth',
+  selectMonth: 'Select month',
   ticketBooth: 'Ticketbooth',
   selectBuyin: 'Select buy-in',
   yourTickets: 'Your Tickets',

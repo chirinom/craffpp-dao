@@ -13,6 +13,9 @@ const state = {
   isLoading: false,
   allTickets: [],
   ethBalance: 0,
+  poolDateCode: '',
+  poolsData: [],
+  ticketData: [],
 }
 const getters = {
   currentTicketType: (state) => state.currentTicketType,
@@ -21,7 +24,10 @@ const getters = {
   filterObject: (state) => state.filterObject,
   isLoading: (state) => state.isLoading,
   allTickets: (state) => state.allTickets,
-  ethBalance: (state) => state.ethBalance
+  ethBalance: (state) => state.ethBalance,
+  poolDateCode: (state) => state.poolDateCode,
+  poolsData: (state) => state.poolsData,
+  ticketData: (state) => state.ticketData,
 }
 const actions = {
   async getBalance ({commit}) {
@@ -56,7 +62,7 @@ const actions = {
       throw new Error('No ethereum object')
     }
   },
-  async sendTransaction ({commit, getters}) {
+  async sendTransaction ({commit, getters, dispatch}) {
     commit('setIsLoading', true)
     try {
       if (window.ethereum) {
@@ -72,13 +78,12 @@ const actions = {
           getters.keyword,
           {value: parsedAmount._hex}
         )
-        
         await ticketsHash.wait()
         notify({title: 'Succesfully bought (1) ' + state.currentTicketType + ' ticket for ' + state.currentPoolDateCode + ' raffle 🎉'})
         await new Promise(resolve => setTimeout(resolve, 4444))
+        dispatch('getAllTickets')
         commit('setIsLoading', false)
-        window.location.reload()
-      } 
+      }
     } catch (e) {
       console.error(e)
       commit('setIsLoading', false)
@@ -86,7 +91,7 @@ const actions = {
       throw new Error('No ethereum object')
     }
   },
-  async getAllTickets({commit}) {
+  async getAllTickets({commit, dispatch}) {
     try {
       const provider = new ethers.providers.JsonRpcProvider(`https://eth-goerli.g.alchemy.com/v2/${API_KEY}`)
       const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, provider)
@@ -100,10 +105,29 @@ const actions = {
         amount: parseInt(ticket.amount._hex) / (10 ** 18)
       }))
       commit('setAllTickets', parcedTickets)
+      dispatch('filterTickets')
     } catch (e) {
       console.error(e)
     }
-  }
+  },
+  filterTickets({ commit, state, getters }, val) {
+    if (val && val.length === 7) {
+      commit('setPoolDateCode', val)
+    }
+    const { type, month } = state.filterObject
+    const result = state.allTickets.filter((option) => 
+      option.poolType === type && option.month === month
+    )
+    commit('setPoolsData', result)
+    if (getters.currentAccount) {
+      const ticketData = state.poolsData.filter(option => 
+        option.ticketOwner.toLowerCase() === getters.currentAccount.toLowerCase()
+      )
+      commit('setTicketData', ticketData)
+    } else {
+      commit('setTicketData', [])
+    }
+  },
 }
 const mutations = {
   setCurrentTicketType: (state, data) => state.currentTicketType = data,
@@ -118,6 +142,9 @@ const mutations = {
   setIsLoading: (state, data) => state.isLoading = data,
   setAllTickets: (state, data) => state.allTickets = data,
   setBalance: (state, data) => state.ethBalance = data,
+  setPoolDateCode: (state, data) => state.poolDateCode = data,
+  setPoolsData: (state, data) => state.poolsData = data,
+  setTicketData: (state, data) => state.ticketData = data,
 }
 
 export default {

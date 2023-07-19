@@ -19,7 +19,6 @@
         <TicketListBox  
           v-if="isExpanded"
           :currentAccount="currentAccount"
-          :ticketData="ticketData"
         />
         <ExpandButtons
           @open="handleExpand"
@@ -51,7 +50,7 @@ import ExpandButtons from '@/components/atoms/ExpandButtons'
 import OrderSummary from '@/components/atoms/OrderSummary'
 import TabWithAmounts from '@/components/atoms/TabWithAmounts'
 import TicketListBox from '@/components/atoms/TicketListBox'
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters} from 'vuex'
 import TICKET_VALUES from '../../utils/ticket_values.json'
 import { STRINGS } from '../../utils/strings'
 
@@ -71,9 +70,6 @@ export default {
     currentAccount: {
       type: String,
     },
-    ticketData: {
-      type: Array,
-    }
   },
   data() {
     return {
@@ -87,6 +83,9 @@ export default {
       tabs: TICKET_VALUES.ticketValues,
       STRINGS: STRINGS,
     }
+  },
+  computed: {
+    ...mapGetters(['ticketData']),
   },
   methods: {
     ...mapMutations([

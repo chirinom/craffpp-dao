@@ -1,5 +1,4 @@
 export const MONTH_TABS = [
-  { text: 'June', value: 'jun2023' },
   { text: 'July', value: 'jul2023' },
   { text: 'August', value: 'aug2023' },
   { text: 'September', value: 'sep2023' },

@@ -31,13 +31,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { STRINGS } from '../../utils/strings'
+
 export default {
   name: 'TicketListBox',
-  props: {
-    ticketData: {
-      type: [Array, Object]
-    }
+  computed: {
+    ...mapGetters(['ticketData']),
   },
   data() {
     return {

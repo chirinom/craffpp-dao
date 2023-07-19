@@ -30,33 +30,16 @@ export default {
   data() {
     return {
       poolPassed: false,
-      poolsData: [],
-      ticketData: [],
-      poolDateCode: '',
     }
   },
   computed: {
-    ...mapGetters(['filterObject', 'allTickets', 'currentAccount'])
+    ...mapGetters(['filterObject', 'allTickets', 'currentAccount', 'poolsData', 'ticketData', 'poolDateCode']),
   },
   methods: {
-    ...mapActions(['checkIfWalletIsConnect']),
+    ...mapActions(['checkIfWalletIsConnect', 'filterTickets']),
     ...mapMutations(['setCurrentAccount']),
     setPoolIsPassed(val) {
       this.poolPassed = val
-    },
-    filterTickets(val) {
-      if (val.length === 7) this.poolDateCode = val
-      const result = this.allTickets.filter((option) => 
-        option.poolType === this.filterObject.type 
-        && option.month === this.filterObject.month
-      )
-      this.poolsData = result
-      if (!!this.currentAccount) {
-        const ticketData = this.poolsData.filter(option => 
-          option.ticketOwner.toLowerCase() === this.currentAccount.toLowerCase()
-        )
-        this.ticketData = ticketData
-      }
     },
   },
   mounted() {
