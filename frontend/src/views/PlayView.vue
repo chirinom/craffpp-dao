@@ -1,13 +1,13 @@
 <template>
   <div class="home">
-    <TicketBoard
-      @typeChange="filterTickets"
-      @poolPassed="setPoolIsPassed"
-    />
     <PoolsBoard
       :poolsData="poolsData"
       :isPoolPassed="poolPassed"
       @monthChange="filterTickets"
+    />
+    <TicketBoard
+      @typeChange="filterTickets"
+      @poolPassed="setPoolIsPassed"
     />
   </div>
 </template>
@@ -44,10 +44,8 @@ export default {
 </script>
 <style scoped lang="scss">
 .home {
-  display: block;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  padding: 44px 444px 222px;
+  padding: 77px 0 222px;
+  display: inline-flex;
 }
 @media (max-width: 1650px) {
   .home {

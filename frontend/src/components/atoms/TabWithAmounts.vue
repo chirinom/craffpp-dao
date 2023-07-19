@@ -60,7 +60,7 @@ export default {
     display: flex;
     border-radius: 6px;
     width: 100%;
-    height: 44px;
+    height: 46px;
     
     span {
       width: max-content;

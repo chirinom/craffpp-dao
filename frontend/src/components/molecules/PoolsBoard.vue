@@ -75,16 +75,16 @@ export default {
   border-radius: 6px;
   height: fit-content;
   min-height: 464px;
-  margin: 44px 0 0 0;
   padding: 0 15px 44px;
   position: relative;
+  max-width: 777px;
 }
 .header {
   font-family: "Patua One";
   font-size: 33px;
   font-weight: bold;
   color: $primary;
-  padding: 22px 0;
+  padding: 22px 0 0;
 
   &.archive {
     color: $primary-light;
@@ -121,7 +121,4 @@ export default {
     color: $primary-light;
   }
 }
-// .wrapper {
-//   position: relative;
-// }
 </style>

@@ -55,7 +55,7 @@ export default {
   margin: 11px 7px;
   padding: 0;
   overflow: auto;
-  height: 194px;
+  height: 255px;
   color: black;
   background-color: #fff;
   border: 1px solid lightgrey;

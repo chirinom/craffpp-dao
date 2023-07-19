@@ -1,6 +1,6 @@
 <template>
   <div class="ticketbooth">
-    <h2>{{STRINGS.ticketBooth}}</h2>
+    <div class="header">{{STRINGS.ticketBooth}}</div>
     <div class="booth-content">
       <span class="pick">{{STRINGS.selectBuyin}}</span>
       <div class="ticket-amount">
@@ -130,13 +130,14 @@ export default {
   overflow: hidden;
   position: relative;
   height: fit-content;
+  width: 555px;
+  margin-left: 44px;
 
-  & h2 {
+  & .header {
     margin: 0;
     padding: 22px 0 0 0;
     font-weight: 700;
     font-size: 33px;
-    line-height: 24px;
     font-family: "Patua One", cursive;
     color: $primary;
   }
@@ -171,7 +172,7 @@ export default {
   opacity: 0.7;
 }
 .booth-content {
-  padding: 15px;
+  padding: 0 15px;
 }
 .btns-container {
   padding: 0 15px 15px;
@@ -182,12 +183,12 @@ export default {
   color: rgba(60, 60, 67, 0.6);
   width: 100%;
   border-radius: 6px;
-  margin: 23px 0 11px;
-  padding: 11px 0 0 0;
+  margin: 0 0 11px;
+  padding: 0 0 33px;
   position: relative;
 
   &.expanded {
-    height: 253px;
+    height: 340px;
     margin-bottom: 0;
 
     & .dropdown-btn {
