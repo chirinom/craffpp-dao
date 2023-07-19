@@ -60,7 +60,7 @@ export default {
     display: flex;
     border-radius: 6px;
     width: 100%;
-    height: 55px;
+    height: 44px;
     
     span {
       width: max-content;
@@ -77,14 +77,9 @@ export default {
       background-color: $primary;
       color: #fff;
     }
-    .tab {
-      margin-left: 32px;
-      white-space: nowrap;
-    }
   }
 }
 .amount-btn {
-  padding: 8px;
   margin: 2px;
   border: none;
   font-weight: 700;

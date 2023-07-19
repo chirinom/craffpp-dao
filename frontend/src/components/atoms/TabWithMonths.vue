@@ -1,10 +1,11 @@
 <template>
   <div class="my-navbar">
     <span v-if="!!tabs" class="tabs-container">
-      <span
+      <button
         v-for="tab in tabs"
-        class="tab"
-        :class="{ selected: tab.value === selectedTab }"
+        class="amount-btn"
+        ref=""
+        :class="{ selected: tab.value === selectedTab, 'tabs-container': isHorizontalScrollActive  }"
         :key="tab.value"
         @click="switchTab(tab.value)"
         @keyup="switchTab(tab.value)"
@@ -12,7 +13,7 @@
         <div class="name">
           {{ tab.text }}
         </div>
-      </span>
+      </button>
     </span>
   </div>
 </template>
@@ -31,7 +32,7 @@ export default {
   data() {
     return {
       selectedTab: '',
-      tabs: MONTH_TABS
+      tabs: MONTH_TABS,
     }
   },
   methods: {
@@ -50,11 +51,10 @@ export default {
 
 <style lang="scss" scoped>
 .my-navbar {
-  padding: 15px;
   background-color: #2e478d14;
   text-align: center;
+  width: 100%;
   border-radius: 6px;
-
   .tabs-container {
     height: fit-content;
     display: flex;
@@ -70,21 +70,42 @@ export default {
     span {
       width: max-content;
       display: block;
+      transition: color 0.3s ease, border 0.3s ease;
       cursor: pointer;
-      margin-right: 32px;
       border-bottom: 2px solid transparent;
     }
-    span:hover,
-    .selected {
-      color: $primary;
-      border-bottom: 2px solid $primary;
+    span:hover {
+      color: rgb(46, 71, 141);
+      border-bottom: 2px solid rgb(11, 45, 139);
     }
-    .tab {
-      margin-left: 32px;
-      white-space: nowrap;
+    .selected {
+      background-color: $primary;
+      color: #fff;
     }
   }
 }
+.amount-btn {
+  margin: 2px;
+  border: none;
+  font-weight: 700;
+  color: rgba(60, 60, 67, 0.6);
+  font-size: 14px;
+  line-height: 24px;
+  border-radius: 6px;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+  &:hover {
+    background-color: $primary;
+    color: #fff;
+  }
+}
+.name {
+  width: 111px;
+  margin: 8px
+}
+
+
 ::-webkit-scrollbar {
   display: none;
 }

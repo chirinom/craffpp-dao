@@ -26,9 +26,6 @@ import { STRINGS } from '../../utils/strings'
 export default {
   name: 'ConnectAndBuyButtons',
   props: {
-    currentAccount: {
-      type: String,
-    },
     orderValid: {
       type: Boolean,
     },

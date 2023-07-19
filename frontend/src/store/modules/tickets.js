@@ -79,8 +79,8 @@ const actions = {
           {value: parsedAmount._hex}
         )
         await ticketsHash.wait()
-        notify({title: 'Succesfully bought (1) ' + state.currentTicketType + ' ticket for ' + state.currentPoolDateCode + ' raffle 🎉'})
         await new Promise(resolve => setTimeout(resolve, 4444))
+        notify({title: 'Succesfully bought (1) ' + state.currentTicketType + ' ticket for ' + state.currentPoolDateCode + ' raffle 🎉'})
         dispatch('getAllTickets')
         commit('setIsLoading', false)
       }
