@@ -31,12 +31,6 @@ import { STRINGS } from '../../utils/strings'
 export default {
   name: 'OrderSummary',
   props: {
-    currentAccount: {
-      type: String,
-    },
-    poolDateCode: {
-      type: String,
-    },
     currentValue: {
       type: [String, Number]
     },
@@ -48,7 +42,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['allTickets']),
+    ...mapGetters(['allTickets', 'poolDateCode', 'currentAccount']),
     firstTimeUser() {
       const result = this.allTickets.filter((option) => 
         option.ticketOwner.toLowerCase() === this.currentAccount

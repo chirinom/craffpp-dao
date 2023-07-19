@@ -29,7 +29,7 @@ import TimerContainer from '@/components/atoms/TimerContainer'
 import PoolTotals from '@/components/atoms/PoolTotals'
 import { STRINGS } from '../../utils/strings'
 
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 
 export default {
   name: 'PoolsBoard',
@@ -43,9 +43,6 @@ export default {
     isPoolPassed: {
       type: Boolean,
     },
-    poolDateCode: {
-      type: String
-    },
     poolsData: {
       type: Array
     },
@@ -56,6 +53,7 @@ export default {
       showArchive: false
     }
   },
+  computed: { ...mapGetters(['poolDateCode']) },
   methods: {
     ...mapMutations(['setFilterObject', 'setCurrentPoolDateCode']),
     handleMonthChange(val) {

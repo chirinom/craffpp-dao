@@ -1,15 +1,11 @@
 <template>
   <div class="home">
     <TicketBoard
-      :poolDateCode="poolDateCode"
-      :currentAccount="currentAccount"
-      :ticketData="ticketData"
       @typeChange="filterTickets"
       @poolPassed="setPoolIsPassed"
     />
     <PoolsBoard
       :poolsData="poolsData"
-      :poolDateCode="poolDateCode"
       :isPoolPassed="poolPassed"
       @monthChange="filterTickets"
     />
@@ -19,7 +15,7 @@
 <script>
 import TicketBoard from '@/components/molecules/TicketBoard'
 import PoolsBoard from '@/components/molecules/PoolsBoard'
-import { mapActions, mapGetters, mapMutations } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'PlayView',
@@ -33,11 +29,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['filterObject', 'allTickets', 'currentAccount', 'poolsData', 'ticketData', 'poolDateCode']),
+    ...mapGetters(['filterObject', 'allTickets', 'currentAccount', 'poolsData', 'poolDateCode']),
   },
   methods: {
     ...mapActions(['checkIfWalletIsConnect', 'filterTickets']),
-    ...mapMutations(['setCurrentAccount']),
     setPoolIsPassed(val) {
       this.poolPassed = val
     },

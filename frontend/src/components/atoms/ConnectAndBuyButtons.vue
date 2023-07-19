@@ -39,7 +39,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['isLoading']),
+    ...mapGetters(['isLoading', 'currentAccount']),
   },
   methods: {
     ...mapActions(['sendTransaction', 'connectWallet']),

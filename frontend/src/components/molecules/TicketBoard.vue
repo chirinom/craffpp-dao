@@ -16,10 +16,7 @@
             <div class="box-number">{{ticketData.length}}</div>
           </div>
         </div>
-        <TicketListBox  
-          v-if="isExpanded"
-          :currentAccount="currentAccount"
-        />
+        <TicketListBox v-if="isExpanded"/>
         <ExpandButtons
           @open="handleExpand"
           @close="handleExpand"
@@ -31,11 +28,9 @@
         v-if="!!currentAccount"
         :poolDateCode="poolDateCode"
         :currentValue="currentValue"
-        :currentAccount="currentAccount"
         @orderValid="setOrderValid"
       />
       <ConnectAndBuyButtons
-        :currentAccount="currentAccount"
         :orderValid="orderValid"
       />
     </div>
@@ -63,14 +58,6 @@ export default {
     ExpandButtons,
     ConnectAndBuyButtons
   },
-  props: {
-    poolDateCode: {
-      type: String,
-    },
-    currentAccount: {
-      type: String,
-    },
-  },
   data() {
     return {
       orderValid: false,
@@ -85,7 +72,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['ticketData']),
+    ...mapGetters(['ticketData', 'poolDateCode', 'currentAccount']),
   },
   methods: {
     ...mapMutations([
