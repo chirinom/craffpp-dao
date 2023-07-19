@@ -1,14 +1,16 @@
 <template>
   <div class="home">
-    <PoolsBoard
-      :poolsData="poolsData"
-      :isPoolPassed="poolPassed"
-      @monthChange="filterTickets"
-    />
-    <TicketBoard
-      @typeChange="filterTickets"
-      @poolPassed="setPoolIsPassed"
-    />
+    <div class="play-container">
+      <PoolsBoard
+        :poolsData="poolsData"
+        :isPoolPassed="poolPassed"
+        @monthChange="filterTickets"
+      />
+      <TicketBoard
+        @typeChange="filterTickets"
+        @poolPassed="setPoolIsPassed"
+      />
+    </div>
   </div>
 </template>
 
@@ -45,24 +47,28 @@ export default {
 <style scoped lang="scss">
 .home {
   padding: 77px 0 222px;
-  display: inline-flex;
+
+  .play-container {
+    display: flex;
+    justify-content: center;
+  }
 }
 @media (max-width: 1650px) {
   .home {
     padding: 34px 353px 222px;
+
+    .play-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .play-container > :nth-child(1) {
+      order: 1;
+    }
   }
 }
 @media (max-width: 1333px) {
-  .home {
-    padding: 34px 222px 222px;
-  }
-}
-@media (max-width: 1089px) {
-  .home {
-    padding: 34px 222px;
-  }
-}
-@media (max-width: 777px) {
   .home {
     padding: 11px 22px 222px;
   }

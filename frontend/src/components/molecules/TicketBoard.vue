@@ -202,7 +202,13 @@ export default {
   color: $primary;
   font-weight: bold;
 }
-
+@media (max-width: 1650px) {
+  .ticketbooth {
+    width: 100%;
+    max-width: 777px;
+    margin: 0;
+  }
+}
 @media (max-width: 768px) {
   .ticketbooth {
     width: 100%;

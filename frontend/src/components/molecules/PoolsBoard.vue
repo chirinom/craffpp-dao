@@ -75,9 +75,11 @@ export default {
   border-radius: 6px;
   height: fit-content;
   min-height: 464px;
-  padding: 0 15px 44px;
   position: relative;
   max-width: 777px;
+}
+.wrapper {
+   padding: 0 15px 44px;
 }
 .header {
   font-family: "Patua One";
@@ -119,6 +121,11 @@ export default {
 
   &:hover {
     color: $primary-light;
+  }
+}
+@media (max-width: 1650px) {
+  .bingo-board {
+    width: 100%;
   }
 }
 </style>
