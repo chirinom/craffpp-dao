@@ -61,6 +61,7 @@ export default {
   color: #fff;
   border-radius: 6px;
   height: 44px;
+  // margin: 8px 0;
 
   &:hover {
     background-color: $secondary;

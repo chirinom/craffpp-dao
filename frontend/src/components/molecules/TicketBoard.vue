@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="btns-container">
-      <OrderSummary 
+      <OrderSummary
         v-if="!!currentAccount"
         :poolDateCode="poolDateCode"
         :currentValue="currentValue"
@@ -175,7 +175,7 @@ export default {
   padding: 0 15px;
 }
 .btns-container {
-  padding: 0 15px 15px;
+  padding: 15px;
 }
 
 .available-tickets {
@@ -188,7 +188,7 @@ export default {
   position: relative;
 
   &.expanded {
-    height: 340px;
+    height: 326px;
     margin-bottom: 0;
 
     & .dropdown-btn {

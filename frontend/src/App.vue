@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <notifications
-      position="top center"
-      width="444px"
-      height="111"
-    />
+    <notifications position="top center" width="444px" height="111" />
     <PrimaryNavbar/>
     <router-view />
     <PrimaryFooter />

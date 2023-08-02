@@ -6,9 +6,7 @@
       <button class="archive-btn" @click="setShowArchive">Price pool <i class="fa-solid fa-angles-right"></i></button>
     </div>
     <div class="wrapper" v-else>
-      <div>
-        <div class="header">{{STRINGS.pricePool}}</div>
-      </div>
+      <div class="header">{{STRINGS.pricePool}}</div>
       <div class="pick">{{STRINGS.selectMonth}}</div>
       <TabWithMonths @switch-tab="handleMonthChange" />
       <TimerContainer :poolDateCode="poolDateCode" />
