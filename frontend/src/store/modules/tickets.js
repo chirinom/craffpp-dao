@@ -1,7 +1,6 @@
 import { ethers } from 'ethers'
 import { ticketsAbi, ticketsContractAddress } from '../../utils/constants'
 import { notify } from '@kyvg/vue3-notification'
-import store from '@/store/index.js'
 
 const API_KEY = process.env.VUE_APP_API_KEY
 
@@ -62,33 +61,31 @@ const actions = {
       throw new Error('No ethereum object')
     }
   },
-  async sendTransaction ({commit, getters, dispatch}) {
-    commit('setIsLoading', true)
-    try {
-      if (window.ethereum) {
-        const provider = new ethers.providers.Web3Provider(window.ethereum)
-        const signer = provider.getSigner()
-        const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
-        const parsedAmount = ethers.utils.parseEther(state.currentTicketValue.toString())
-        const ticketsHash = await ticketsContract.buyTicket(
-          parsedAmount,
-          store.getters.currentAccount,
-          state.currentPoolDateCode,
-          state.currentTicketType,
-          getters.keyword,
-          {value: parsedAmount._hex}
-        )
-        await ticketsHash.wait()
-        await new Promise(resolve => setTimeout(resolve, 4444))
-        notify({title: 'Succesfully bought (1) ' + state.currentTicketType + ' ticket for ' + state.currentPoolDateCode + ' raffle 🎉'})
-        dispatch('getAllTickets')
+  async sendTransaction ({commit, getters, dispatch, state}) {
+    const {currentTicketType, currentTicketValue, currentPoolDateCode} = state
+    if (currentTicketType && currentTicketValue && currentPoolDateCode) {
+      commit('setIsLoading', true)
+      try {
+        if (window.ethereum) {
+          const provider = new ethers.providers.Web3Provider(window.ethereum)
+          const signer = provider.getSigner()
+          const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
+          const parsedAmount = ethers.utils.parseEther(currentTicketValue.toString())
+          const ticketsHash = await ticketsContract.buyTicket(parsedAmount, getters.currentAccount, currentPoolDateCode, currentTicketType, getters.keyword, {value: parsedAmount._hex})
+          await ticketsHash.wait()
+          await new Promise(resolve => setTimeout(resolve, 4444))
+          notify({title: 'Succesfully bought (1) ' + state.currentTicketType + ' ticket for ' + state.currentPoolDateCode + ' raffle 🎉'})
+          dispatch('getAllTickets')
+          commit('setIsLoading', false)
+        }
+      } catch (e) {
+        console.error(e)
         commit('setIsLoading', false)
+        e.error.code === -32000 ? notify({title: 'Insuficient Funds 😿', type: 'warn'}) : null
+        throw new Error('No ethereum object')
       }
-    } catch (e) {
-      console.error(e)
-      commit('setIsLoading', false)
-      e.error.code === -32000 ? notify({title: 'Insuficient Funds 😿', type: 'warn'}) : null
-      throw new Error('No ethereum object')
+    } else {
+      console.warn('Cannot send transaction. Required values are missing.')
     }
   },
   async getAllTickets({commit, dispatch}) {
@@ -105,6 +102,7 @@ const actions = {
         amount: parseInt(ticket.amount._hex) / (10 ** 18)
       }))
       commit('setAllTickets', parcedTickets)
+      console.log(parcedTickets, 'tickets')
       dispatch('filterTickets')
     } catch (e) {
       console.error(e)
