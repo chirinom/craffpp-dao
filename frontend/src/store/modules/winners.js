@@ -26,42 +26,28 @@ const actions = {
   createThirdPlaceStruct({commit}, val) {
     commit('setThirdPlaceStruct', val)
   },
-  async sendWinnersToBlockchain ({getters}) {
+  async sendWinnersToBlockchain({ getters }) {
     try {
       const provider = new ethers.providers.Web3Provider(window.ethereum)
       const signer = provider.getSigner()
       const winnersContract = new ethers.Contract(winnersContractAddress, winnersAbi, signer)
-
-      const firstPlaceHash = await winnersContract.addWinnerStructToBlockchain(
-        getters.firstPlaceStruct.amount,
-        getters.firstPlaceStruct.address,
-        getters.firstPlaceStruct.pool_code,
-        getters.firstPlaceStruct.pool_standing,
-        getters.firstPlaceStruct.pool_type,
-      )
-      const secondPlaceHash = await winnersContract.addWinnerStructToBlockchain(
-        getters.secondPlaceStruct.amount,
-        getters.secondPlaceStruct.address,
-        getters.secondPlaceStruct.pool_code,
-        getters.secondPlaceStruct.pool_standing,
-        getters.secondPlaceStruct.pool_type,
-      )
-      const thirdPlaceHash = await winnersContract.addWinnerStructToBlockchain(
-        getters.thirdPlaceStruct.amount,
-        getters.thirdPlaceStruct.address,
-        getters.thirdPlaceStruct.pool_code,
-        getters.thirdPlaceStruct.pool_standing,
-        getters.thirdPlaceStruct.pool_type,
-      )
-
-      await firstPlaceHash.wait()
-      await secondPlaceHash.wait()
-      await thirdPlaceHash.wait()
-
-      notify({title: 'Succesfully sent winners struct to blockchain'})
+  
+      const sendWinnerStruct = async (winnerStruct) => {
+        const { amount, address, pool_code, pool_standing, pool_type } = winnerStruct
+        const tx = await winnersContract.addWinnerStructToBlockchain(amount, address, pool_code, pool_standing, pool_type)
+        await tx.wait()
+      }
+  
+      await Promise.all([
+        sendWinnerStruct(getters.firstPlaceStruct),
+        sendWinnerStruct(getters.secondPlaceStruct),
+        sendWinnerStruct(getters.thirdPlaceStruct),
+      ])
+  
+      notify({ title: 'Successfully sent winners struct to blockchain' })
     } catch (e) {
       console.error(e)
-      throw new Error('No ethereum object')
+      throw new Error('No Ethereum object')
     }
   },
   async getAllWinners ({commit}) {
@@ -77,7 +63,6 @@ const actions = {
         pool_type: winner[4],
       }))
       commit('setWinners', parcedWinners)
-
     } catch (e) {
       console.error(e)
       throw new Error('No ethereum object')
