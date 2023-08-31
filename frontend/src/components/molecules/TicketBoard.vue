@@ -129,7 +129,7 @@ export default {
   border-radius: 6px;
   overflow: hidden;
   position: relative;
-  height: 666px;
+  height: fit-content;
   width: 555px;
   margin-left: 44px;
 
@@ -173,10 +173,10 @@ export default {
 }
 .booth-content {
   padding: 0 15px;
-  height: 418px;
+  height: fit-content;
 }
 .btns-container {
-  padding: 0 15px;
+  padding: 15px;
 }
 
 .available-tickets {
@@ -185,11 +185,11 @@ export default {
   width: 100%;
   border-radius: 6px;
   margin: 0 0 11px;
-  padding: 0 0 33px;
+  padding: 0;
   position: relative;
 
   &.expanded {
-    height: 326px;
+    height: 331px;
     margin-bottom: 0;
 
     & .dropdown-btn {
@@ -206,8 +206,16 @@ export default {
 @media (max-width: 1650px) {
   .ticketbooth {
     width: 100%;
-    max-width: 777px;
     margin: 0;
+  }
+  .booth-content {
+    height: fit-content;
+  }
+  .btns-container {
+    padding: 15px;
+  }
+  .available-tickets {
+    padding: 0;
   }
 }
 @media (max-width: 768px) {

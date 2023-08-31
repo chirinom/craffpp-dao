@@ -124,6 +124,7 @@ export default {
 @media (max-width: 1650px) {
   .bingo-board {
     width: 100%;
+    margin-top: 44px
   }
 }
 </style>
