@@ -126,7 +126,7 @@ export default {
 
 <style lang="scss" scoped>
 .totals {
-  padding: 22px 222px 34px;
+  padding: 22px 222px;
 }
 .fa-ethereum {
   margin: 30px 4px 0 0;

@@ -129,7 +129,7 @@ export default {
   border-radius: 6px;
   overflow: hidden;
   position: relative;
-  height: fit-content;
+  height: 666px;
   width: 555px;
   margin-left: 44px;
 
@@ -173,9 +173,10 @@ export default {
 }
 .booth-content {
   padding: 0 15px;
+  height: 418px;
 }
 .btns-container {
-  padding: 15px;
+  padding: 0 15px;
 }
 
 .available-tickets {

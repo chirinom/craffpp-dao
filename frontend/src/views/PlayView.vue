@@ -4,9 +4,11 @@
       <PoolsBoard
         :poolsData="poolsData"
         :isPoolPassed="poolPassed"
+        @show-archive="toggleShowTicketBoard"
         @monthChange="filterTickets"
       />
       <TicketBoard
+        v-if="!archiveHidden"
         @typeChange="filterTickets"
         @poolPassed="setPoolIsPassed"
       />
@@ -28,6 +30,7 @@ export default {
   data() {
     return {
       poolPassed: false,
+      archiveHidden: false
     }
   },
   computed: {
@@ -38,6 +41,9 @@ export default {
     setPoolIsPassed(val) {
       this.poolPassed = val
     },
+    toggleShowTicketBoard() {
+      this.archiveHidden = !this.archiveHidden
+    }
   },
   mounted() {
     this.checkIfWalletIsConnect()

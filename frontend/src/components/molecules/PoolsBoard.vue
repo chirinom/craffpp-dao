@@ -61,6 +61,7 @@ export default {
     },
     setShowArchive() {
       this.showArchive = !this.showArchive
+      this.$emit('show-archive')
     }
   },
 }
@@ -71,13 +72,12 @@ export default {
   background: white;
   overflow: visible;
   border-radius: 6px;
-  height: fit-content;
-  min-height: 464px;
+  height: 666px;
   position: relative;
-  max-width: 777px;
+  width: 777px;
 }
 .wrapper {
-   padding: 0 15px 44px;
+   padding: 0 15px 22px;
 }
 .header {
   font-family: "Patua One";
