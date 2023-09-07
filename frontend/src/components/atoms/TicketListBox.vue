@@ -56,7 +56,7 @@ export default {
   margin: 11px 7px;
   padding: 0;
   overflow: auto;
-  height: 255px;
+  height: fit-content;
   color: black;
   background-color: #fff;
   border: 1px solid lightgrey;

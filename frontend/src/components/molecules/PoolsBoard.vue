@@ -77,7 +77,11 @@ export default {
   width: 777px;
 }
 .wrapper {
-   padding: 0 15px 22px;
+  padding: 0 15px 22px;
+  overflow: hidden;
+  max-height: 600px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 .header {
   font-family: "Patua One";
