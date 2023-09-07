@@ -1,6 +1,6 @@
 <template>
   <div class="list">
-    <div v-for="(ticket, index) in ticketData" :key="index" class="ticket">
+    <div v-for="(ticket, index) in ticketInfo" :key="index" class="ticket">
       <div class="ticket-wrapper">
         <div>
           <div v-if="ticket.amount" class="text-container">
@@ -31,13 +31,14 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import { STRINGS } from '../../utils/strings'
 
 export default {
   name: 'TicketListBox',
-  computed: {
-    ...mapGetters(['ticketData']),
+  props: {
+    ticketInfo: {
+      type: [Array, Object]
+    }
   },
   data() {
     return {

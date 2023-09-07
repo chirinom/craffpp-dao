@@ -1,10 +1,10 @@
 <template>
-    <div class="pools-by-buyin">
-        <div v-for="(type, index) in poolTypes" :key="index" class="pools-by-type" @click="handleTypeTabExpand(index)">
-            {{type}}
-            <TicketListBox v-if="showTickets[index]" :ticketData="winnersByPoolType(filterCode, type)"/>
-        </div>
+  <div class="pools-by-buyin">
+    <div v-for="(type, index) in poolTypes" :key="index" class="pools-by-type" @click="handleTypeTabExpand(index)">
+      {{type}}
+      <TicketListBox v-if="showTickets[index]" :ticketInfo="filterWinnerbyPoolType(type)"/>
     </div>
+  </div>
 </template>
 
 <script>
@@ -17,30 +17,28 @@ export default {
     TicketListBox
   },
   props: {
-    filterCode: {
-      type: String
+    poolData: {
+      type: Array
     }
   },
   data() {
     return {
       poolTypes: ['Micro', 'Small', 'Medium', 'Large', 'Epic'],
       showTickets: [],
-      result: {}
     }
   },
   computed: {
     ...mapGetters(['winners']),
   },
   methods: {
-    winnersByPoolType(val, type) {
-      const fixedPoolCode = type.toLowerCase() + val.slice(-13, -10).toLowerCase() + val.slice(-4)
-      const result = this.winners.filter((option) => option.pool_code === fixedPoolCode)
-      return result
-    },
     handleTypeTabExpand(index) {
       this.showTickets[index] = !this.showTickets[index]
     },
-  }
+    filterWinnerbyPoolType(type) {
+      const filterdArray = this.poolData.filter(pool => pool.pool_type === type.toLowerCase())
+      return filterdArray
+    }
+  },
 }
 </script>
 
