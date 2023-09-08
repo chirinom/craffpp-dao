@@ -16,7 +16,7 @@
             <div class="box-number">{{ticketData.length}}</div>
           </div>
         </div>
-        <TicketListBox v-if="isExpanded"/>
+        <BoothTicketListBox v-if="isExpanded"/>
         <ExpandButtons
           @open="handleExpand"
           @close="handleExpand"
@@ -44,7 +44,7 @@ import ConnectAndBuyButtons from '@/components/atoms/ConnectAndBuyButtons'
 import ExpandButtons from '@/components/atoms/ExpandButtons'
 import OrderSummary from '@/components/atoms/OrderSummary'
 import TabWithAmounts from '@/components/atoms/TabWithAmounts'
-import TicketListBox from '@/components/atoms/TicketListBox'
+import BoothTicketListBox from '@/components/atoms/BoothTicketListBox'
 import { mapMutations, mapGetters} from 'vuex'
 import TICKET_VALUES from '../../utils/ticket_values.json'
 import { STRINGS } from '../../utils/strings'
@@ -53,7 +53,7 @@ export default {
   name: 'TicketBoard',
   components: {
     TabWithAmounts,
-    TicketListBox,
+    BoothTicketListBox,
     OrderSummary,
     ExpandButtons,
     ConnectAndBuyButtons

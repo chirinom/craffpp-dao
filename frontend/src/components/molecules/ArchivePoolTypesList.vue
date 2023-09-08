@@ -2,19 +2,19 @@
   <div class="pools-by-buyin">
     <div v-for="(type, index) in poolTypes" :key="index" class="pools-by-type" @click="handleTypeTabExpand(index)">
       {{type}}
-      <TicketListBox v-if="showTickets[index]" :ticketInfo="filterWinnerbyPoolType(type)"/>
+      <ArchiveTicketListBox v-if="showTickets[index]" :ticketInfo="filterWinnerbyPoolType(type)"/>
     </div>
   </div>
 </template>
 
 <script>
-import TicketListBox from '@/components/atoms/TicketListBox'
+import ArchiveTicketListBox from '@/components/atoms/ArchiveTicketListBox'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'ArchivePoolTypesList',
   components: {
-    TicketListBox
+    ArchiveTicketListBox
   },
   props: {
     poolData: {
