@@ -71,7 +71,7 @@ export default {
   & .label {
     font-weight: bolder;
     margin: 0;
-    width: 111px;
+    width: 66px;
   }
   & .text {
     font-weight: normal;
@@ -98,7 +98,11 @@ export default {
     font-size: 9px;
 
     & .label {
-      width: 88px;
+      width: 55px;
+    }
+
+    & .ticket {
+      width: fit-content;
     }
   }
   .ticket-wrapper {
