@@ -39,4 +39,16 @@ body {
   text-align: center;
   color: $primary-black;
 }
+
+// Media Breaks
+// @media (max-width: 1650px) {
+// }
+// @media (max-width: 1333px) {
+// }
+// @media (max-width: 1089px) {
+// }
+// @media (max-width: 777px) {
+// }
+// @media (max-width: 511px) {
+// }
 </style>

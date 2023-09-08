@@ -89,13 +89,24 @@ export default {
   .text-container {
     display: flex;
   }
-
-  .bubu {
-    display: flex;
-  }
-
   img {
     width: 48px
+  }
+}
+@media (max-width: 511px) {
+  .list {
+    font-size: 9px;
+
+    & .label {
+      width: 88px;
+    }
+  }
+  .ticket-wrapper {
+    padding: 2px;
+
+    img {
+      display: none;
+    }
   }
 }
 </style>
