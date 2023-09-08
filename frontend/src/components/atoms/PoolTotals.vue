@@ -172,6 +172,9 @@ export default {
   .totals {
     padding: 22px 144px 77px;
   }
+  .title-price {
+    justify-content: space-evenly;
+  }
 }
 @media (max-width: 1333px) {
   .totals {
@@ -189,6 +192,9 @@ export default {
   }
   .label, .ocean {
     font-size: 18px;
+  }
+  .address {
+    font-size: 12px;
   }
 }
 

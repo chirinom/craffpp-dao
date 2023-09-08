@@ -93,6 +93,7 @@ export default {
   .card-title {
     font-size: 55px;
     margin: 0 11px;
+    height: 88px;
   }
   .wrapper {
     padding: 0 15px;
