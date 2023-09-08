@@ -56,6 +56,7 @@ export default {
   padding: 0;
   overflow: auto;
   min-height: 255px;
+  max-height: 255px;
   height: fit-content;
   color: black;
   background-color: #fff;
