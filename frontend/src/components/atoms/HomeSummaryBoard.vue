@@ -1,14 +1,14 @@
 <template>
   <div class="summary-container">
-    <div class="forThePlanet">
+    <div class="for-the-planet">
       <img class="image" :src="require('@/assets/recicle.png')" />
+      <h3 class="label">{{STRINGS.totalRaised}}</h3>
       <h1><i class="fa-brands fa-ethereum"></i>{{motherNature}}</h1>
-      <span>{{STRINGS.totalRaised}}</span>
     </div>
-    <div class="forThePeople">
+    <div class="for-the-people">
       <img class="image" :src="require('@/assets/give_back.png')" />
+      <h3 class="label">{{STRINGS.totalGivedBack}}</h3>
       <h1><i class="fa-brands fa-ethereum"></i>{{ giveBackToPeople }}</h1>
-      <span>{{STRINGS.totalGivedBack}}</span>
     </div>
   </div>
 </template>
@@ -45,6 +45,10 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 33px 444px 222px;
+
+  .label {
+    font-size: 16px;
+  }
 
   h1 {
     font-family: 'Koulen', cursive;
@@ -85,6 +89,11 @@ export default {
   .summary-container {
     padding: 33px 22px 88px;
     justify-content: center;
+    display: block;
+
+    & .for-the-people {
+      margin: 77px 0 0 0;
+    }
   }
 }
 </style>
