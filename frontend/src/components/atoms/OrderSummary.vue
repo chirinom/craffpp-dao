@@ -3,7 +3,7 @@
     <div class="checkout-container">
       <div class="header-container">
         <h1 class="checkout-header">{{STRINGS.orderSummary}}</h1>
-        <i v-if="orderValid" class="far fa-check-circle passed"></i>
+        <i :class="['far fa-check-circle', orderValid? 'passed': 'not-passed']"></i>
       </div>
       <div class="row">
         <h4>{{STRINGS.selectedPool}}</h4><h4>{{poolDateCode? poolDateCode : '-'}}</h4>
@@ -94,10 +94,17 @@ export default {
 .header-container {
   display: flex;
 
-  & .passed {
-    color: #0bd50b;
+  & .fa-check-circle {
     margin: 5px;
     font-size:15px;
+  }
+
+  & .passed {
+    color: #0bd50b;
+  }
+
+  & .not-passed {
+    color: #f2de27;
   }
 }
 </style>
