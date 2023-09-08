@@ -41,7 +41,7 @@ export default {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1089px) {
   .contribution {
     display: block;
   }
