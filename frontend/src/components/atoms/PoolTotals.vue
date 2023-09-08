@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 import { STRINGS } from '../../utils/strings'
 
 export default {
@@ -115,12 +115,6 @@ export default {
       return result[0]
     },
   },
-  methods: {
-    ...mapActions(['getAllWinners']),
-  },
-  mounted() {
-    this.getAllWinners()
-  }
 }
 </script>
 

@@ -19,9 +19,10 @@ export default {
     PrimaryFooter
   },
   methods: {
-    ...mapActions(['getAllTickets'])
+    ...mapActions(['getAllTickets', 'getAllWinners'])
   },
   created() {
+    this.getAllWinners()
     this.getAllTickets()
   }
 }
