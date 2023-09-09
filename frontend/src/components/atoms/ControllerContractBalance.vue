@@ -78,7 +78,6 @@ export default {
 
 <style scoped lang="scss">
 .balance-container {
-  background-color: #2e478d14;
   padding: 22px;
   margin: 33px auto;
 

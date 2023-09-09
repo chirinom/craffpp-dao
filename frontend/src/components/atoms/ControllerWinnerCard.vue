@@ -56,8 +56,6 @@ export default {
 <style lang="scss" scoped>
 .container {
   padding: 11px;
-  border-bottom: 1px solid lightgrey;
-  border-left: 1px solid lightgrey;
 
   button {
     max-width: 222px;
