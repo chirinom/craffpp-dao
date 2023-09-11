@@ -15,6 +15,7 @@
           <div class="counter-box">
             <div class="box-number">{{ticketData.length}}</div>
           </div>
+          <div class="percent-win" title="Your chances to win">{{fixedWinProbability}}</div>
         </div>
         <BoothTicketListBox v-if="isExpanded"/>
         <ExpandButtons
@@ -45,7 +46,7 @@ import ExpandButtons from '@/components/atoms/ExpandButtons'
 import OrderSummary from '@/components/atoms/OrderSummary'
 import TabWithAmounts from '@/components/atoms/TabWithAmounts'
 import BoothTicketListBox from '@/components/atoms/BoothTicketListBox'
-import { mapMutations, mapGetters} from 'vuex'
+import { mapMutations, mapGetters, mapActions} from 'vuex'
 import TICKET_VALUES from '../../utils/ticket_values.json'
 import { STRINGS } from '../../utils/strings'
 
@@ -72,14 +73,14 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['ticketData', 'poolDateCode', 'currentAccount']),
+    ...mapGetters(['ticketData', 'poolDateCode', 'currentAccount', 'winProbability']),
+    fixedWinProbability() {
+      return this.winProbability? '(' + this.winProbability.toFixed(2) + '%)' : null
+    }
   },
   methods: {
-    ...mapMutations([
-      'setCurrentTicketType',
-      'setCurrentTicketValue',
-      'setFilterObject'
-    ]),
+    ...mapActions(['calculateWinProbability']),
+    ...mapMutations(['setCurrentTicketType', 'setCurrentTicketValue', 'setFilterObject']),
     getMonth(monthStr){
       return new Date(monthStr+'-1-01').getMonth()+1
     },
@@ -95,6 +96,7 @@ export default {
       this.setCurrentTicketType(type)
       this.setFilterObject(type)
       this.$emit('typeChange', type)
+      this.calculateWinProbability()
     },
     setInfo() {
       this.isInfoShown = true
@@ -140,6 +142,12 @@ export default {
     font-size: 33px;
     font-family: "Patua One", cursive;
     color: $primary;
+
+    & .percent-win {
+      margin: 0 0 0 11px;
+      cursor: default;
+      color: $primary-light;
+    }
   }
   & .ticket-amount {
     border-radius: 6px;

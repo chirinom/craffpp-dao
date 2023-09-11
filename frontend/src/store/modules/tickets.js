@@ -15,6 +15,7 @@ const state = {
   poolDateCode: '',
   poolsData: [],
   ticketData: [],
+  winProbability: 0
 }
 const getters = {
   currentTicketType: (state) => state.currentTicketType,
@@ -27,6 +28,9 @@ const getters = {
   poolDateCode: (state) => state.poolDateCode,
   poolsData: (state) => state.poolsData,
   ticketData: (state) => state.ticketData,
+  winProbability: (state) => state.winProbability,
+  userTicketCount: (state) => state.ticketData.length,
+  totalTicketCount: (state) => state.poolsData.length
 }
 const actions = {
   async getBalance ({commit}) {
@@ -54,7 +58,6 @@ const actions = {
         await ticketsContract.transferEther(data.address, parsedAmount._hex)
         notify({title: 'Succesfully withdraw from contract🎉'})
         await new Promise(resolve => setTimeout(resolve, 4444))
-        window.location.reload()
       }
     } catch (e) {
       console.error(e)
@@ -125,6 +128,13 @@ const actions = {
       commit('setTicketData', [])
     }
   },
+  calculateWinProbability({commit, getters}) {
+    if (getters.userTicketCount > getters.totalTicketCount) {
+      return 'User tickets can not be higher than total tickets'
+    }
+    const prob = (getters.userTicketCount / getters.totalTicketCount) * 100
+    commit('setCalculateWinProbability', prob)
+  }
 }
 const mutations = {
   setCurrentTicketType: (state, data) => state.currentTicketType = data,
@@ -142,6 +152,7 @@ const mutations = {
   setPoolDateCode: (state, data) => state.poolDateCode = data,
   setPoolsData: (state, data) => state.poolsData = data,
   setTicketData: (state, data) => state.ticketData = data,
+  setCalculateWinProbability: (state, data) => state.winProbability = data
 }
 
 export default {
