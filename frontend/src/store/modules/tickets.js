@@ -80,6 +80,7 @@ const actions = {
           notify({title: 'Succesfully bought (1) ' + state.currentTicketType + ' ticket for ' + state.currentPoolDateCode + ' raffle 🎉'})
           dispatch('getAllTickets')
           commit('setIsLoading', false)
+          dispatch('filterTickets')
         }
       } catch (e) {
         console.error(e)
@@ -110,7 +111,7 @@ const actions = {
       console.error(e)
     }
   },
-  filterTickets({ commit, state, getters }, val) {
+  filterTickets({ commit, state, getters, dispatch }, val) {
     if (val && val.length === 7) {
       commit('setPoolDateCode', val)
     }
@@ -124,6 +125,7 @@ const actions = {
         option.ticketOwner.toLowerCase() === getters.currentAccount.toLowerCase()
       )
       commit('setTicketData', ticketData)
+      dispatch('calculateWinProbability')
     } else {
       commit('setTicketData', [])
     }
