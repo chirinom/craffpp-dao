@@ -144,7 +144,7 @@ export default {
     color: $primary;
 
     & .percent-win {
-      margin: 0 0 0 11px;
+      margin: 0 0 0 4px;
       cursor: default;
       color: $primary-light;
     }

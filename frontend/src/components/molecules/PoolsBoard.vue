@@ -1,11 +1,11 @@
 <template>
   <div class="bingo-board">
-    <div v-if="showArchive" class="wrapper">
+    <div v-if="showArchive" class="archive-wrapper">
       <div class="header archive">{{STRINGS.archive}}</div>
       <ArchivePage />
       <button class="archive-btn" @click="setShowArchive">Price pool <i class="fa-solid fa-angles-right"></i></button>
     </div>
-    <div class="wrapper" v-else>
+    <div class="pool-wrapper" v-else>
       <div class="header">{{STRINGS.pricePool}}</div>
       <div class="pick">{{STRINGS.selectMonth}}</div>
       <TabWithMonths @switch-tab="handleMonthChange" />
@@ -78,12 +78,18 @@ export default {
   position: relative;
   width: 777px;
 }
-.wrapper {
+.archive-wrapper {
   padding: 0 15px 22px;
   overflow: hidden;
   max-height: 600px;
   overflow-y: scroll;
   scroll-behavior: smooth;
+}
+.pool-wrapper {
+  padding: 0 15px 22px;
+  margin: 0 auto;
+  overflow: hidden;
+  max-height: 600px;
 }
 .header {
   font-family: "Patua One";
