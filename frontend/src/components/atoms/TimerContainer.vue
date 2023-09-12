@@ -71,11 +71,14 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap');
 
 .wrapper {
-  padding: 0 133px;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .timer {
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
 .card-title {
   font-family: 'Pacifico', cursive;

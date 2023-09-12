@@ -27,7 +27,7 @@
           <button
             :disabled="poolCode.length <= 10 ? true : poolAlreadySettled || !timerHasntEnded"
             class="buy-btn"
-            @click="sendWinnersToBlockchain"
+            @click="setSendWinners"
           >
             {{STRINGS.sendWinners}}
           </button>
@@ -96,6 +96,12 @@ export default {
       'createThirdPlaceStruct',
       'sendWinnersToBlockchain',
     ]),
+    setSendWinners() {
+      this.sendWinnersToBlockchain()
+      this.firstPlaceAddress = ''
+      this.secondPlaceAddress = ''
+      this.thirdPlaceAddress = ''
+    },
     getMonth(monthStr){
       return new Date(monthStr+'-1-01').getMonth()+1
     },

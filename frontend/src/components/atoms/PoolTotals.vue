@@ -120,7 +120,10 @@ export default {
 
 <style lang="scss" scoped>
 .totals {
-  padding: 22px 222px;
+  position: absolute;
+  top: 66%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .fa-ethereum {
   margin: 30px 4px 0 0;
@@ -163,22 +166,13 @@ export default {
   color: #0bd50b;
 }
 @media (max-width: 1650px) {
-  .totals {
-    padding: 22px 144px 77px;
-  }
   .title-price {
     justify-content: space-evenly;
-  }
-}
-@media (max-width: 1333px) {
-  .totals {
-    padding: 22px 55px 77px;
   }
 }
 @media (max-width: 1089px) {}
 @media (max-width: 768px) {
   .totals {
-    padding: 22px 0 77px;
     font-size: 18px;
   }
   .eth-num {
@@ -189,6 +183,12 @@ export default {
   }
   .address {
     font-size: 12px;
+  }
+}
+
+@media (max-width: 511px) {
+  .totals {
+    width: 100%;
   }
 }
 
