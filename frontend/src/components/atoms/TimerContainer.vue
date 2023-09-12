@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div v-if="!!poolDateCode" class="timer">
+    <div class="timer">
       <div
         v-for="(time, index) in times"
         :key="index"

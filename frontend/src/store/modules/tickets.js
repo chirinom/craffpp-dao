@@ -56,8 +56,8 @@ const actions = {
         const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
         const parsedAmount = ethers.utils.parseEther(data.amount.toString())
         await ticketsContract.transferEther(data.address, parsedAmount._hex)
-        notify({title: 'Succesfully withdraw from contract🎉'})
         await new Promise(resolve => setTimeout(resolve, 4444))
+        notify({title: 'Succesfully withdraw from contract🎉'})
       }
     } catch (e) {
       console.error(e)
