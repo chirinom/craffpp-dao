@@ -109,6 +109,7 @@ const actions = {
       dispatch('filterTickets')
     } catch (e) {
       console.error(e)
+      throw new Error('No ethereum object')
     }
   },
   filterTickets({ commit, state, getters, dispatch }, val) {
