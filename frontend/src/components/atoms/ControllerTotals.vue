@@ -6,21 +6,23 @@
         <td>{{STRINGS.addressCount}}</td>
         <td>{{STRINGS.totalTickets}}</td>
         <td>{{STRINGS.totalEthereum}}</td>
-        <td>{{STRINGS.oceanCleanup}}</td>
         <td>{{STRINGS.fristPlace}}</td>
         <td>{{STRINGS.secondPlace}}</td>
         <td>{{STRINGS.thirdPlace}}</td>
+        <td>{{STRINGS.oceanCleanup}}</td>
         <td>{{STRINGS.craffpp}}</td>
+        <td>{{STRINGS.craffppAndOceanCleanup}}</td>
       </tr>
       <tr>
         <td>{{addressCount}}</td>
         <td>{{totalTickets}}</td>
         <td>{{ethTotal}}</td>
-        <td>{{motherNature}}</td>
         <td>{{firstPlace}}</td>
         <td>{{secondPlace}}</td>
         <td>{{thirdPlace}}</td>
-        <td>{{CraffppCo}}</td>
+        <td>{{motherNature}}</td>
+        <td>{{craffppCo}}</td>
+        <td>{{craffppAndOceanCleanup}}</td>
       </tr>
     </table>
   </div>
@@ -72,11 +74,16 @@ export default {
       const result = total * ( 15 / 100 )
       return result.toFixed(4)
     },
-    CraffppCo() {
+    craffppCo() {
       const total = this.allTickets.reduce((a, b) => a + (b['amount'] || 0), 0)
       const result = total * ( 4 / 100 )
       return result.toFixed(4)
     },
+    craffppAndOceanCleanup() {
+      const total = this.allTickets.reduce((a, b) => a + (b['amount'] || 0), 0)
+      const result = total * ( 20 / 100 )
+      return result.toFixed(4)
+    }
   },
 
 }

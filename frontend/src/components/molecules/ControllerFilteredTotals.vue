@@ -17,6 +17,7 @@
       </tr>
       <tr>
         <td>{{filteredAddressCount}}</td>
+        <td>{{filteredTotalTickets}}</td>
         <td>{{filteredEthTotal}}</td>
         <td>{{filteredFirstPlace}}</td>
         <td>{{filteredSecondPlace}}</td>
