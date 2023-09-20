@@ -65,9 +65,11 @@ export default {
   },
   methods: {
     ...mapActions(['withdrawFromContract','getBalance']),
-    setWithdraw() {
+    async setWithdraw() {
       const data = {amount: this.withdrawAmount, address: this.ethAddress}
-      this.withdrawFromContract(data)
+      await this.withdrawFromContract(data)
+      this.ethAddress = ''
+      this.withdrawAmount = 0
     }
   },
   mounted () {

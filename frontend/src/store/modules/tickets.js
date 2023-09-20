@@ -10,6 +10,7 @@ const state = {
   currentPoolDateCode: '',
   filterObject: { type: '', month: ''},
   isLoading: false,
+  // withdrawIsLoading: false,
   allTickets: [],
   ethBalance: 0,
   poolDateCode: '',
@@ -23,6 +24,7 @@ const getters = {
   keyword: (state) => state.currentTicketType + state.currentPoolDateCode,
   filterObject: (state) => state.filterObject,
   isLoading: (state) => state.isLoading,
+  // withdrawIsLoading: (state) => state.withdrawIsLoading,
   allTickets: (state) => state.allTickets,
   ethBalance: (state) => state.ethBalance,
   poolDateCode: (state) => state.poolDateCode,
@@ -41,26 +43,30 @@ const actions = {
         const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
         const transactionsHash = await ticketsContract.getBalance()
         const data = parseInt(transactionsHash._hex) / (10 ** 18)
-        commit('setBalance', data)
+        commit('setEthBalance', data)
       }
     } catch (e) {
       console.error(e)
       throw new Error('No ethereum object')
     }
   },
-  async withdrawFromContract({}, data) {
+  async withdrawFromContract({dispatch}, data) {
+    // commit('setWithdrawIsLoading', true)
     try {
       if (window.ethereum) {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         const signer = provider.getSigner()
         const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, signer)
         const parsedAmount = ethers.utils.parseEther(data.amount.toString())
-        await ticketsContract.transferEther(data.address, parsedAmount._hex)
-        await new Promise(resolve => setTimeout(resolve, 4444))
+        const tx = await ticketsContract.transferEther(data.address, parsedAmount._hex)
+        await tx.wait()
         notify({title: 'Succesfully withdraw from contract🎉'})
+        dispatch('getBalance')
+        // commit('setWithdrawIsLoading', false)
       }
     } catch (e) {
       console.error(e)
+      // commit('setWithdrawIsLoading', false)
       throw new Error('No ethereum object')
     }
   },
@@ -150,12 +156,13 @@ const mutations = {
       : state.filterObject.type = data
   },
   setIsLoading: (state, data) => state.isLoading = data,
+  // setWithdrawIsLoading: (state, data) => state.withdrawIsLoading = data,
   setAllTickets: (state, data) => state.allTickets = data,
-  setBalance: (state, data) => state.ethBalance = data,
+  setEthBalance: (state, data) => state.ethBalance = data,
   setPoolDateCode: (state, data) => state.poolDateCode = data,
   setPoolsData: (state, data) => state.poolsData = data,
   setTicketData: (state, data) => state.ticketData = data,
-  setCalculateWinProbability: (state, data) => state.winProbability = data
+  setCalculateWinProbability: (state, data) => state.winProbability = data,
 }
 
 export default {
