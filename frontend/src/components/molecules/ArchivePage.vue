@@ -64,7 +64,7 @@ export default {
         return '28th, ' + month + ', ' + year
       })
 
-      this.settledPoolsArray = [...new Set(mappedWinners)]
+      this.settledPoolsArray = [...new Set(mappedWinners)].reverse()
 
       this.winnersArray = this.winners
     },
