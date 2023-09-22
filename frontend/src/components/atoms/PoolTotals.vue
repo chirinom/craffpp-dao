@@ -49,19 +49,15 @@ export default {
   },
   computed: {
     ...mapGetters(['winners','filterObject', 'currentAccount']),
-    calcTotal() {
-      const total = this.poolsData.reduce((a, b) => a + (b['amount'] || 0), 0)
-      return total.toFixed(4)
-    },
     firstPlace() {
       const total = this.poolsData.reduce((a, b) => a + (b['amount'] || 0), 0)
       const result = total * ( 55 / 100 )
-      return result.toFixed(4)
+      return result.toFixed(3)
     },
     secondPlace() {
       const total = this.poolsData.reduce((a, b) => a + (b['amount'] || 0), 0)
       const result = total * ( 25 / 100 )
-      return result.toFixed(4)
+      return result.toFixed(3)
     },
     firstPlaceAddress() {
       const total = this.winners.filter(option =>
