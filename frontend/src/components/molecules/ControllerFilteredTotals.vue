@@ -10,7 +10,6 @@
         <td>{{STRINGS.totalEthereum}}</td>
         <td>{{STRINGS.fristPlace}}</td>
         <td>{{STRINGS.secondPlace}}</td>
-        <td>{{STRINGS.thirdPlace}}</td>
         <td>{{STRINGS.oceanCleanup}}</td>
         <td>{{STRINGS.craffpp}}</td>
         <td>{{STRINGS.craffppTotal}}</td>
@@ -21,7 +20,6 @@
         <td>{{filteredEthTotal}}</td>
         <td>{{filteredFirstPlace}}</td>
         <td>{{filteredSecondPlace}}</td>
-        <td>{{filteredThirdPlace}}</td>
         <td>{{filteredMotherNature}}</td>
         <td>{{filteredCraffppCo}}</td>
         <td>{{filteredCraffppTotal}}</td>
@@ -68,17 +66,12 @@ export default {
     },
     filteredFirstPlace() {
       const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0)
-      const result = total * ( 40 / 100 )
+      const result = total * ( 55 / 100 )
       return result.toFixed(4)
     },
     filteredSecondPlace() {
       const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0)
       const result = total * ( 25 / 100 )
-      return result.toFixed(4)
-    },
-    filteredThirdPlace() {
-      const total = this.controllerDashboardData.reduce((a, b) => a + (b['amount'] || 0), 0)
-      const result = total * ( 15 / 100 )
       return result.toFixed(4)
     },
     filteredMotherNature() {
@@ -113,8 +106,7 @@ export default {
         poolCode,
         result,
         this.filteredFirstPlace,
-        this.filteredSecondPlace,
-        this.filteredThirdPlace
+        this.filteredSecondPlace
       )
     },
   },

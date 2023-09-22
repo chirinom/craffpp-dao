@@ -74,7 +74,7 @@ export default {
   background: white;
   overflow: visible;
   border-radius: 6px;
-  height: 666px;
+  height: 590px;
   position: relative;
   width: 777px;
 }

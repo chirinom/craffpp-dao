@@ -8,13 +8,11 @@ const state = {
   winners: [],
   firstPlaceStruct: {},
   secondPlaceStruct: {},
-  thirdPlaceStruct: {},
 }
 const getters = {
   winners: (state) => state.winners,
   firstPlaceStruct: (state) => state.firstPlaceStruct,
   secondPlaceStruct: (state) => state.secondPlaceStruct,
-  thirdPlaceStruct: (state) => state.thirdPlaceStruct,
 }
 const actions = {
   createFirstPlaceStruct({commit}, val) {
@@ -22,9 +20,6 @@ const actions = {
   },
   createSecondPlaceStruct({commit}, val) {
     commit('setSecondPlaceStruct', val)
-  },
-  createThirdPlaceStruct({commit}, val) {
-    commit('setThirdPlaceStruct', val)
   },
   async sendWinnersToBlockchain({ getters }) {
     try {
@@ -41,7 +36,6 @@ const actions = {
       await Promise.all([
         sendWinnerStruct(getters.firstPlaceStruct),
         sendWinnerStruct(getters.secondPlaceStruct),
-        sendWinnerStruct(getters.thirdPlaceStruct),
       ])
   
       notify({ title: 'Successfully sent winners struct to blockchain' })
@@ -73,7 +67,6 @@ const mutations = {
   setWinners: (state, data) => state.winners = data,
   setFirstPlaceStruct: (state, data) => state.firstPlaceStruct = data,
   setSecondPlaceStruct: (state, data) => state.secondPlaceStruct = data,
-  setThirdPlaceStruct: (state, data) => state.thirdPlaceStruct = data,
 }
 
 export default {

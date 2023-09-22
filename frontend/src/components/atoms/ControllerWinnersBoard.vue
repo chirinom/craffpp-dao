@@ -33,10 +33,6 @@
           </button>
         </td>
       </tr>
-      <tr>
-        <td>{{STRINGS.thirdPlace}}</td>
-        <td class="address">{{thirdPlaceAddress}}</td>
-      </tr>
     </table>
     <div v-if="poolCode.length >= 10" class="indicators">
       <h4 v-if="poolAlreadySettled" class="danger">POOL ALREADY SETTLED</h4>
@@ -65,15 +61,11 @@ export default {
     secondPlaceAmount: {
       type: [Number, String]
     },
-    thirdPlaceAmount: {
-      type: [Number, String]
-    }
   },
   data() {
     return {
       firstPlaceAddress: '',
       secondPlaceAddress: '',
-      thirdPlaceAddress: '',
       STRINGS: STRINGS
     }
   },
@@ -93,14 +85,12 @@ export default {
     ...mapActions([
       'createFirstPlaceStruct',
       'createSecondPlaceStruct',
-      'createThirdPlaceStruct',
       'sendWinnersToBlockchain',
     ]),
     setSendWinners() {
       this.sendWinnersToBlockchain()
       this.firstPlaceAddress = ''
       this.secondPlaceAddress = ''
-      this.thirdPlaceAddress = ''
     },
     getMonth(monthStr){
       return new Date(monthStr+'-1-01').getMonth()+1
@@ -113,7 +103,6 @@ export default {
     async getWinners() {
       let first = {}
       let second = {}
-      let third = {}
       let addressesArray = this.filteredData.map(option => option.ticketOwner)
       let random = Math.floor(Math.random() * addressesArray.length)
       const poolType = this.poolCode.slice(0, -7)
@@ -139,17 +128,6 @@ export default {
       this.createSecondPlaceStruct(second)
       const secondPlaceIndex = addressesArray.indexOf(secondPlace)
       if (secondPlaceIndex >= 0) addressesArray.splice(secondPlaceIndex, 1)
-
-      const thirdPlace = addressesArray[random]
-      this.thirdPlaceAddress = thirdPlace
-      third.amount = this.thirdPlaceAmount
-      third.address = thirdPlace
-      third.pool_code = this.poolCode
-      third.pool_standing = 'third'
-      third.pool_type = poolType
-      this.createThirdPlaceStruct(third)
-      const thirdPlaceIndex = addressesArray.indexOf(thirdPlace)
-      if (thirdPlaceIndex >= 0) addressesArray.splice(thirdPlaceIndex, 1)
     },
   }
 }

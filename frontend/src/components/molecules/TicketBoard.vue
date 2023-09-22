@@ -197,7 +197,7 @@ export default {
   position: relative;
 
   &.expanded {
-    height: 331px;
+    height: 255px;
     margin-bottom: 0;
 
     & .dropdown-btn {

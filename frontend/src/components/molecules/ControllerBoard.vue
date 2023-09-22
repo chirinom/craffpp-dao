@@ -7,7 +7,6 @@
     <ControllerWinnersBoard
       :firstPlaceAmount="firstPlaceAmount"
       :secondPlaceAmount="secondPlaceAmount"
-      :thirdPlaceAmount="thirdPlaceAmount"
       :filteredData="filteredData"
       :poolCode="poolCode"
     />
@@ -36,18 +35,16 @@ export default {
     return {
       firstPlaceAmount: 0,
       secondPlaceAmount: 0,
-      thirdPlaceAmount: 0,
       filteredData: [],
       poolCode: ''
     }
   },
   methods: {
-    handleChange(poolCode, data, first, second, third) {
+    handleChange(poolCode, data, first, second) {
       this.poolCode = poolCode
       this.filteredData = data
       this.firstPlaceAmount = first
       this.secondPlaceAmount = second
-      this.thirdPlaceAmount = third
     },
   },
 }

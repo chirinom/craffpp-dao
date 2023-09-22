@@ -8,7 +8,6 @@
         <td>{{STRINGS.totalEthereum}}</td>
         <td>{{STRINGS.fristPlace}}</td>
         <td>{{STRINGS.secondPlace}}</td>
-        <td>{{STRINGS.thirdPlace}}</td>
         <td>{{STRINGS.oceanCleanup}}</td>
         <td>{{STRINGS.craffpp}}</td>
         <td>{{STRINGS.craffppAndOceanCleanup}}</td>
@@ -19,7 +18,6 @@
         <td>{{ethTotal}}</td>
         <td>{{firstPlace}}</td>
         <td>{{secondPlace}}</td>
-        <td>{{thirdPlace}}</td>
         <td>{{motherNature}}</td>
         <td>{{craffppCo}}</td>
         <td>{{craffppAndOceanCleanup}}</td>
@@ -67,11 +65,6 @@ export default {
     secondPlace() {
       const total = this.allTickets.reduce((a, b) => a + (b['amount'] || 0), 0)
       const result = total * ( 25 / 100 )
-      return result.toFixed(4)
-    },
-    thirdPlace() {
-      const total = this.allTickets.reduce((a, b) => a + (b['amount'] || 0), 0)
-      const result = total * ( 15 / 100 )
       return result.toFixed(4)
     },
     craffppCo() {

@@ -72,7 +72,7 @@ export default {
 
 .wrapper {
   position: absolute;
-  top: 30%;
+  top: 36%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -85,12 +85,19 @@ export default {
   font-size: 73px;
   margin: 0 27px;
   color: $primary;
-  height: 110px;
+  display: inline-block;
+}
+.card-block {
+  position: relative;
 }
 .card-footer {
     font-family: "Roboto Mono", monospace;
     font-size: 12px;
     font-weight: bold;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 @media (max-width: 511px) {
   .card-title {
