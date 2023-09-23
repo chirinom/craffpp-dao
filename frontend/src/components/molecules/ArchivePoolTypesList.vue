@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      poolTypes: ['Micro', 'Small', 'Medium', 'Large', 'Epic'],
+      poolTypes: ['Micro', 'Small', 'Medium', 'Large'],
       showTickets: [],
     }
   },

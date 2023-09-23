@@ -17,7 +17,6 @@
     "dotenv": "^16.0.1",
     "ethers": "^5.6.4",
     "font-awesome": "^4.7.0",
-    "json-server": "^0.17.0",
     "vue": "^3.2.13",
     "vue-confetti": "^2.3.0",
     "vue-loaders": "^4.1.4",
