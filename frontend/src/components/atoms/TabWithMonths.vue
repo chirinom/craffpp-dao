@@ -45,22 +45,15 @@ export default {
         // Split the month and year values (e.g., "jul2023" -> ["jul", "2023"])
         const monthAbbreviation = tab.value.slice(0, 3)
         const year = parseInt(tab.value.slice(3), 10)
-
         // Map month abbreviations to month indices
-        const monthIndices = {
-          jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11
-        }
-
+        const monthIndices = {jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11}
         // Calculate the 28th day of the month
         const tabDate = new Date(year, monthIndices[monthAbbreviation], 28)
-
         // Calculate the difference in days between the tab's date and the current date
         const daysDifference = Math.ceil((tabDate - currentDate) / (1000 * 60 * 60 * 24))
-
         // Return true if the difference is greater than 2, indicating the 28th has passed
         return daysDifference > 2
       })
-
       return filteredTabs
     }
   },
@@ -76,8 +69,6 @@ export default {
       if (tabsContainer) {
       // Calculate the new scroll position
         const scrollLeft = tabsContainer.scrollLeft + step * 100 // Adjust the step value as needed
-        console.log('bubu')
-
         // Scroll to the new position smoothly
         tabsContainer.scrollTo({
           left: scrollLeft,
