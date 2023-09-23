@@ -147,6 +147,7 @@ export default {
       margin: 0 0 0 4px;
       cursor: default;
       color: $primary-light;
+      font-weight: 100;
     }
   }
   & .ticket-amount {
