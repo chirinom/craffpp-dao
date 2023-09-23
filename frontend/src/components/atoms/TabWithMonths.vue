@@ -1,6 +1,8 @@
 <template>
   <div class="my-navbar">
     <span v-if="!!tabs" class="tabs-container">
+      <i class="fa-solid fa-circle-left scroll-button left" @click="scrollTabs(-3)"></i>
+      <i class="fa-solid fa-circle-right scroll-button right" @click="scrollTabs(3)"></i>
       <button
         v-for="tab in filterMonthTabsByDate"
         class="amount-btn"
@@ -14,8 +16,10 @@
         </div>
       </button>
     </span>
+
   </div>
 </template>
+
 
 <script>
 import {MONTH_TABS} from '../../utils/month_tabs'
@@ -67,6 +71,20 @@ export default {
         this.$emit('switch-tab', tab)
       }
     },
+    scrollTabs(step) {
+      const tabsContainer = this.$el.querySelector('.tabs-container')
+      if (tabsContainer) {
+      // Calculate the new scroll position
+        const scrollLeft = tabsContainer.scrollLeft + step * 100 // Adjust the step value as needed
+        console.log('bubu')
+
+        // Scroll to the new position smoothly
+        tabsContainer.scrollTo({
+          left: scrollLeft,
+          behavior: 'smooth',
+        })
+      }
+    },
   },
   mounted() {
     this.selectedTab = this.initialValue
@@ -80,6 +98,8 @@ export default {
   text-align: center;
   width: 100%;
   border-radius: 6px;
+  position: relative;
+
   .tabs-container {
     height: fit-content;
     display: flex;
@@ -91,6 +111,30 @@ export default {
     color: rgba(60, 60, 67, 0.6);
     font-size: 14px;
     line-height: 24px;
+  
+
+    .scroll-button {
+      position: absolute;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 1px;
+      color: $primary-light;
+      font-size: 22px;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+    .left {
+      left: 3%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .right {
+      right: 0%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
 
     span {
       width: max-content;
