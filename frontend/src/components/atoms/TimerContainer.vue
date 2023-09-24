@@ -95,7 +95,6 @@ export default {
     font-size: 12px;
     font-weight: bold;
     position: absolute;
-    bottom: 0;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -107,6 +106,9 @@ export default {
   }
   .wrapper {
     padding: 0 15px;
+  }
+  .card-footer {
+    top: 88px;
   }
 }
 </style>

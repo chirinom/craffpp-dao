@@ -126,8 +126,12 @@ export default {
 }
 @media (max-width: 1089px) {}
 @media (max-width: 768px) {
+    .title-price {
+      margin: 0;
+    }
   .totals {
     font-size: 18px;
+    top: 66%;
   }
   .eth-num {
     font-size: 18px;

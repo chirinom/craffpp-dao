@@ -103,7 +103,7 @@ export default {
     }
 
     & .ticket {
-      width: fit-content;
+      width: 100%;
     }
   }
   .ticket-wrapper {

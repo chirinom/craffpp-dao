@@ -117,12 +117,12 @@ export default {
       }
     }
     .left {
-      left: 3%;
+      left: 22px;
       top: 50%;
       transform: translate(-50%, -50%);
     }
     .right {
-      right: 0%;
+      right: 0px;
       top: 50%;
       transform: translate(-50%, -50%);
     }
@@ -174,5 +174,16 @@ export default {
 }
 ::-webkit-scrollbar-thumb {
   display: none;
+}
+
+// @media (max-width: 1650px) {
+// }
+// @media (max-width: 1333px) {
+// }
+@media (max-width: 1089px) {
+}
+@media (max-width: 777px) {
+}
+@media (max-width: 511px) {
 }
 </style>
