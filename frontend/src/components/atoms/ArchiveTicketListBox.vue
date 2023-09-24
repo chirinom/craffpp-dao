@@ -98,4 +98,25 @@ export default {
     width: 48px
   }
 }
+@media (max-width: 511px) {
+  .list {
+    font-size: 9px;
+
+    & .label {
+      width: 55px;
+    }
+
+    & .ticket {
+      width: 100%;
+      min-width: fit-content;
+    }
+  }
+  .ticket-wrapper {
+    padding: 2px;
+
+    img {
+      display: none;
+    }
+  }
+}
 </style>
