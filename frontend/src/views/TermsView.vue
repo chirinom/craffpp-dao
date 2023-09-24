@@ -12,9 +12,7 @@
       <ul>
         <li><p>{{STRINGS.termsPriceDistribution40}}</p></li>
         <li><p>{{STRINGS.termsPriceDistribution25}}</p></li>
-        <li><p>{{STRINGS.termsPriceDistribution15}}</p></li>
         <li><p>{{STRINGS.termsPriceDistribution16}}</p></li>
-        <li><p>{{STRINGS.termsPriceDistribution4}}</p></li>
       </ul>
       <li>Ticket Purchase and Participation</li>
       <p>{{STRINGS.termsPurchase}}</p>
