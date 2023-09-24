@@ -81,7 +81,7 @@ export default {
 .archive-wrapper {
   padding: 0 15px 22px;
   overflow: hidden;
-  max-height: 600px;
+  max-height: 515px;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
@@ -96,7 +96,7 @@ export default {
   font-size: 33px;
   font-weight: bold;
   color: $primary;
-  padding: 22px 0 0;
+  padding: 22px;
 
   &.archive {
     color: $primary-light;

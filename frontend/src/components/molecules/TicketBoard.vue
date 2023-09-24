@@ -137,7 +137,7 @@ export default {
 
   & .header {
     margin: 0;
-    padding: 22px 0 0 0;
+    padding: 22px;
     font-weight: 700;
     font-size: 33px;
     font-family: "Patua One", cursive;
