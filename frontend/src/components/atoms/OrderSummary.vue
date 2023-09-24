@@ -12,7 +12,7 @@
         <h4>{{STRINGS.buyinAmount}}</h4><h4>{{currentValue}}  ETH</h4>
       </div>
       <div class="row">
-        <h4>{{STRINGS.ticketCount}}</h4><h4>({{!!currentValue && !!poolDateCode? 1 : 0}})</h4>
+        <h4>{{STRINGS.ticketCount}}</h4><h4>{{!!currentValue && !!poolDateCode? 1 : 0}}</h4>
       </div>
     </div>
     <div class="terms">

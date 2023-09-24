@@ -3,7 +3,7 @@
     <div v-if="showArchive" class="archive-wrapper">
       <div class="header archive">{{STRINGS.archive}}</div>
       <ArchivePage />
-      <button class="archive-btn" @click="setShowArchive">Price pool <i class="fa-solid fa-angles-right"></i></button>
+      <button class="archive-btn" @click="setShowArchive">{{STRINGS.pricePool}}<i class="fa-solid fa-angles-right"></i></button>
     </div>
     <div class="pool-wrapper" v-else>
       <div class="header">{{STRINGS.pricePool}}</div>

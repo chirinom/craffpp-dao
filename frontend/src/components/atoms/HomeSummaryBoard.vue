@@ -3,12 +3,12 @@
     <div class="for-the-planet">
       <img class="image" :src="require('@/assets/recicle.png')" />
       <h3 class="label">{{STRINGS.totalRaised}}</h3>
-      <h1><i class="fa-brands fa-ethereum"></i>{{motherNature}}</h1>
+      <h1>{{motherNature}} ETH</h1>
     </div>
     <div class="for-the-people">
       <img class="image" :src="require('@/assets/give_back.png')" />
       <h3 class="label">{{STRINGS.totalGivedBack}}</h3>
-      <h1><i class="fa-brands fa-ethereum"></i>{{ giveBackToPeople }}</h1>
+      <h1>{{ giveBackToPeople }} ETH</h1>
     </div>
   </div>
 </template>
