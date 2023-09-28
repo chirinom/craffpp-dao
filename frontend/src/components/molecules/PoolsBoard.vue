@@ -96,7 +96,7 @@ export default {
   font-size: 33px;
   font-weight: bold;
   color: $primary;
-  padding: 22px;
+  padding: 22px 0 0 0;
 
   &.archive {
     color: $primary-light;

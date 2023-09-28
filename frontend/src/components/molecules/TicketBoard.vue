@@ -4,10 +4,7 @@
     <div class="booth-content">
       <span class="pick">{{STRINGS.selectBuyin}}</span>
       <div class="ticket-amount">
-        <TabWithAmounts
-          :tabs="tabs"
-          @ticketType="setTicketType"
-        />
+        <TabWithAmounts :tabs="tabs" @ticketType="setTicketType" />
       </div>
       <div  v-if="!!currentAccount" :class="['available-tickets', { expanded: isExpanded }]">
         <div class="header">
@@ -31,9 +28,7 @@
         :currentValue="currentValue"
         @orderValid="setOrderValid"
       />
-      <ConnectAndBuyButtons
-        :orderValid="orderValid"
-      />
+      <ConnectAndBuyButtons :orderValid="orderValid" />
     </div>
     <div>
     </div>
@@ -137,7 +132,7 @@ export default {
 
   & .header {
     margin: 0;
-    padding: 22px;
+    padding: 22px 0 0 0;
     font-weight: 700;
     font-size: 33px;
     font-family: "Patua One", cursive;

@@ -57,15 +57,14 @@ export default {
 
       const mappedWinners = this.winners.map(winner => {
         const poolCode = winner.pool_code
-        const codigoMesAnio = poolCode.slice(-7)
-        const month = months[codigoMesAnio.slice(0, 3)]
-        const year = codigoMesAnio.slice(3)
+        const monthYearCode = poolCode.slice(-7)
+        const month = months[monthYearCode.slice(0, 3)]
+        const year = monthYearCode.slice(3)
         winner.date = '28th, ' + month + ', ' + year
         return '28th, ' + month + ', ' + year
       })
 
       this.settledPoolsArray = [...new Set(mappedWinners)].reverse()
-
       this.winnersArray = this.winners
     },
     filterWinnersByPoolDate(poolDate) {
@@ -95,11 +94,11 @@ export default {
   padding: 0 11px;
 
   & h4 {
-      margin: auto 0;
+    margin: auto 0;
   }
 
   & .btn-container {
-      margin: 0 !important;
+    margin: 0 !important;
   }
 }
 

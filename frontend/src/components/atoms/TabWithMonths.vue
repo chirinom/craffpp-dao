@@ -20,7 +20,6 @@
   </div>
 </template>
 
-
 <script>
 import {MONTH_TABS} from '../../utils/month_tabs'
 
@@ -103,7 +102,6 @@ export default {
     font-size: 14px;
     line-height: 24px;
   
-
     .scroll-button {
       position: absolute;
       border-radius: 50%;
@@ -165,7 +163,6 @@ export default {
   margin: 8px
 }
 
-
 ::-webkit-scrollbar {
   display: none;
 }
@@ -174,16 +171,5 @@ export default {
 }
 ::-webkit-scrollbar-thumb {
   display: none;
-}
-
-// @media (max-width: 1650px) {
-// }
-// @media (max-width: 1333px) {
-// }
-@media (max-width: 1089px) {
-}
-@media (max-width: 777px) {
-}
-@media (max-width: 511px) {
 }
 </style>
