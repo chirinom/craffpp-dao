@@ -29,12 +29,12 @@ export default {
     motherNature() {
       const total = this.allTickets.reduce((a, b) => a + (b['amount'] || 0), 0)
       const result = total * ( 16 / 100 )
-      return result.toFixed(4)
+      return result.toFixed(3)
     },
     giveBackToPeople() {
       const total = this.allTickets.reduce((a, b) => a + (b['amount'] || 0), 0)
       const result = total * ( 40 / 100 ) + total * ( 25 / 100 ) + total * ( 15 / 100 )
-      return result.toFixed(4)
+      return result.toFixed(3)
     },
   },
 }

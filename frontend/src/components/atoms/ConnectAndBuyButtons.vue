@@ -58,10 +58,9 @@ export default {
   cursor: pointer;
   width: 100%;
   background-color: $primary;
-  color: #fff;
+  color: $primary-white;
   border-radius: 6px;
   height: 44px;
-  // margin: 8px 0;
 
   &:hover {
     background-color: $secondary;
@@ -76,7 +75,7 @@ export default {
   line-height: 0;
 }
 .loader {
-  color: #fff;
+  color: $primary-white;
 }
 </style>
 

@@ -114,7 +114,7 @@ export default {
   cursor: pointer;
   width: 100%;
   background-color: $primary;
-  color: #fff;
+  color: $primary-white;
   border-radius: 6px;
   max-height: 42px;
 

@@ -70,7 +70,7 @@ export default {
       width: 100%;
       max-width: 422px;
       background-color: $primary;
-      color: #fff;
+      color: $primary-white;
       border-radius: 6px;
       max-height: 42px;
       margin: 33px 0;

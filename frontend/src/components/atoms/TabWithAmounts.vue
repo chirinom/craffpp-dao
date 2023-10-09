@@ -75,7 +75,7 @@ export default {
     }
     .selected {
       background-color: $primary;
-      color: #fff;
+      color: $primary-white;
     }
   }
 }
@@ -92,7 +92,7 @@ export default {
   width: 100%;
   &:hover {
     background-color: $primary;
-    color: #fff;
+    color: $primary-white;
   }
 }
 ::-webkit-scrollbar {

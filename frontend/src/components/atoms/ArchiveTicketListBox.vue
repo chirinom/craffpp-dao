@@ -58,7 +58,7 @@ export default {
   overflow: auto;
   height: fit-content;
   color: black;
-  background-color: #fff;
+  background-color: $primary-white;
   border: 1px solid lightgrey;
   cursor: auto;
   border-radius: 6px;
@@ -66,7 +66,7 @@ export default {
   & .ticket {
     margin: 0;
     padding: 4px;
-    background-color: #fff;
+    background-color: $primary-white;
   }
   & .label {
     font-weight: bolder;
