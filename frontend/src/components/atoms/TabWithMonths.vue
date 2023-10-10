@@ -40,7 +40,7 @@ export default {
   computed: {
     filterMonthTabsByDate() {
       const currentDate = new Date()
-      const filteredTabs = this.tabs.filter(tab => {
+      const filteredTabs = this.tabs.filter((tab) => {
         // Split the month and year values (e.g., "jul2023" -> ["jul", "2023"])
         const monthAbbreviation = tab.value.slice(0, 3)
         const year = parseInt(tab.value.slice(3), 10)
@@ -50,8 +50,8 @@ export default {
         const tabDate = new Date(year, monthIndices[monthAbbreviation], 28)
         // Calculate the difference in days between the tab's date and the current date
         const daysDifference = Math.ceil((tabDate - currentDate) / (1000 * 60 * 60 * 24))
-        // Return true if the difference is greater than 2, indicating the 28th has passed
-        return daysDifference > 2
+        // Return true if the difference is greater than or equal to 3, indicating the 28th has passed by two days
+        return daysDifference >= -2
       })
       return filteredTabs
     }
@@ -107,7 +107,7 @@ export default {
       border-radius: 50%;
       cursor: pointer;
       border: 1px;
-      color: $primary-light;
+      color: $primary-white;
       font-size: 22px;
 
       &:hover {
@@ -138,7 +138,7 @@ export default {
     }
     .selected {
       background-color: $primary;
-      color: #fff;
+      color: $primary-white;
     }
   }
 }
@@ -155,7 +155,7 @@ export default {
   width: 100%;
   &:hover {
     background-color: $primary;
-    color: #fff;
+    color: $primary-white;
   }
 }
 .name {
