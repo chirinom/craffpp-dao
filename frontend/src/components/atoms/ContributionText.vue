@@ -1,7 +1,7 @@
 <template>
   <div class="contribution">
     <div class="introduction">
-      <img :src="require('@/assets/images/turtle.png')" alt="" />
+      <img :src="require('@/assets/images/turtle.png')" :alt="STRINGS.altTurtle" />
       <p>{{STRINGS.panamaBio}}<br><br>{{STRINGS.panamaCrisis}}<br><br>{{STRINGS.panamaContribution}}</p>
     </div>
   </div>

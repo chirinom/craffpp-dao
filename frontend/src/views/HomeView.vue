@@ -6,7 +6,7 @@
         <h5>Help Us Sweep the Plastic from Our Oceans and <strong>Win ETH!</strong></h5>
       </div>
       <div class="picture-play">
-        <img :src="require('../assets/images/bahia.jpg')" >
+        <img :src="require('../assets/images/bahia.jpg')" :alt="STRINGS.altBay">
         <router-link to="/donate">
           <button v-if="!!currentAccount">{{STRINGS.donate}}</button>
           <button v-else @click="connectWallet">{{STRINGS.connectWallet}}</button>

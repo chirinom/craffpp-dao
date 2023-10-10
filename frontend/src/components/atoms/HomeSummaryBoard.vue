@@ -1,12 +1,12 @@
 <template>
   <div class="summary-container">
     <div class="for-the-planet">
-      <img class="image" :src="require('@/assets/recicle.png')" />
+      <img class="image" :src="require('@/assets/recicle.png')" :alt="STRINGS.altCleanup" />
       <h3 class="label">{{STRINGS.totalRaised}}</h3>
       <h1>{{motherNature}} ETH</h1>
     </div>
     <div class="for-the-people">
-      <img class="image" :src="require('@/assets/give_back.png')" />
+      <img class="image" :src="require('@/assets/give_back.png')" :alt="STRINGS.altPrizes" />
       <h3 class="label">{{STRINGS.totalGivedBack}}</h3>
       <h1>{{ giveBackToPeople }} ETH</h1>
     </div>

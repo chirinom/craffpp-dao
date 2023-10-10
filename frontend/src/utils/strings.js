@@ -68,5 +68,10 @@ export const STRINGS = {
   termsLiability: 'Craffpp shall not be liable for any damages or losses of any kind arising from or in connection with the raffle or the use of the prizes.',
   termsChangeTerms: 'Craffpp reserves the right to change the terms and conditions of the raffle at any time without notice. It is the responsibility of the participants to stay informed of any changes to the terms and conditions.',
   termsLaw: 'These terms and conditions shall be governed by and construed in accordance with the laws of Panamá and any disputes shall be subject to the exclusive jurisdiction of the courts of Panamá',
-  termsLawSecond: 'By participating in the raffle, you acknowledge that you have read and agree to be bound by these terms and conditions.'
+  termsLawSecond: 'By participating in the raffle, you acknowledge that you have read and agree to be bound by these terms and conditions.',
+  altBay: 'A disheartening view of Panamas bay area and its accumulation of trash',
+  altLogo: 'Craffpp Logo',
+  altCleanup: 'Total accumulated for the coastal cleanup',
+  altPrizes: 'Total accumulated in pool prizes',
+  altTurtle: 'This turtle species is among the most abundant in Panamá'
 }

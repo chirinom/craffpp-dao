@@ -79,13 +79,9 @@ export default {
     padding: 11px 111px 222px;
   }
 }
-// @media (max-width: 1089px) {
-// }
 @media (max-width: 777px) {
   .home {
     padding: 11px 22px 222px;
   }
 }
-// @media (max-width: 511px) {
-// }
 </style>

@@ -24,7 +24,7 @@
             <span class="text">{{ticket.pool_code}}</span>
           </div>
         </div>
-        <img :src="require('../../assets/logo_lightgrey.png')" >
+        <img :src="require('../../assets/logo_lightgrey.png')" :alt="STRINGS.altLogo">
       </div>
     </div>
   </div>
