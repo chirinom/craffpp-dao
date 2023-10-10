@@ -76,7 +76,7 @@ export default {
 }
 @media (max-width: 1333px) {
   .home {
-    padding: 11px 111px 222px;
+    padding: 34px 111px 222px;
   }
 }
 @media (max-width: 777px) {
