@@ -73,5 +73,7 @@ export const STRINGS = {
   altLogo: 'Craffpp Logo',
   altCleanup: 'Total accumulated for the coastal cleanup',
   altPrizes: 'Total accumulated in pool prizes',
-  altTurtle: 'This turtle species is among the most abundant in Panamá'
+  altTurtle: 'This turtle species is among the most abundant in Panamá',
+  ariaDiscord: 'Join our Discord Community',
+  ariaIg: 'Join our Instagram Community'
 }

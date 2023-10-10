@@ -6,8 +6,8 @@
     </router-link>
     <h5>Help us sweap the plastic from our oceans and <strong>win some ETH</strong> doing it</h5>
     <div class="social">
-      <a href="https://discord.gg/drZfVMB2YW" target="_blank"><i class="fa-brands fa-discord"></i></a>
-      <a href="https://www.instagram.com/craffpp/" target="_blank"><i class="fa-brands fa-instagram social-lg"></i></a>
+      <a href="https://discord.gg/drZfVMB2YW" :aria-label="STIRNG.ariaDiscord" target="_blank"><i class="fa-brands fa-discord"></i></a>
+      <a href="https://www.instagram.com/craffpp/" :aria-label="STIRNG.ariaIg" target="_blank"><i class="fa-brands fa-instagram social-lg"></i></a>
     </div>
       <router-link to="/terms" target="_blank" class="terms">
         {{STRINGS.termsAndConditions}}
