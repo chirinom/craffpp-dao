@@ -43,6 +43,7 @@ export default {
   metaInfo: {
     name: 'How Does it Work',
     meta: [
+      { charset: 'utf-8' },
       {
         name: 'description',
         content: 'Buy a ticket today and feel good about supporting a great cause'

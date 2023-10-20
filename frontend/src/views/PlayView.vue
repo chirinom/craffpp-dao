@@ -51,6 +51,7 @@ export default {
   metaInfo: {
     name: 'Donate',
     meta: [
+      { charset: 'utf-8' },
       {
         name: 'description',
         content: 'Buy a ticket today and feel good about supporting a great cause'

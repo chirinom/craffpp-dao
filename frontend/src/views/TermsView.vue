@@ -46,6 +46,7 @@ export default {
   metaInfo: {
     name: 'Terms and Conditions',
     meta: [
+      { charset: 'utf-8' },
       {
         name: 'description',
         content: 'Terms and conditions of Craffpp'
