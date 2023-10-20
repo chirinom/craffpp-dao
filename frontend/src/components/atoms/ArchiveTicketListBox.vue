@@ -17,7 +17,7 @@
           </div>
           <div v-if="ticket.address" class="text-container">
             <h4 class="label">{{STRINGS.ticketWalletAddress}}</h4>
-            <span class="text">{{ticket.address}}</span>
+            <span :class="['text', ticket.address === currentAccount? 'winner' : '']">{{ticket.address}}</span>
           </div>
           <div v-if="ticket.pool_code" class="text-container">
             <h4 class="label">Pool Code</h4>
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { STRINGS } from '../../utils/strings'
 
 export default {
@@ -44,6 +45,9 @@ export default {
     return {
       STRINGS: STRINGS
     }
+  },
+  computed: {
+    ...mapGetters(['currentAccount']),
   }
 }
 </script>
@@ -88,12 +92,12 @@ export default {
 
   .text-container {
     display: flex;
-  }
 
-  .bubu {
-    display: flex;
+    .winner {
+      color: #0bd50b;
+      font-weight: bold;
+    }
   }
-
   img {
     width: 48px
   }
@@ -105,7 +109,6 @@ export default {
     & .label {
       width: 55px;
     }
-
     & .ticket {
       width: 100%;
       min-width: fit-content;
