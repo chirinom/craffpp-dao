@@ -53,7 +53,7 @@ export default {
         // Return true if the difference is greater than or equal to 3, indicating the 28th has passed by two days
         return daysDifference >= -2
       })
-      return filteredTabs
+      return filteredTabs.slice(0,6)
     }
   },
   methods: {

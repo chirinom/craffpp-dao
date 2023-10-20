@@ -4,6 +4,7 @@
       v-if="!!currentAccount"
       @click="sendTransaction"
       :class="['buy-btn', isLoading ? 'loading' : null]"
+      :disabled="isLoading || !orderValid"
     >
       <vue-loaders
         v-if="isLoading"
