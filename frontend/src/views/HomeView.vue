@@ -155,8 +155,8 @@ export default {
     }
 
     img {
+      width: 444px;
       max-width: 422px;
-      width: 100%;
     }
   }
 }
