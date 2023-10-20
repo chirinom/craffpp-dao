@@ -5,13 +5,13 @@
         <h1 class="checkout-header">{{STRINGS.orderSummary}}</h1>
         <i :class="['far fa-check-circle', orderValid? 'passed': 'not-passed']"></i>
       </div>
-      <div class="row">
+      <div class="row code">
         <h4>{{STRINGS.selectedPool}}</h4><h4>{{poolDateCode? poolDateCode : '-'}}</h4>
       </div>
-      <div class="row">
+      <div class="row count">
         <h4>{{STRINGS.ticketCount}}</h4><h4>{{!!currentValue && !!poolDateCode? 1 : 0}}</h4>
       </div>
-      <div class="row">
+      <div class="row total">
         <h4>{{STRINGS.orderTotal}}</h4><h4>{{currentValue}}  ETH</h4>
       </div>
     </div>
@@ -64,11 +64,11 @@ export default {
 </script>
 <style scoped lang="scss">
 .checkout-container {
+  font-family: "Patua One", cursive;
   
   & .checkout-header {
     margin: 0 0 9px;
     text-align: left;
-       font-family: "Patua One", cursive;
     color: $primary;
     font-size: 19px;
   }
@@ -76,7 +76,6 @@ export default {
     display: flex;
     justify-content: space-between;
     margin: 6px 0;
-    font-family: "Roboto Mono", monospace;
     
     & h4 {
       margin: 0;
@@ -84,6 +83,16 @@ export default {
     }
   }
 }
+  .code, .count {
+    h4 {
+      font-weight: 100;
+    }
+  }
+  .total {
+    h4 {
+      font-weight: bold;
+    }
+  }
 .terms {
   display: flex;
   text-align: left;
