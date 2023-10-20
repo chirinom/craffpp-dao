@@ -23,7 +23,7 @@ export const STRINGS = {
   secondPlace: 'Runner-up',
   orderSummary: 'Order summary',
   selectedPool: 'Selected pool ',
-  buyinAmount: 'Buy-in price',
+  orderTotal: 'Order Total',
   ticketCount: 'Quantity',
   agreeTerms: 'I agree to terms and conditions',
   winnersDraw: 'Winners Draw',
