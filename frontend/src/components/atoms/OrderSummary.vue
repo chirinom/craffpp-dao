@@ -9,10 +9,10 @@
         <h4>{{STRINGS.selectedPool}}</h4><h4>{{poolDateCode? poolDateCode : '-'}}</h4>
       </div>
       <div class="row">
-        <h4>{{STRINGS.buyinAmount}}</h4><h4>{{currentValue}}  ETH</h4>
+        <h4>{{STRINGS.ticketCount}}</h4><h4>{{!!currentValue && !!poolDateCode? 1 : 0}}</h4>
       </div>
       <div class="row">
-        <h4>{{STRINGS.ticketCount}}</h4><h4>{{!!currentValue && !!poolDateCode? 1 : 0}}</h4>
+        <h4>{{STRINGS.orderTotal}}</h4><h4>{{currentValue}}  ETH</h4>
       </div>
     </div>
     <div class="terms">
@@ -68,7 +68,7 @@ export default {
   & .checkout-header {
     margin: 0 0 9px;
     text-align: left;
-    font-family: "Patua One", cursive;
+       font-family: "Patua One", cursive;
     color: $primary;
     font-size: 19px;
   }
