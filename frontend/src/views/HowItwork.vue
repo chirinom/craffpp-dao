@@ -39,6 +39,19 @@ export default {
     return {
       STRINGS: STRINGS
     }
+  },
+  metaInfo: {
+    name: 'How Does it Work',
+    meta: [
+      {
+        name: 'description',
+        content: 'Buy a ticket today and feel good about supporting a great cause'
+      },
+      {
+        name: 'keywords',
+        content: 'crypto, win, winner, ethereum, raffle, enviroment, metamask, prize, prizes, wallet, winning'
+      },
+    ]
   }
 }
 </script>

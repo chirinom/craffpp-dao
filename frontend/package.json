@@ -19,6 +19,7 @@
     "font-awesome": "^4.7.0",
     "vue": "^3.2.13",
     "vue-loaders": "^4.1.4",
+    "vue-meta": "^2.4.0",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0",
     "web3": "^1.7.1"

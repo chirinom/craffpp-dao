@@ -47,6 +47,19 @@ export default {
   },
   mounted() {
     this.checkIfWalletIsConnect()
+  },
+  metaInfo: {
+    name: 'Donate',
+    meta: [
+      {
+        name: 'description',
+        content: 'Buy a ticket today and feel good about supporting a great cause'
+      },
+      {
+        name: 'keywords',
+        content: 'crypto, win, winner, ethereum, raffle, enviroment, metamask, prize, prizes, wallet, winning'
+      },
+    ]
   }
 }
 </script>

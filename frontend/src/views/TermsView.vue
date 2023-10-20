@@ -42,6 +42,19 @@ export default {
     return {
       STRINGS: STRINGS
     }
+  },
+  metaInfo: {
+    name: 'Terms and Conditions',
+    meta: [
+      {
+        name: 'description',
+        content: 'Terms and conditions of Craffpp'
+      },
+      {
+        name: 'keywords',
+        content: 'crypto, win, winner, ethereum, raffle, enviroment, metamask, prize, prizes, wallet, winning'
+      },
+    ]
   }
 }
 </script>
