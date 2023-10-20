@@ -41,18 +41,18 @@ export default {
   methods: {
     handleWinnersDataMapping() {
       const months = {
-        'jan': 'Enero',
-        'feb': 'Febrero',
-        'mar': 'Marzo',
-        'apr': 'Abril',
-        'may': 'Mayo',
-        'jun': 'Junio',
-        'jul': 'Julio',
-        'aug': 'Agosto',
-        'sep': 'Septiembre',
-        'oct': 'Octubre',
-        'nov': 'Noviembre',
-        'dec': 'Diciembre'
+        'jan': 'January',
+        'feb': 'February',
+        'mar': 'March',
+        'apr': 'April',
+        'may': 'May',
+        'jun': 'June',
+        'jul': 'July',
+        'aug': 'August',
+        'sep': 'September',
+        'oct': 'October',
+        'nov': 'November',
+        'dec': 'December'
       }
 
       const mappedWinners = this.winners.map(winner => {
