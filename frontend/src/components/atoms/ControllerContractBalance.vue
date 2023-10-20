@@ -104,18 +104,8 @@ export default {
   font-size: 16px;
   font-weight: bold;
 }
-// TODO: This css is repeated
 .get-balance {
-  border: 1px solid lightgrey;
-  padding: 8px;
-  font-weight: 700;
-  font-size: 11px;
-  line-height: 14px;
-  cursor: pointer;
-  width: 100%;
-  background-color: $primary;
-  color: $primary-white;
-  border-radius: 6px;
+  @extend .BUTTON;
   max-height: 42px;
 
   &:hover {

@@ -157,18 +157,8 @@ export default {
       min-width: 222px;
     }
 }
-// TODO: This css is repeated
 .buy-btn {
-  border: 1px solid lightgrey;
-  padding: 8px;
-  font-weight: 700;
-  font-size: 11px;
-  line-height: 14px;
-  cursor: pointer;
-  width: 100%;
-  background-color: $primary;
-  color: $primary-white;
-  border-radius: 6px;
+  @extend .BUTTON;
   max-height: 42px;
 
   &:hover {

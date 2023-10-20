@@ -4,7 +4,6 @@
       v-if="!!currentAccount"
       @click="sendTransaction"
       :class="['buy-btn', isLoading ? 'loading' : null]"
-      :disabled="isLoading || !orderValid"
     >
       <vue-loaders
         v-if="isLoading"
@@ -48,18 +47,8 @@ export default {
 .btn-wrapper {
   max-height: 42px;
 }
-// TODO: This css is repeated
 .buy-btn {
-  border: 1px solid lightgrey;
-  padding: 8px;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 24px;
-  cursor: pointer;
-  width: 100%;
-  background-color: $primary;
-  color: $primary-white;
-  border-radius: 6px;
+  @extend .BUTTON;
   height: 44px;
 
   &:hover {

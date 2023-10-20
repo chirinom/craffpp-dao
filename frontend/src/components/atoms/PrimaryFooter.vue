@@ -43,8 +43,6 @@ export default {
     img {
       width: 77px;
     }
-
-
     h1 {
       margin: 0;
     }
@@ -54,19 +52,16 @@ export default {
     font-size: 16px;
     color: $primary-grey;
   }
-
   .terms {
     color: $primary-black;
     text-decoration: none;
   } 
-
   .social {
     font-size: 22px;
     margin: 22px;
     font-weight: bold;
     color: $primary-black;
  
-
     a {
       color: $primary-black;
     } 
