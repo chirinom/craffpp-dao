@@ -10,7 +10,6 @@
       <TicketBoard
         v-if="!archiveHidden"
         @typeChange="filterTickets"
-        @poolPassed="setPoolIsPassed"
       />
     </div>
   </div>
@@ -38,9 +37,6 @@ export default {
   },
   methods: {
     ...mapActions(['checkIfWalletIsConnect', 'filterTickets']),
-    setPoolIsPassed(val) {
-      this.poolPassed = val
-    },
     toggleShowTicketBoard() {
       this.archiveHidden = !this.archiveHidden
     }

@@ -38,9 +38,6 @@ export default {
     TimerContainer,
   },
   props: {
-    isPoolPassed: {
-      type: Boolean,
-    },
     poolsData: {
       type: Array
     },
@@ -48,14 +45,25 @@ export default {
   data() {
     return {
       STRINGS: STRINGS,
-      showArchive: false
+      showArchive: false,
+      isPoolPassed: false
     }
   },
   computed: { ...mapGetters(['poolDateCode']) },
   methods: {
     ...mapActions(['calculateWinProbability']),
     ...mapMutations(['setFilterObject', 'setCurrentPoolDateCode']),
+    getMonth(monthStr){
+      return new Date(monthStr+'-1-01').getMonth()+1
+    },
+    isInThePast(date) {
+      const today = new Date()
+      today.setHours(0, 0, 0, 0)
+      return date < today
+    },
     handleMonthChange(val) {
+      const poolDate = val.slice(3) + '-' + this.getMonth(val.slice(0,3)) + '-28'
+      if (poolDate.length >= 9) { this.isPoolPassed = this.isInThePast(new Date(poolDate)) }
       this.setCurrentPoolDateCode(val)
       this.setFilterObject(val)
       this.$emit('monthChange', val)

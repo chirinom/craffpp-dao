@@ -57,7 +57,6 @@ export default {
   data() {
     return {
       orderValid: false,
-      buyTicketCount: 0,
       ticketCount: 0,
       currentTab: '',
       currentValue: 0,
@@ -76,14 +75,6 @@ export default {
   methods: {
     ...mapActions(['calculateWinProbability']),
     ...mapMutations(['setCurrentTicketType', 'setCurrentTicketValue', 'setFilterObject']),
-    getMonth(monthStr){
-      return new Date(monthStr+'-1-01').getMonth()+1
-    },
-    isInThePast(date) {
-      const today = new Date()
-      today.setHours(0, 0, 0, 0)
-      return date < today
-    },
     setTicketType (type, value) {
       this.currentTab = type
       this.currentValue = value
@@ -98,13 +89,7 @@ export default {
       setTimeout(() => { this.isInfoShown = false }, 3000)
     },
     setOrderValid(val) {
-      const poolDate = this.poolDateCode.slice(3) + '-' + this.getMonth(this.poolDateCode.slice(0,3)) + '-28'
-      // Buy-in and month has been selected and pool selected is not passed
-      if (poolDate.length >= 9) {
-        // this.orderValid = val
-        this.orderValid = val && !this.isInThePast(new Date(poolDate))
-        this.$emit('poolPassed', this.isInThePast(new Date(poolDate)))
-      }
+      this.orderValid = val
     },
     handleExpand(val){
       this.isExpanded = val

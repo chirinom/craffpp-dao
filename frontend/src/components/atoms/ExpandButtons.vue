@@ -1,13 +1,13 @@
 <template>
   <div class="btn-container">
-    <button v-show="isExpanded" class="keyup-btn">
+    <button v-if="isExpanded" class="keyup-btn">
     <i
       @click="closeTicketList"
       @keyup="closeTicketList"
       class="fa-solid fa-caret-up"
     />
   </button>
-  <button v-show="!isExpanded" class="keydown-btn">
+  <button v-if="!isExpanded" class="keydown-btn">
     <i
       @click="extendTicketList"
       @keyup="extendTicketList"

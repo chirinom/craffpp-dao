@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="terms">
-      <div v-show="firstTimeUser">
+      <div v-if="showTermsCheckbox">
         <input type="checkbox" v-model="termsCheckbox">
         <span>{{STRINGS.agreeTerms}}</span>
       </div>
@@ -38,26 +38,28 @@ export default {
   data(){
     return {
       termsCheckbox: false,
-      STRINGS: STRINGS
+      STRINGS: STRINGS,
+      showTermsCheckbox: false
     }
   },
   computed: {
     ...mapGetters(['allTickets', 'poolDateCode', 'currentAccount']),
-    firstTimeUser() {
-      const result = this.allTickets.filter((option) => 
-        option.ticketOwner.toLowerCase() === this.currentAccount
-      )
-      return result.length === 0
-    },
     orderValid() {
-      const firstTime = this.allTickets.filter((option) => 
-        option.ticketOwner.toLowerCase() === this.currentAccount
-      )
+      const firstTime = this.allTickets.filter((option) => option.ticketOwner.toLowerCase() === this.currentAccount)
       const orderValid = firstTime.length === 0
         ? !!this.poolDateCode && this.currentValue > 0 && this.termsCheckbox
         : !!this.poolDateCode && this.currentValue > 0
-      this.$emit('orderValid', orderValid)
       return orderValid
+    }
+  },
+  watch: {
+    allTickets(newValue, oldValue) {
+      const result = newValue.filter((option) => option.ticketOwner.toLowerCase() === this.currentAccount)
+      const firstTimer = result.length === 0
+      this.showTermsCheckbox = firstTimer
+    },
+    orderValid(newValue, oldValue) {
+      this.$emit('orderValid', newValue)
     }
   },
 }
