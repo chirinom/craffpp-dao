@@ -7,9 +7,12 @@
       </div>
       <div class="picture-play">
         <img :src="require('../assets/images/bahia.jpg')" :alt="STRINGS.altBay">
-        <router-link to="/donate">
+        <router-link class="link" to="/donate">
           <button v-if="!!currentAccount">{{STRINGS.donate}}</button>
-          <button v-else @click="connectWallet">{{STRINGS.connectWallet}}</button>
+          <button v-else @click="connectWallet">
+            <img class="metamask" :src="require('../assets/images/metamask.png')" alt="Metamask" >
+            {{STRINGS.connectWallet}}
+          </button>
         </router-link>
       </div>
     </div>
@@ -60,20 +63,23 @@ export default {
   .picture-play {
     padding: 55px 0 0 0;
 
+    .link {
+      text-decoration: none;
+    }
+
     button {
-      border: 1px solid lightgrey;
-      padding: 8px;
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 24px;
-      cursor: pointer;
-      width: 100%;
-      max-width: 422px;
-      background-color: $primary;
-      color: $primary-white;
-      border-radius: 6px;
-      max-height: 42px;
-      margin: 33px 0;
+      @extend .BUTTON;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 33px auto;
+
+      .metamask {
+        width: 22px;
+        height: 22px;
+        margin-right: 11px;
+      }
 
       &:hover {
         background-color: $secondary;

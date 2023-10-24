@@ -15,7 +15,10 @@
       />
       <span v-else>Buy ticket</span>
     </button>
-    <button v-else @click="connectWallet" class="buy-btn">{{STRINGS.connectWallet}}</button>
+    <button v-else @click="connectWallet" class="buy-btn">
+      <img class="metamask" :src="require('../../assets/images/metamask.png')" alt="Metamask" >
+      {{STRINGS.connectWallet}}
+    </button>
   </div>
 </template>
 
@@ -51,6 +54,15 @@ export default {
 .buy-btn {
   @extend .BUTTON;
   height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .metamask {
+    width: 22px;
+    height: 22px;
+    margin-right: 11px;
+  }
 
   &:hover {
     background-color: $secondary;
