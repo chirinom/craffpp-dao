@@ -1,43 +1,39 @@
 <template>
   <div class="winners-container">
-    <h3>{{STRINGS.winnersDraw}}</h3>
-    <table class="winnersTable">
-      <tr>
-        <th>{{STRINGS.position}}</th>
-        <th>{{STRINGS.address}}</th>
-        <th></th>
-      </tr>
-      <tr>
-        <td>{{STRINGS.fristPlace}}</td>
-        <td class="address">{{firstPlaceAddress}}</td>
-        <td>
-          <button
-            :disabled="poolCode.length <= 10 ? true : poolAlreadySettled || !timerHasntEnded"
-            class="buy-btn"
-            @click="getWinners"
-          >
-            {{STRINGS.selectWinners}}
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td>{{STRINGS.secondPlace}}</td>
-        <td class="address">{{secondPlaceAddress}}</td>
-        <td>
-          <button
-            :disabled="poolCode.length <= 10 ? true : poolAlreadySettled || !timerHasntEnded"
-            class="buy-btn"
-            @click="setSendWinners"
-          >
-            {{STRINGS.sendWinners}}
-          </button>
-        </td>
-      </tr>
-    </table>
-    <div v-if="poolCode.length >= 10" class="indicators">
-      <h4 v-if="poolAlreadySettled" class="danger">POOL ALREADY SETTLED</h4>
-      <h4 v-if="timerHasntEnded && !poolAlreadySettled" class="success">READDY TO SETTLE</h4>
-      <h4 v-if="!timerHasntEnded" class="danger">TIMER HAS NOT ENDED</h4>
+    <div class="row">
+      <h2>{{STRINGS.winnersDraw}}</h2>
+      <div v-if="poolCode.length >= 10" class="indicators">
+        <h4 v-if="poolAlreadySettled" class="danger">Pool already settled</h4>
+        <h4 v-if="timerHasntEnded && !poolAlreadySettled" class="success">Ready to Settle</h4>
+        <h4 v-if="!timerHasntEnded" class="danger">Timer has Ended</h4>
+      </div>
+    </div>
+    <div class="row">
+      <h3>{{STRINGS.firstPlace}}</h3>
+      <span class="address">{{firstPlaceAddress}}</span>
+    </div>
+    <div class="row">
+      <h3>{{STRINGS.secondPlace}}</h3>
+      <span class="address">{{firstPlaceAddress}}</span>
+    </div>
+    <div class="row">
+      <button
+        class="buy-btn"
+        :disabled="poolCode.length <= 10 ? true : poolAlreadySettled || !timerHasntEnded"
+        @click="getWinners"
+      >
+        {{STRINGS.selectWinners}}
+      </button>
+    </div>
+      <br/>
+    <div class="row">
+      <button
+        class="buy-btn"
+        :disabled="poolCode.length <= 10 ? true : poolAlreadySettled || !timerHasntEnded"
+        @click="setSendWinners"
+      >
+        {{STRINGS.sendWinners}}
+      </button>
     </div>
   </div>
 </template>
@@ -136,27 +132,20 @@ export default {
 <style lang="scss" scoped>
 .winners-container {
   padding: 22px;
-  margin: 33px auto;
+  text-align: left;
 
-  h3 {
-    margin: 0 auto 22px;
-  }
-}
-.winnersTable {
-    text-align: center;
-    width: 100%;
-    border-radius: 6px;
+  .row {
+    display: flex;
+    justify-content: space-between;
 
-    tr, td{
-      margin: 0 auto;
-      vertical-align: inherit;
-    }
-  }
-  .winnersTable {
     .address {
-      min-width: 222px;
+      width: 100%;
+      max-width: 444px;
+      height: 19px;
     }
+  }
 }
+
 .buy-btn {
   @extend .BUTTON;
   max-height: 42px;
@@ -169,9 +158,6 @@ export default {
     cursor: not-allowed;
   }
 }
-h4 {
-  margin: 0;
-}
 .danger {
   color: red;
   font-weight: bold;
@@ -181,7 +167,7 @@ h4 {
   font-weight: bold;
 }
 .indicators {
-  text-align: right;
+  text-align: left;
   font-size: 18px;
   margin: 0 22px 0 0;
 }

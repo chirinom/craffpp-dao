@@ -1,40 +1,23 @@
 <template>
   <div class="balance-container">
-    <h3>Contract Balance</h3>
-    <table class="balanceTable">
-      <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-      <tr>
-        <td>Eth Balance</td>
-        <td class="address eth">{{ethBalance}}</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Withdraw Amount</td>
-          <input type="text" class="address" v-model="withdrawAmount">
-        <td></td>
-      </tr>
-      <tr>
-        <td>Address to withdraw</td>
-        <input type="text" class="address" v-model="ethAddress">
-        <td>
-          <button
-              :disabled="!addressValid || !withrawValid"
-              class="get-balance"
-              @click="setWithdraw"
-          >
-            Withdraw from Contract
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td></td>
-        <td class="address"></td>
-      </tr>
-    </table>
+    <h2>Contract Balance</h2>
+    <div class="row">
+      <h3>Eth Balance</h3>
+      <span class="address eth">{{ethBalance}}</span>
+    </div>
+    <div class="row">
+      <h3>Withdraw Amount</h3>
+      <input type="text" class="address" v-model="withdrawAmount">
+    </div>
+    <div class="row">
+      <h3>Address to Withdraw</h3>
+      <input type="text" class="address" v-model="ethAddress">
+    </div>
+    <div class="row">
+      <button :disabled="!addressValid || !withrawValid" class="get-balance" @click="setWithdraw">
+        Withdraw from Contract
+      </button>
+    </div>
   </div>
 </template>
 
@@ -81,24 +64,22 @@ export default {
 <style scoped lang="scss">
 .balance-container {
   padding: 22px;
-  margin: 33px auto;
+  text-align: left;
 
-  h3 {
-    margin: 0 auto 22px;
-  }
-}
-.balanceTable {
-    text-align: center;
-    width: 100%;
-    border-radius: 6px;
+  .row {
+    display: flex;
+    justify-content: space-between;
 
-    tr, td{
-      margin: 0 auto;
-      vertical-align: inherit;
+    h3 {
+      width: fit-content;
     }
+
     .address {
-      min-width: 222px;
+      width: 100%;
+      max-width: 444px;
+      height: 19px;
     }
+  }
 }
 .eth {
   font-size: 16px;

@@ -1,7 +1,7 @@
 <template>
 <div class="totals">
    <div class="title-price">
-    <h2 class="label">{{STRINGS.fristPlace}}</h2>
+    <h2 class="label">{{STRINGS.firstPlace}}</h2>
     <div class="eth-price">
       <h2 class="eth-num">{{ firstPlace }}&nbsp;ETH</h2>
     </div>

@@ -6,7 +6,7 @@
         <td>{{STRINGS.addressCount}}</td>
         <td>{{STRINGS.totalTickets}}</td>
         <td>{{STRINGS.totalEthereum}}</td>
-        <td>{{STRINGS.fristPlace}}</td>
+        <td>{{STRINGS.firstPlace}}</td>
         <td>{{STRINGS.secondPlace}}</td>
         <td>{{STRINGS.oceanCleanup}}</td>
         <td>{{STRINGS.craffpp}}</td>

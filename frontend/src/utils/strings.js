@@ -19,7 +19,7 @@ export const STRINGS = {
   howDoesItWork: 'How does it work',
   termsAndConditions: 'Terms and conditions',
   oceanCleanup: 'Ocean cleanup',
-  fristPlace: 'Winner',
+  firstPlace: 'Winner',
   secondPlace: 'Runner-up',
   orderSummary: 'Order summary',
   selectedPool: 'Selected pool ',

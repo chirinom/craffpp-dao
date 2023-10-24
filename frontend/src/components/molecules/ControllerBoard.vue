@@ -1,17 +1,15 @@
 <template>
   <div>
     <ControllerTotals/>
-    <ControllerFilteredTotals
-      @handleChange="handleChange"
-    />
+    <ControllerFilteredTotals @handleChange="handleChange" />
     <ControllerWinnersBoard
       :firstPlaceAmount="firstPlaceAmount"
       :secondPlaceAmount="secondPlaceAmount"
       :filteredData="filteredData"
       :poolCode="poolCode"
     />
-    <ControllerPaymentBoard :poolCode="poolCode" />
     <ControllerContractBalance />
+    <ControllerPaymentBoard :poolCode="poolCode" />
   </div>
 </template>
 

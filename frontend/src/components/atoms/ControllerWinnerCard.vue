@@ -2,19 +2,19 @@
   <div class="container">
     <div class="card">
       <div class="text-container">
-        <h4>Standing</h4>
+        <h3>Standing</h3>
         <span>{{standing}}</span>
       </div>
       <div class="text-container">
-        <h4>Address</h4>
+        <h3>Address</h3>
         <span>{{address}}</span>
       </div>
       <div class="text-container">
-        <h4>Amount</h4>
+        <h3>Amount</h3>
         <span>{{amount}}</span>
       </div>
       <div class="text-container">
-        <h4>Pool Code</h4>
+        <h3>Pool Code</h3>
         <span>{{pool_code}}</span>
       </div>
       <button :disabled="address != address || amount != amount" class="buy-btn" @click="payWinner">Pay Winner</button>
@@ -55,35 +55,20 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  padding: 11px;
 
-  button {
-    max-width: 222px;
-  }
-}
-.card {
-  display: flex;
-}
-.text-container {
-  text-align: left;
-  margin: 0 auto;
-
-  h4 {
-    margin: 0;
+  .text-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 9px;
+  
+    h3 {
+      margin: 0;
+    }
   }
 }
 .buy-btn {
-  border: 1px solid lightgrey;
-  padding: 8px;
-  font-weight: 700;
-  font-size: 11px;
-  line-height: 14px;
-  cursor: pointer;
+  @extend .BUTTON;
   width: 100%;
-  background-color: $primary;
-  color: $primary-white;
-  border-radius: 6px;
-  max-height: 42px;
 
   &:hover {
     background-color: $secondary;
