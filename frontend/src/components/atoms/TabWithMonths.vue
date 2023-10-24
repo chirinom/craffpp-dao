@@ -4,7 +4,7 @@
       <i class="fa-solid fa-circle-left scroll-button left" @click="scrollTabs(-3)"></i>
       <i class="fa-solid fa-circle-right scroll-button right" @click="scrollTabs(3)"></i>
       <button
-        v-for="tab in filterMonthTabsByDate"
+        v-for="tab in controllerPage? tabs : filterMonthTabsByDate"
         class="amount-btn"
         :class="{ selected: tab.value === selectedTab }"
         :key="tab.value"
@@ -35,9 +35,14 @@ export default {
     return {
       selectedTab: '',
       tabs: MONTH_TABS,
+      currentPath: this.$route.path
     }
   },
   computed: {
+    controllerPage() {
+      const result = this.currentPath === '/controller'
+      return result
+    },
     filterMonthTabsByDate() {
       const currentDate = new Date()
       const filteredTabs = this.tabs.filter((tab) => {
