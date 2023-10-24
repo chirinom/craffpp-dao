@@ -9,7 +9,7 @@
       <img class="arrow1" :src="require('@/assets/arrow1.png')" />
       <div class="card-steps middle">
         <img class="how-image" :src="require('@/assets/select.png')" />
-        <h2>{{STRINGS.chooseBuyin}}</h2>
+        <h2>{{STRINGS.chooseMonthAndType}}</h2>
         <p>{{STRINGS.selectBuyinMonth}}</p>
       </div>
       <img class="arrow2" :src="require('@/assets/arrow2.png')" />
@@ -25,8 +25,6 @@
         <p>{{STRINGS.transfers}}</p>
       </div>
     </div>
-    <!-- <h3>Pools Price Distirbution</h3>
-    <p class="distribution">{{STRINGS.priceDistribution}}</p> -->
   </div>
 </template>
 

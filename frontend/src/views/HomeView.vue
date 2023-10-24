@@ -76,8 +76,8 @@ export default {
       margin: 33px auto;
 
       .metamask {
-        width: 22px;
-        height: 22px;
+        width: 18px;
+        height: 18px;
         margin-right: 11px;
       }
 

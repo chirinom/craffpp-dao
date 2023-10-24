@@ -59,8 +59,8 @@ export default {
   justify-content: center;
 
   .metamask {
-    width: 22px;
-    height: 22px;
+    width: 18px;
+    height: 18px;
     margin-right: 11px;
   }
 
@@ -83,7 +83,6 @@ export default {
 
 <style lang="scss">
 .vue-loaders.ball-spin-fade-loader {
-  top: -14px !important;
   left: none;
   height: 0;
 }
