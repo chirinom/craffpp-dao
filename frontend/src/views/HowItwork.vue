@@ -59,7 +59,11 @@ export default {
   position: relative;
 }
 .card-steps {
-  margin: 33px;
+  max-width: 299px;
+
+  p {
+    text-align: justify;
+  }
 }
 .arrow1 {
   width: 444px;
@@ -90,6 +94,9 @@ h3 {
 }
 
 @media (max-width: 1650px) {
+  .card-steps {
+    margin: 11px auto;
+  }
   .middle {
     margin-top: 0;
   }
@@ -111,10 +118,6 @@ h3 {
     display: grid;
     grid-template-columns: 1fr;
   }
-  .card-steps {
-    margin: 55px 0 0 0;
-  }
-
 }
 @media (max-width: 777px) {
   .how-does-it-work {

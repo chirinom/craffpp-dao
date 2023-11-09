@@ -112,7 +112,7 @@ export default {
     padding: 33px 111px;
 
     h5 {
-      line-height: 33px;
+      line-height: 22px;
       margin: 22px 0 0 0;
     }
 
@@ -161,8 +161,7 @@ export default {
     }
 
     img {
-      width: 444px;
-      max-width: 422px;
+      width: 100%;
     }
   }
 }
