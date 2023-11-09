@@ -56,7 +56,7 @@ export default {
     }
 
     img {
-      width: 444px;
+      width: 100%;
       height: 222px;
       margin: 4px 0;
     }

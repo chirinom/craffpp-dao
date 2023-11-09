@@ -2,8 +2,8 @@
   <div>
     <div class="home-view">
       <div class="banner">
-        <h1>{{STRINGS.homeHeader}}</h1>
-        <h5>Help Us Sweep the Plastic from Our Oceans and <strong>Win ETH!</strong></h5>
+        <h1>{{STRINGS.homeTitle}}</h1>
+        <h5>{{STRINGS.homeSubTitle}}</h5>
       </div>
       <div class="picture-play">
         <img :src="require('../assets/images/bahia.jpg')" :alt="STRINGS.altBay">
