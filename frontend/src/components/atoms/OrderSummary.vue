@@ -15,12 +15,6 @@
         <h4>{{STRINGS.orderTotal}}</h4><h4>{{currentValue}}  ETH</h4>
       </div>
     </div>
-    <div class="terms">
-      <div v-if="showTermsCheckbox">
-        <input type="checkbox" v-model="termsCheckbox">
-        <span>{{STRINGS.agreeTerms}}</span>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -45,19 +39,11 @@ export default {
   computed: {
     ...mapGetters(['allTickets', 'poolDateCode', 'currentAccount']),
     orderValid() {
-      const firstTime = this.allTickets.filter((option) => option.ticketOwner.toLowerCase() === this.currentAccount)
-      const orderValid = firstTime.length === 0
-        ? !!this.poolDateCode && this.currentValue > 0 && this.termsCheckbox
-        : !!this.poolDateCode && this.currentValue > 0
+      const orderValid = this.poolDateCode && this.currentValue > 0
       return orderValid
     }
   },
   watch: {
-    allTickets(newValue, oldValue) {
-      const result = newValue.filter((option) => option.ticketOwner.toLowerCase() === this.currentAccount)
-      const firstTimer = result.length === 0
-      this.showTermsCheckbox = firstTimer
-    },
     orderValid(newValue, oldValue) {
       this.$emit('orderValid', newValue)
     }
@@ -67,6 +53,7 @@ export default {
 <style scoped lang="scss">
 .checkout-container {
   font-family: "Patua One", cursive;
+  margin-bottom: 11px;
   
   & .checkout-header {
     margin: 0 0 9px;

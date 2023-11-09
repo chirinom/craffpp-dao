@@ -100,7 +100,7 @@ const actions = {
   },
   async getAllTickets({commit, dispatch}) {
     try {
-      const provider = new ethers.providers.JsonRpcProvider(`https://eth-goerli.g.alchemy.com/v2/${API_KEY}`)
+      const provider = new ethers.providers.JsonRpcProvider(`https://eth-mainnet.g.alchemy.com/v2/${API_KEY}`)
       const ticketsContract = new ethers.Contract(ticketsContractAddress, ticketsAbi, provider)
       const allTicketsHash = await ticketsContract.getAllTickets()
       const parcedTickets = allTicketsHash.map((ticket) => ({
@@ -112,6 +112,7 @@ const actions = {
         amount: parseInt(ticket.amount._hex) / (10 ** 18)
       }))
       commit('setAllTickets', parcedTickets)
+      console.log(parcedTickets, 'parcedTickets')
       dispatch('filterTickets')
     } catch (e) {
       console.error(e)

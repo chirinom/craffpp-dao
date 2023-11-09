@@ -18,4 +18,4 @@ const runMain = async () => {
 runMain();
 
 // To peploy. From /contract
-// npx hardhat run --network goerli scripts/deploy_winners.js
+// npx hardhat run --network mainnet scripts/deploy_winners.js

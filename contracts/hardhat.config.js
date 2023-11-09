@@ -3,14 +3,14 @@ require("@nomiclabs/hardhat-waffle");
 module.exports = {
   solidity: "0.8.0",
   networks: {
-    goerli: {
+    mainnet: {
       // Https KEY in alchemy
       // TODO: NEEDS TO COME FROM ENV
-      url: 'https://eth-goerli.g.alchemy.com/v2/TkikmSFs4EoVYMqsL8yVBXK8hBF4NBKa',
+      url: 'https://eth-mainnet.g.alchemy.com/v2/Jk7_5pUCZ5aXR766DWoq2IXXYTwQ2GJl',
       // TODO: NEEDS TO COME FROM ENV
       // Account (private key) used to fund this contract
-      // Account 4 test
-      accounts: ['8e6adcdb58db4245d0c02a8b03b254f624b1d302cc4c48560dc3acc2bb70ffb1'],
+      // Account Production: Craffpp
+      accounts: ['4907adfcbff9d3aec02388f07697e2c7bb4c5057179a029fc0f6726b2551c916'],
     }
   }
 };

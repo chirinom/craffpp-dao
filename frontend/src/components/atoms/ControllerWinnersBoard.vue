@@ -4,8 +4,8 @@
       <h2>{{STRINGS.winnersDraw}}</h2>
       <div v-if="poolCode.length >= 10" class="indicators">
         <h4 v-if="poolAlreadySettled" class="danger">Pool already settled</h4>
-        <h4 v-if="timerHasntEnded && !poolAlreadySettled" class="success">Ready to Settle</h4>
-        <h4 v-if="!timerHasntEnded" class="danger">Timer has Ended</h4>
+        <h4 v-if="!timerHasntEnded && !poolAlreadySettled" class="success">Ready to Settle</h4>
+        <h4 v-if="timerHasntEnded" class="danger">Timer has Ended</h4>
       </div>
     </div>
     <div class="row">

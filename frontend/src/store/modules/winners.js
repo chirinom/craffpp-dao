@@ -46,7 +46,7 @@ const actions = {
   },
   async getAllWinners ({commit}) {
     try {
-      const provider = new ethers.providers.JsonRpcProvider(`https://eth-goerli.g.alchemy.com/v2/${API_KEY}`)
+      const provider = new ethers.providers.JsonRpcProvider(`https://eth-mainnet.g.alchemy.com/v2/${API_KEY}`)
       const winnersContract = new ethers.Contract(winnersContractAddress, winnersAbi, provider)
       const winnersResponse = await winnersContract.getAllWinners()
       const parcedWinners = winnersResponse.map((winner) => ({
