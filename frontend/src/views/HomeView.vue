@@ -7,8 +7,8 @@
       </div>
       <div class="picture-play">
         <img :src="require('../assets/images/bahia.jpg')" :alt="STRINGS.altBay">
-        <router-link class="link" to="/donate">
-          <button v-if="!!currentAccount">{{STRINGS.donate}}</button>
+        <router-link class="link" to="/play">
+          <button v-if="!!currentAccount">{{STRINGS.buyTicket}}</button>
           <button v-else @click="connectWallet">
             {{STRINGS.connectWallet}}
           </button>

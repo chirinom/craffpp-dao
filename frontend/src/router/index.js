@@ -12,7 +12,7 @@ const routes = [
     component: HomeView,
   },
   {
-    path: '/donate',
+    path: '/play',
     name: 'PlayView',
     component: PlayView,
   },

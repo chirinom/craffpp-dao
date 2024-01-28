@@ -14,7 +14,7 @@ export const STRINGS = {
   eth: ' eth, ',
   craffpp: 'Craffpp',
   home: 'Home',
-  donate: 'Donate',
+  buyTicket: 'Buy Ticket',
   controller: 'Controller',
   howDoesItWork: 'How does it work',
   termsAndConditions: 'Terms and conditions',
