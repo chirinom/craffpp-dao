@@ -10,7 +10,6 @@
         <router-link class="link" to="/donate">
           <button v-if="!!currentAccount">{{STRINGS.donate}}</button>
           <button v-else @click="connectWallet">
-            <img class="metamask" :src="require('../assets/images/metamask.png')" alt="Metamask" >
             {{STRINGS.connectWallet}}
           </button>
         </router-link>

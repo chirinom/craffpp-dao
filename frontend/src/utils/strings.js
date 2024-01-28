@@ -38,7 +38,7 @@ export const STRINGS = {
   homeTitle: 'Crypto raffle for the planet & the people',
   homeSubTitle: 'Join Our Efforts to Combat Ocean Plastic Pollution and Win Ethereum',
   filteredTotals: 'Filtered Totals',
-  connectWallet: 'Connect Wallet',
+  connectWallet: 'Connect to Metamask',
   chooseMonthAndType: 'Choose Raffle Month & Ticket Type',
   winnerSelected: 'Win Multiple Prizes',
   recievePrice: 'Receive Your Winnings',

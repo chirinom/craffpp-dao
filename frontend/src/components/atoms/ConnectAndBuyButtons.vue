@@ -16,7 +16,6 @@
       <span v-else>Buy ticket</span>
     </button>
     <button v-else @click="connectWallet" class="buy-btn">
-      <img class="metamask" :src="require('../../assets/images/metamask.png')" alt="Metamask" >
       {{STRINGS.connectWallet}}
     </button>
   </div>
