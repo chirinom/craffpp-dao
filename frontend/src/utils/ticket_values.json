@@ -1,8 +1,8 @@
 {
     "ticketValues": [
-        { "value": 0.010, "type": "micro" },
-        { "value": 0.030, "type": "small" },
-        { "value": 0.060, "type": "medium" },
-        { "value": 0.120, "type": "large" }
+        { "value": 0.006, "type": "micro" },
+        { "value": 0.018, "type": "small" },
+        { "value": 0.054, "type": "medium" },
+        { "value": 0.098, "type": "large" }
     ]
 }
