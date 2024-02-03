@@ -112,7 +112,6 @@ const actions = {
         amount: parseInt(ticket.amount._hex) / (10 ** 18)
       }))
       commit('setAllTickets', parcedTickets)
-      console.log(parcedTickets, 'parcedTickets')
       dispatch('filterTickets')
     } catch (e) {
       console.error(e)
