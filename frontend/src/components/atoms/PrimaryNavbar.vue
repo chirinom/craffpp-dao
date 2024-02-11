@@ -10,7 +10,7 @@
       <router-link v-if="this.isAdmin" to="/controller">{{STRINGS.controller}}</router-link>
       <router-link to="/how">{{STRINGS.howDoesItWork}}</router-link>
       <a class="social" href="https://discord.gg/uUjvswW3Ua" :aria-label="STRINGS.ariaDiscord" target="_blank"><i class="fa-brands fa-discord"></i></a>
-      <a class="social" href="https://www.instagram.com/craffpp/" :aria-label="STRINGS.ariaIg" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a class="social" href="https://twitter.com/craffpp" :aria-label="STRINGS.ariaIg" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
     </nav>
   </div>
 </template>

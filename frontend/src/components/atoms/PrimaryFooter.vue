@@ -7,7 +7,7 @@
     <h5>Help us sweap the plastic from our oceans and <strong>win some ETH</strong> doing it</h5>
     <div class="social">
       <a href="https://discord.gg/uUjvswW3Ua" :aria-label="STRINGS.ariaDiscord" target="_blank"><i class="fa-brands fa-discord"></i></a>
-      <a href="https://www.instagram.com/craffpp/" :aria-label="STRINGS.ariaIg" target="_blank"><i class="fa-brands fa-instagram social-lg"></i></a>
+      <a href="https://twitter.com/craffpp" :aria-label="STRINGS.ariaIg" target="_blank"><i class="fa-brands fa-x-twitter social-lg"></i></a>
     </div>
       <router-link to="/terms" target="_blank" class="terms">
         {{STRINGS.termsAndConditions}}
